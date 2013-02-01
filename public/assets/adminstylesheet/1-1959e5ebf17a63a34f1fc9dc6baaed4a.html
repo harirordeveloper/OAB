@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0051)https://www.medieaz.com/newlab/home/registrations/1 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>MediEaz-Laboratory Management System</title>
+    <link rel="icon" href="https://www.medieaz.com/newlab/home/registrations/Exleaz-E.png" type="image/ico">
+    <script type="text/javascript">
+    	window.history.forward();
+    	function noBack() { window.history.forward(); }
+	</script>
+	 <script src="shortcut.js" type="text/javascript"></script>
+    <link href="application.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="ui.all.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="dashboard.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="buttons.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="styles.css" media="screen" rel="stylesheet" type="text/css">
+	
+    <script src="prototype.js" type="text/javascript"></script>
+<script src="effects.js" type="text/javascript"></script>
+<script src="dragdrop.js" type="text/javascript"></script>
+<script src="controls.js" type="text/javascript"></script>
+<script src="application.js" type="text/javascript"></script>
+    <link href="tcal.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="tcal.js" type="text/javascript"></script>
+    <!-- Memu stylesheets and Javascripts -->
+    <script src="anylinkmenu.js" type="text/javascript"></script>
+<script src="nicetitle.js" type="text/javascript"></script>
+<script src="droplicious.js" type="text/javascript"></script>
+    <style>
+		ul{list-style: none; padding: 0; margin: 0;}
+		#nav {float: left; width: 180px; border-top: 1px solid #999; border-right: 1px solid #999; border-left: 1px solid #999; margin: 15px 0;}
+		#nav li a {display: block; padding: 10px 15px; background: #ccc; border-top: 1px solid #eee; border-bottom: 1px solid #999; text-decoration: none; color: #000;}
+		#nav li a:hover, #nav li a.active {background: #999; color: #fff;}
+		#nav li ul {display: none;}
+		#nav li ul li a {padding: 10px 5px; background: #ececec; border-bottom: 1px dotted #ccc;}
+	</style>
+  </head>
+  <body onload="display_lick_data(&#39;registrations&#39;,&#39;index&#39;,&#39;non_package&#39;)">
+    <div id="header_bg">
+	
+	
+
+		
+			<table width="100%">
+				<tbody><tr>
+					<td>Logged in as :  Nandi Super User</td>
+					
+           
+						<td align="center">NANDI PATHOLOGY LABORATORY AND IMAGING CENTRE</td>
+						<td align="right">Call For Support : 040-40203231&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E-mail Us : support@exleaz.com</td>
+						
+				</tr>
+			</tbody></table>
+		
+    </div>
+	 <div id="modal">
+		<div id="heading1">
+			MediEaz-Cloud Hospital Management System
+		</div>
+		<div id="content">
+			<p><font style="color:red;font-weight:bold;size=20px;"></font></p>
+		</div>
+	 </div>
+
+
+
+	<!--jQuery-->
+
+	<script src="jquery-1.7.1.min.js" type="text/javascript"></script>	
+	<script src="jquery.reveal.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			if(''!="")
+			{
+			   	$('#modal').reveal({ // The item which will be opened with reveal
+				  	animation: 'fade',                   // fade, fadeAndPop, none
+					animationspeed: 600,                       // how fast animtions are
+					closeonbackgroundclick: true,              // if you click background will modal close?
+					dismissmodalclass: 'close'    // the class of a button or element that will close an open modal
+				});
+			}
+		});
+	</script>
+    <div id="content_wrapper">
+      <script src="jquery.min.js" type="text/javascript"></script>
+<script src="jquery.cookie.js" type="text/javascript"></script>
+<script>
+	$(document).ready(function () {
+
+  		var checkCookie = $.cookie("nav-item");
+  		if (checkCookie != "") {
+			$('#nav > li > a:eq('+checkCookie+')').addClass('active').next().show();
+  		}
+  		$('#nav > li > a').click(function(){
+
+      	var navIndex = $('#nav > li > a').index(this);
+	  		$.cookie("nav-item", navIndex);
+	  		$('#nav li ul').slideUp();
+	   		if ($(this).next().is(":visible")){
+		   	$(this).next().slideUp();
+	   	} else {
+	   		$(this).next().slideToggle();
+	   	}
+	   	$('#nav li a').removeClass('active');
+	   	$(this).addClass('active');
+  		});
+	});
+</script>
+
+<script type="text/javascript">
+	function display_lick_data(controller,action,reg_type)
+	{
+		var id="/newlab/"+controller+"?reg_type="+reg_type
+
+		document.getElementById('records_display').innerHTML="<iframe src='"+id+"' width='100%' height='100%' style='margin:0 5px 0 0;'></iframe>";
+	}
+</script>
+
+	<div style="width:100%;height:900px;overflow:auto;">
+	<div id="modal1" style="position:absolute;left:0px;background-color:#eeeeee;height:900px;">
+		<br><br>
+		<ul id="nav">
+		    <li><a href="https://www.medieaz.com/newlab/home/registrations/1#">Registrations</a>
+			 <ul>
+				<li><a href="javascript:void(0)" onclick="display_lick_data(&#39;registrations&#39;,&#39;index&#39;,&#39;non_package&#39;)">Registrations</a></li>
+				<li><a href="javascript:void(0)" onclick="display_lick_data(&#39;registrations&#39;,&#39;index&#39;,&#39;package&#39;)">Package Registrations</a></li>
+		    </ul>
+			</li>
+		</ul>
+	</div>
+	<div style="position:absolute;top:24px;left:180px;width:86%;height:900px;" id="records_display"><iframe src="registrations.html" width="100%" height="100%" style="margin:0 5px 0 0;"></iframe></div>
+</div>
+
+
+    </div>
+	
+    <div id="footer">
+            <script type="text/javascript">
+        $(function () {
+            $(document).keyup(function (e) {
+                var key = (e.keyCode ? e.keyCode : e.charCode);
+                switch (key) {
+                   case 113:
+                        navigateUrl('/newlab/home/registrations');
+                        break;
+						 case 115:
+                        navigateUrl('/newlab/home/perform_tests');
+                        break;
+						 case 116:
+                        navigateUrl('/newlab//home/registration_cancels');
+                        break;
+						 case 118:
+                        navigateUrl('/newlab/home/payments');
+                        break;
+                    case 119:
+                        navigateUrl('/newlab/home/reports');
+                        break;
+		      ase 120:
+                        navigateUrl('/newlab/home/dashboards');
+                        break;	
+                    default: ;
+                }
+            });
+            function navigateUrl(jObj) {
+                window.top.location = jObj;
+            }
+        });       
+    </script>
+
+
+
+
+<div id="date" class="date">
+	
+	28-12-2012
+</div>
+
+<div id="keys" class="keys">
+	
+	
+	
+</div>
+
+	<a href="https://www.medieaz.com/newlab/home/change_password/119" class="footer-logo" style="font-size:14px;">Change Password</a>
+
+
+<div id="log_out" class="log_out"><a href="https://www.medieaz.com/sessions/destroy/1?session_id=885%20&port=13015" style="color:white;font-size:14px;">Log out</a></div>
+
+    </div>
+  
+
+</body></html>

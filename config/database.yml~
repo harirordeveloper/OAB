@@ -25,17 +25,17 @@ test:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: LIMS_test
+  database: OAB_test
   pool: 5
   username: root
-  password: exleaz123
+  password: asdf
   socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: LIMS_production
+  database: OAB_production
   pool: 5
   username: root
   password: asdf
