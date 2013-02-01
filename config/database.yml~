@@ -17,6 +17,8 @@ development:
   username: root
   password: asdf
   socket: /var/run/mysqld/mysqld.sock
+  
+  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -32,11 +34,11 @@ test:
   socket: /var/run/mysqld/mysqld.sock
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   reconnect: false
   database: LIMS_production
-  pool: 5
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
+  port: 5432
+  host: 127.0.0.1
+  
+ 
