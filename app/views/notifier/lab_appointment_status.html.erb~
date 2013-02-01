@@ -1,0 +1,23 @@
+<h3>Dear Mr.<%= @appointment.name %></h3> 
+<p style="color: green;">Thank you for booking an Appointment through <a href="#">Healthcareonline.com</a>.</p>
+
+<p>You have booked an Test with <b><%= @lab_name %></b> on </b><%= @apt_date %> <%= @apt_time %></b>. Please see the attachment for detailed information.</p>
+
+<p>We request you to share your feedback with <%= @doc %>/<%= @clinic_name %>. This feedback is shown on the <a href="#">Healthcareonline.com</a> site as a user rating and most of the patients depend on these ratings to choose a best Doctor/Hospital/Clinic.</p>
+
+<a href="#"> Submit your feedback here. </a>
+
+<p> We look forward to serving you many more times in the future. </p>
+<p> Best regards, </p>
+<p> Healthcareonline.com Team</p>
+
+
+
+
+
+
+
+
+
+
+ 

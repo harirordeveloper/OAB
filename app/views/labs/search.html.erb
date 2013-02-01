@@ -1,0 +1,48 @@
+<script type="text/javascript">
+$(document).ready( function () {
+	$('#example').dataTable( {
+		"sDom": 'W<"clear">lfrtip'
+	} );
+} );
+</script>
+
+
+<table id="example" class="display">
+  
+  <thead color="blue" >
+         <tr>
+          <th>Profile</th>
+          <th>Clinic | Hospital</th>
+          <th>City</th>
+          <th>Location</th>
+          <th>Speciality</th>
+          <th>Rating</th>
+          <th>Price</th>
+          
+       </tr>
+  </thead>
+<tbody>
+<% for clinic in @clinics %>
+    <tr>
+    <td><a href="" onclick="window.open('/clinics/profile', 'windowName'); return false">view profile</a></td>
+    <td><%= clinic.name %></td>
+    <td><%= clinic.city.name %></td>
+    <td><%= clinic.location.name %></td>
+    <td>Metalorgy</td>
+    <td>4</td>
+    <td>200</td>
+    <td><a href="" onclick="window.open('/clinics/appointment', 'windowName'); return false">Appoinment Booking</a></td>
+    
+   </tr>
+<% end %>
+</tbody>
+
+</table>
+
+
+
+
+
+
+
+

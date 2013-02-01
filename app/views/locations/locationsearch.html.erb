@@ -1,0 +1,122 @@
+
+<script></script>
+
+<style type="text/css">
+.appointbutton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background-color:#79bbff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
+}.appointbutton:hover {
+	background-color:#378de5;
+}.appointbutton:active {
+	position:relative;
+	top:1px;
+}
+
+</style>
+
+
+
+ <%= stylesheet_link_tag    "token-input-facebook"%>
+ <%= stylesheet_link_tag    "token-input-mac"%>
+ <%= stylesheet_link_tag    "token-input"%>
+ <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+ <%= javascript_include_tag  "dataTables/jquery.dataTables" %>
+ <%= javascript_include_tag  "dataTables/jquery.dataTables.min" %>
+ <%= javascript_include_tag  "dataTables/ColumnFilterWidgets" %>
+ <%= javascript_include_tag  "dataTables/jquery.dataTables.columnFilter" %>
+
+
+
+
+  <table><b><%= link_to 'BACK','/home/index' %></b></table>     
+
+</br>
+              
+<table id="example" class="display">
+  
+  <thead>
+         
+         <th width=200px>Lab </th>
+          <th>City</th>
+          <th>Location</th>
+          <th>Speciality</th>
+          <th>Rating</th>
+          <th>Discount(%)</th>
+          <th></th>
+          <th></th>
+         
+    </thead>
+<tbody>
+<% for lab in @lab %>
+    <tr>
+   
+    <td style="color: red"><%= lab.name %></td>
+    <td style="text-align: center;"><%= lab.city.name %></td>
+    <td style="text-align: center;"><%= lab.location.name %></td>
+        <% speciality = labProfileMaster.find_by_id(lab.id) %>
+       <%sp = speciality.services.split(",") %>
+   <td style="text-align: center;"><% for i in 0...sp.length %>
+         
+      <%= sp[i] %>
+       <% end %> </td>
+ 
+      
+    <td style="text-align: center;"><%= lab.rating %></td>
+   
+    <td style="text-align: center;"><%= lab.discount %></td>
+     
+
+
+      <td style="text-align: center;"><%= link_to image_tag("/assets/vp.gif",:border=>"0",:title=>" CLICK HERE TO VIEW PROFILE",:width=>80,:height=>30),:controller => "lab_flows",:action => "profile", :lab_id => lab.id %></td>
+
+      <td style="text-align: center;"><%= link_to image_tag("/assets/ba.gif",:border=>"0",:title=>" CLICK HERE TO BOOK APPOINTMENT",:width=>80,:height=>30),:controller => "lab_flows",:action => "doctors", :lab_id => lab.id %></td>
+     
+    </tr>
+
+<% end %>
+ 
+</tbody>
+
+</table>
+
+
+<script type="text/javascript">
+$(document).ready( function () {
+	$('#example').dataTable( {
+		"sDom": 'W<"clear">lfrtip',
+                 oColumnFilterWidgets: {
+                            aiExclude: [ 6,7 ]
+                                       }
+	} );
+} );
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

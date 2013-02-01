@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+      <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+ <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>  
+<!-- template STYLE SHEET LINKS--> 
+<%= stylesheet_link_tag    "caurosal"%>
+<%= stylesheet_link_tag    "jquery-ui"%>
+<%= stylesheet_link_tag    "profile"%>
+<%= stylesheet_link_tag    "style"%>
+<%= stylesheet_link_tag    "tabmenu"%>
+
+
+
+<!-- template JAVA SCRIPT LINKS--> 
+<%= javascript_include_tag  "jquery.lavalamp-1.4" %>
+<%= javascript_include_tag  "jquery.min" %>
+<%= javascript_include_tag  "jquery-1.8.3" %>
+<%= javascript_include_tag  "jquery-ui" %>
+<%= javascript_include_tag  "jqxlistbox" %>
+<%= javascript_include_tag  "tytabs.jquery.min" %>
+
+
+
+        <script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+    </script>
+    <!--tabs styles over-->
+    
+    
+    </head>
+    <body>
+        <div class="main">
+            <div id="one">
+                <div id="logo"><img src="/assets/logo3.gif" alt="Logo" style="width: 90px;height: 63px;"></div>
+                <div id="bgone"> For Appointment Call Us :+91 (0) 40 40203231 <div id="share"><!-- Lockerz Share BEGIN -->
+<div class="a2a_kit a2a_default_style">
+<a class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a>
+</div>
+<script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+<!-- Lockerz Share END --></div>
+                </div>
+                       <div id="metaltop-teal">
+	<ul>
+		<li class="first"><a href="#">Home</a></li>
+		<li class="active"><a href="#">About Us</a></li>
+		<li><a href="#">Hospitals/Clinics</a></li>
+                <li><a href="#">Labs</a></li>
+                <li><a href="#">Patners</a></li>
+		<li class="last"><a style="border: none;" href="#">Support</a></li>
+                </ul>
+        
+</div>
+                       </div><!--one ends here-->
+                       
+                       <div id="searchmain">
+                        
+                        <%= yield %>
+                     <div id="button">
+                      <a href=""><img src="/assets/p.jpg" alt="Logo" style=" width: 189px; height: 102px; margin-right: 30px;"></a>
+                        <a href=""><img src="/assets/d.jpg" alt="Logo" style=" width: 189px; height: 102px; margin-right: 30px;"></a>
+                            <a href=""><img src="/assets/h.jpg" alt="Logo" style=" width: 189px; height: 102px; margin-right: 30px;"></a>
+                                <a href=""><img src="assets/l.jpg" alt="Logo" style=" width: 189px; height: 102px; margin-right: 30px;"></a>
+                       </div><!--button over-->
+		       <div id="cleft">
+			<h2>Welcome to onlinemedlab.in </h2>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.			    
+			</p>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+		       </div>
+                       
+		       <div id="cright">
+			<h2>Why onlinemedlab.in </h2>
+			<p class="arrow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<p class="arrow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<p class="arrow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<p class="arrow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<p class="arrow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+			<p class="arrow">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+		       </div>
+		       </div><!--search main-->
+		       		       
+		       </div>  <!--main over-->
+            <div id="footer1">
+  <div id="foo">
+   .
+  </div>
+  <ul>
+                <li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Hospitals/Clinics</a></li><li><a href="#">Labs</a></li><li><a href="#">Patners</a></li><li><a href="#">Support</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Privacy Policy</a></li><li class="last">© Copyright 2012 OnlineMedLab</li>
+              </ul>
+</div>
+          
+        
+    </body>
+</html>

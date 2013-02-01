@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  clinic_cliniccode: MyString
+  cliniccode: 1
+  name: MyString
+  displayname: MyString
+  branches: 1
+  discontinue: false
+  expdate: 2012-12-18
+  address1: MyText
+  address2: MyText
+  location: MyString
+  landmarks: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  pin: 
+  fax: 1
+  website: MyString
+  email: MyString
+  altemail: MyString
+  choosefile: MyString
+
+two:
+  clinic_cliniccode: MyString
+  cliniccode: 1
+  name: MyString
+  displayname: MyString
+  branches: 1
+  discontinue: false
+  expdate: 2012-12-18
+  address1: MyText
+  address2: MyText
+  location: MyString
+  landmarks: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  pin: 
+  fax: 1
+  website: MyString
+  email: MyString
+  altemail: MyString
+  choosefile: MyString

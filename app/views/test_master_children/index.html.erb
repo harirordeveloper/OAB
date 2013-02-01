@@ -1,0 +1,30 @@
+<h1>Listing test_master_children</h1>
+
+<table>
+  <tr>
+    <th>Test master</th>
+    <th>S no</th>
+    <th>Parameter</th>
+    <th>Content type</th>
+    <th>Normal range</th>
+    <th>Units</th>
+  </tr>
+
+<% @test_master_children.each do |test_master_child| %>
+  <tr>
+    <td><%=h test_master_child.test_master_id %></td>
+    <td><%=h test_master_child.s_no %></td>
+    <td><%=h test_master_child.parameter %></td>
+    <td><%=h test_master_child.content_type %></td>
+    <td><%=h test_master_child.normal_range %></td>
+    <td><%=h test_master_child.units %></td>
+    <td><%= link_to 'Show', test_master_child %></td>
+    <td><%= link_to 'Edit', edit_test_master_child_path(test_master_child) %></td>
+    <td><%= link_to 'Destroy', test_master_child, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New test_master_child', new_test_master_child_path %>

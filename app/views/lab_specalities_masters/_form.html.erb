@@ -1,0 +1,30 @@
+<%= form_for(@specalities_master) do |f| %>
+  <% if @specalities_master.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@specalities_master.errors.count, "error") %> prohibited this specalities_master from being saved:</h2>
+
+      <ul>
+      <% @specalities_master.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= root_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name,:size=>15 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

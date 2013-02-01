@@ -1,0 +1,6 @@
+<% if !@corporate_health_package.save %>
+	 alert("<%= j  @corporate_health_package.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+	alert("Record create sucessfully.");
+                 window.location.reload();
+<% end %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Specialization Name:</b>
+  <%= @speciality.id %>
+</p>
+<p>
+  <b>Name of Speciality in Speciality Master:</b>
+  <%= @speciality.specalities_master_id %>
+</p>
+<p>
+  <b>Lab|Lab Branch|Consultant Id:</b>
+  <%= @speciality.speciality_id %>
+</p>
+<p>
+  <b>Specialized Group:</b>
+  <%= @speciality.speciality_type %>
+</p>
+
+<%= link_to 'Edit', edit_speciality_path(@speciality) %> |
+<%= link_to 'Back', specialities_path %>

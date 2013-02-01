@@ -1,0 +1,1017 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)https://www.medieaz.com/newlab/registrations?reg_type=non_package -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>MediEaz-Laboratory Management System</title>
+  <link rel="icon" href="https://www.medieaz.com/Exleaz-E.png" type="image/ico">
+
+  <link href="buttons.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="prototype.js" type="text/javascript"></script>
+<script src="effects.js" type="text/javascript"></script>
+<script src="dragdrop.js" type="text/javascript"></script>
+<script src="controls.js" type="text/javascript"></script>
+<script src="jquery.js" type="text/javascript"></script>
+<script src="application.js" type="text/javascript"></script>
+  <script src="jquery.tools.min.js" type="text/javascript"></script>
+  <link href="tabs.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="application.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="child_table.css" media="screen" rel="stylesheet" type="text/css">
+
+<!-- Table style sheets -->
+  
+  <link href="jquery.dataTables_themeroller.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="demo_page.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="jquery-ui-1.8.4.custom.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="jquery.dataTables.js" type="text/javascript"></script>
+  
+<!-- Child table functionality -->
+	<script src="child_table_commmon_functionality.js" type="text/javascript"></script>
+	
+<!-- Date -->
+	<link href="tcal.css" media="screen" rel="stylesheet" type="text/css">
+	<script src="tcal.js" type="text/javascript"></script>
+
+<!-- Lookup javascripts and style sheets -->
+	<link href="jquery.autocomplete.css" media="screen" rel="stylesheet" type="text/css">
+	<script src="jquery.autocomplete.js" type="text/javascript"></script>
+	
+<script type="text/javascript">
+  function findValue(li) {
+  	if( li == null ) return alert("No match!");
+
+  	// if coming from an AJAX call, let's use the CityId as the value
+  	if( !!li.extra ) var sValue = li.extra[0];
+
+  	// otherwise, let's just display the value in the text box
+  	else var sValue = li.selectValue;
+
+  	//alert("The value you selected was: " + sValue);
+  }
+
+  function selectItem(li) {
+    	findValue(li);
+    	var id=li.selectValue.split("   =>   ")[1];
+		document.getElementById("tests").value="";
+    	get_test(id);
+  }
+
+  function formatItem(row) {
+    	return row[0];
+  }
+
+  function lookupAjax(){
+  	var oSuggest = $("#CityAjax")[0].autocompleter;
+    oSuggest.findValue();
+  	return false;
+  }
+
+  function lookupLocal(){
+    	var oSuggest = $("#CityLocal")[0].autocompleter;
+
+    	oSuggest.findValue();
+
+    	return false;
+  }
+  
+  
+    $("#tests").autocomplete(
+		"/newlab/registrations/show",
+      {
+  			delay:10,
+  			minChars:1,
+  			matchSubset:1,
+  			matchContains:1,
+  			cacheLength:10,
+  			onItemSelect:selectItem,
+  			formatItem:formatItem,
+  			autoFill:true
+  		}
+    );
+  
+</script>	
+</head>
+<body oncontextmenu="return false">
+<script type="text/javascript">
+	add_url_to_div();
+	function add_url_to_div()
+	{
+		var reg_type='non_package'
+
+		if(reg_type == "non_package")
+		{
+			jQuery.ajax({
+		  	url: "/newlab/registrations/new?reg_type="+reg_type,
+			     	type: "POST",
+		   	success: function(result){  
+		         	jQuery("#display_records").html(result);
+		    },
+		    error: function(){
+		          alert('Error occured');
+		    }
+	      });
+	      }
+	      else
+	      {
+	      		jQuery.ajax({
+		  	url: "/newlab/registrations/package_new?reg_type="+reg_type,
+			     	type: "POST",
+		   	success: function(result){  
+		         	jQuery("#display_records").html(result);
+		    },
+		    error: function(){
+		          alert('Error occured');
+		    }
+	      });
+	      
+	      
+	      }
+	      
+	      
+	}	
+
+   function add_list_url(button_name)
+	{
+		var reg_type='non_package'
+		jQuery.ajax({
+          	url: "/newlab/registrations/list/1?button_name="+button_name+"&reg_type="+reg_type,
+		     	type: "POST",
+           	success: function(result){  
+                 	jQuery("#display_records").html(result);
+            },
+            error: function(){
+                  alert('Error occured');
+            }
+      });
+
+	}
+
+  function add_edit_url(id, type1)
+	{
+	if(type1 == "Authorize")
+	{
+			alert("Sorry!You Don't Have EDIT Permission!")
+	 }
+	    else
+	    {
+	    	var reg_type='non_package'
+				jQuery.ajax({
+		url: "/newlab/registrations/edit/"+id+"?reg_type="+reg_type,
+				     	type: "POST",
+			   	success: function(result){  
+				 	jQuery("#display_records").html(result);
+			    },
+			    error: function(){
+				  alert('Error occured');
+			    }
+		      });
+	    }
+
+	}
+
+	  function add_list_url(button_name)
+	{
+		var reg_type='non_package'
+		jQuery.ajax({
+          	url: "/newlab/registrations/list/1?button_name="+button_name+"&reg_type="+reg_type,
+		     	type: "POST",
+           	success: function(result){  
+                 	jQuery("#display_records").html(result);
+            },
+            error: function(){
+                  alert('Error occured');
+            }
+      });
+
+	}
+
+	function delete_record(id)
+	{
+		jQuery.ajax({
+          	url: "/newlab/registrations/destroy/"+id+"?button_name=delete",
+		     	type: "POST",
+           	success: function(result){  
+                 	jQuery("#display_records").html(result);
+            },
+            error: function(){
+                  alert('Error occured');
+            }
+      });
+	}
+</script>
+
+<table cellpadding="0" cellspacing="0" border="0">
+	<tbody><tr>
+		<td><input class="preview" name="commit" onclick="add_url_to_div()" type="submit" value="Add"></td>
+		<td><input class="preview" name="commit" onclick="add_list_url(&#39;edit&#39;)" type="submit" value="Edit"></td>
+		<td><input class="preview" name="commit" onclick="add_list_url(&#39;delete&#39;)" type="submit" value="Delete"></td>	
+		<td><input class="preview" name="commit" onclick="add_list_url(&#39;print&#39;)" type="submit" value="Print"></td>
+		<td></td>
+		<td width="650px">&nbsp;</td>
+		<td><a href="https://www.medieaz.com/newlab/home?session_id=885" target="_parent"><img alt="Back" border="0" src="back.png"></a></td>
+	</tr>
+</tbody></table>
+<div id="display_records" style="margin:0px;padding:0;background:transparent">
+
+
+
+  
+  <title>MediEaz-Laboratory Management System</title>
+  <link rel="icon" href="https://www.medieaz.com/Exleaz-E.png" type="image/ico">
+
+  <link href="buttons.css" media="screen" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+  
+  <link href="tabs.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="application.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="child_table.css" media="screen" rel="stylesheet" type="text/css">
+
+<!-- Table style sheets -->
+  
+  <link href="jquery.dataTables_themeroller.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="demo_page.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="jquery-ui-1.8.4.custom.css" media="screen" rel="stylesheet" type="text/css">
+  
+  
+<!-- Child table functionality -->
+	
+	
+<!-- Date -->
+	<link href="tcal.css" media="screen" rel="stylesheet" type="text/css">
+	
+
+<!-- Lookup javascripts and style sheets -->
+	<link href="jquery.autocomplete.css" media="screen" rel="stylesheet" type="text/css">
+	
+	
+	
+
+
+	<link href="tcal.css" media="screen" rel="stylesheet" type="text/css">
+	
+
+
+
+
+		
+<center><font color="blue"><strong>Registrations</strong></font></center>
+
+
+<form action="https://www.medieaz.com/newlab/registrations/create" class="new_registration" id="new_registration" method="post" onsubmit="$(&#39;#creating_events&#39;).show();; jQuery.ajax({complete:function(request){$(&#39;#creating_events&#39;).hide();}, data:jQuery.param(jQuery(this).serializeArray()) + &#39;&amp;authenticity_token=&#39; + encodeURIComponent(&#39;Glf7Djo7yQfoHw8/acaykHof61Q2bcQayqo8l0g9K3Y=&#39;), dataType:&#39;script&#39;, type:&#39;post&#39;, url:&#39;/newlab/registrations/create&#39;}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="Glf7Djo7yQfoHw8/acaykHof61Q2bcQayqo8l0g9K3Y="></div>
+
+			  <table align="center" width="100%">
+					<input id="registration_booking_type" name="registration[booking_type]" type="hidden" value="Non Package">
+					<tbody><tr>
+						<td colspan="6" align="center"><input checked="checked" id="button11" name="registration[patient_type]" onchange="select_patient_type(&#39;General&#39;)" type="radio" value="General">Self
+						<input id="button12" name="registration[patient_type]" onchange="select_patient_type(&#39;Card&#39;)" type="radio" value="Card">Card</td>
+					</tr>	
+			  		<tr>
+			   			<td>Branch Name<sup>*<sup></sup></sup></td>
+				 		<td><div class="label-field"><input id="branch_code" name="registration[branch_code]" readonly="true" size="30" type="text" value="Nandi Diagnostics"></div></td>
+			  			<td>Branch.Loc</td>
+				 		<td><div class="label-field"><input id="registration_branch_location" name="registration[branch_location]" readonly="true" size="30" type="text" value="Hyderabad"></div></td>
+						<td>Patient ID</td>
+				 		<td><div class="label-field"><input id="registration_patient_id" name="registration[patient_id]" size="30" type="text"></div></td>
+					</tr>
+					<tr>
+						<td>Lab Id</td>
+				 		<td><div class="label-field"><input id="registration_lab_id" name="registration[lab_id]" readonly="true" size="30" type="text" value="28"></div></td>
+						<td>Reg.No</td>
+				 		<td><div class="label-field"><input id="registration_reg_no" name="registration[reg_no]" readonly="true" size="30" type="text" value="28"></div></td>
+						<td>Reg.Date</td>
+				 		<td><div class="label-field"><input calss="tcal label-field-direct-input" id="registration_reg_date" name="registration[reg_date]" readonly="true" size="30" type="text" value="2012-12-28"></div></td>
+					</tr>
+					<tr>
+			 				<td><label for="client_name">Card Type<sup>*</sup></label></td>
+
+				<td><div class="text-input-bg"><select disabled="disabled" id="card_type" name="registration[card_type]" onchange="get_cardid(this.value)"><option value="">Please select</option>
+<option value="Platinum Card">Platinum Card</option>
+<option value="Silver Card">Silver Card</option>
+<option value="Gold Card">Gold Card</option></select></div></td>
+						<td>Card ID<sup>*<sup></sup></sup></td>
+	
+<td><div class="text-input-bg"><select disabled="disabled" id="card_id" name="registration[card_id]"><option value="">Please select</option>
+</select>
+						</div></td>		
+
+			  		 	<td>Relation<sup>*<sup></sup></sup></td>
+			  		 	<td><div class="text-input-bg"><select disabled="disabled" id="relation" name="registration[relation]"><option value="">Please select</option>
+<option value="Self">Self</option>
+<option value="Mother">Mother</option>
+<option value="Father">Father</option>
+<option value="Child">Child</option>
+<option value="Wife">Wife</option>
+<option value="Others">Others</option></select></div></td>	
+	</tr>
+					<tr>					
+						<td>Patient Name<sup>*<sup></sup></sup></td>
+						<td>
+
+<div class="text-input-bg-title"><select id="title" name="registration[title]"><option value="">Please select</option>
+<option value="Mr">Mr</option>
+<option value="Mrs">Mrs</option>
+<option value="Miss">Miss</option>
+<option value="Ms">Ms</option></select></div>
+<div class="label-field"><input id="patient_name" name="registration[patient_name]" size="30" type="text"></div></td>		
+		
+			  		 	<td>Age<sup>*<sup></sup></sup></td>
+						<td><div class="label-field"><input id="age" name="registration[age]" size="30" type="text"></div></td>			
+			  			<td>Gender<sup>*<sup></sup></sup></td>
+						<td><div class="text-input-bg"><select id="gender" name="registration[gender]"><option value="">Please select</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option></select></div></td>
+			</tr>
+					<tr>		
+						<td>Marital Status</td>
+						<td><div class="text-input-bg"><select id="marital_status" name="registration[marital_status]"><option value="">Please select</option>
+<option value="Single">Single</option>
+<option value="Married">Married</option>
+<option value="Divorced">Divorced</option>
+<option value="Seperated">Seperated</option>
+<option value="Widow">Widow</option>
+<option value="Widower">Widower</option></select></div></td>
+			  		 	<td>Father Name<sup>*<sup></sup></sup></td>
+						<td><div class="label-field"><input id="father_name" name="registration[father_name]" size="30" type="text"></div></td>	
+			
+			  			<td>Address1<sup>*<sup></sup></sup></td>
+						<td><div class="label-field"><input id="address1" name="registration[address1]" size="30" type="text"></div></td>		
+		</tr>
+					<tr>					
+			  			<td>City</td>
+						<td><div class="text-input-bg"><select id="city" name="registration[city]" onchange="get_state_and_country(this.value)"><option value="">Please select</option>
+<option value="1">Adilabad</option>
+<option value="2">Anantapur</option>
+<option value="3">Chittoor</option>
+<option value="4">Kadapa</option>
+<option value="5">East Godavari</option>
+<option value="6">Guntur</option>
+<option value="7">Hyderabad</option>
+<option value="8">Karimnagar</option>
+<option value="9">Khammam</option>
+<option value="10">Krishna</option>
+<option value="11">Kurnool</option>
+<option value="12">Mahbubnagar</option>
+<option value="13">Medak</option>
+<option value="14">Nalgonda</option>
+<option value="15">Nellore</option>
+<option value="16">Nizamabad</option>
+<option value="17">Prakasam</option>
+<option value="18">Rangareddi</option>
+<option value="19">Srikakulam</option>
+<option value="20">Visakhapatnam</option>
+<option value="21">Vijayanagaram</option>
+<option value="22">Warangal</option>
+<option value="23">West Godavari</option>
+<option value="24">Anjaw district</option>
+<option value="25">Changlang district</option>
+<option value="26">East Kameng</option>
+<option value="27">East Siang</option>
+<option value="28">Kurung Kumey</option>
+<option value="29">Lohit</option>
+<option value="30">Lower Dibang Valley</option>
+<option value="31">Lower Subansiri</option>
+<option value="32">Papum Pare</option>
+<option value="33">Tawang</option>
+<option value="34">Tirap</option>
+<option value="35">Upper Dibang Valley</option>
+<option value="36">Upper Subansiri</option>
+<option value="37">Upper Siang</option>
+<option value="38">West Kameng</option>
+<option value="39">West Siang</option>
+<option value="40">Tinsukia</option>
+<option value="41">Dibrugarh</option>
+<option value="42">Sibsagar</option>
+<option value="43">Dhemaji</option>
+<option value="44">Jorhat</option>
+<option value="45">Lakhimpur</option>
+<option value="46">Golaghat</option>
+<option value="47">Sonitpur</option>
+<option value="48">Karbi Anglong</option>
+<option value="49">Nagaon</option>
+<option value="50">Marigaon</option>
+<option value="51">Darrang</option>
+<option value="52">Kamrup</option>
+<option value="53">Nalbari</option>
+<option value="54">Barpeta</option>
+<option value="55">Bongaigaon</option>
+<option value="56">Goalpara</option>
+<option value="57">Kokrajhar</option>
+<option value="58">Dhubri</option>
+<option value="59">North Cachar Hills</option>
+<option value="60">Cachar</option>
+<option value="61">Hailakandi</option>
+<option value="62">Karimganj</option>
+<option value="63">Kamrup Metropolitan</option>
+<option value="64">Baksa</option>
+<option value="65">Udalguri</option>
+<option value="66">Chirang</option>
+<option value="67">patna</option>
+<option value="68">Gaya</option>
+<option value="69">Bhagalpur</option>
+<option value="70">Dharbanga</option>
+<option value="71">Nalanda</option>
+<option value="72">Bhojpur</option>
+<option value="73">Munger</option>
+<option value="75">Saran</option>
+<option value="76">Katihar</option>
+<option value="77">Purnia</option>
+<option value="78">Patna</option>
+<option value="79">Rohtas</option>
+<option value="80">Basthar</option>
+<option value="81">Bijapur</option>
+<option value="82">Bilaspur</option>
+<option value="83">Dantevada</option>
+<option value="84">Dhamtari</option>
+<option value="85">Durg</option>
+<option value="86">Janjgir-Champa</option>
+<option value="87">Jhaspur</option>
+<option value="88">Kanker</option>
+<option value="89">Korba</option>
+<option value="90">Koriya</option>
+<option value="91">Mahasamund</option>
+<option value="92">Narayanpur</option>
+<option value="93">Raigarh</option>
+<option value="94">Raipur</option>
+<option value="95">Rajnandgaon</option>
+<option value="96">Surguja</option>
+<option value="97">Ahmedabad</option>
+<option value="98">Amreli</option>
+<option value="99">Anand</option>
+<option value="100">Banaskantha</option>
+<option value="101">Bharuch</option>
+<option value="102">Bhavnagar</option>
+<option value="103">Dahod</option>
+<option value="104">Dang</option>
+<option value="105">Gandhinagar</option>
+<option value="106">Jamnagar</option>
+<option value="107">Junagadh</option>
+<option value="108">Kheda</option>
+<option value="109">Kutch</option>
+<option value="110">Mehsana</option>
+<option value="111">Narmada</option>
+<option value="112">Navsari</option>
+<option value="113">Panchmahal</option>
+<option value="114">Patan</option>
+<option value="115">Porbandar</option>
+<option value="116">Rajkot</option>
+<option value="117">Sabarkantha</option>
+<option value="118">Surat</option>
+<option value="119">Surendranagar</option>
+<option value="120">Tapi</option>
+<option value="121">Vadodara</option>
+<option value="122">Valsad</option></select></div></td>	
+						<td>State</td>
+						<td><div class="label-field"><input id="state" name="registration[state]" readonly="true" size="30" type="text"></div></td>		
+						<td>Country</td>
+						<td><div class="label-field"><input id="country" name="registration[country]" readonly="true" size="30" type="text"></div></td>		
+					</tr>					
+					<tr>
+						<td>Mobile</td>
+						<td><div class="label-field"><input id="mobile_no" name="registration[mobile_no]" size="30" type="text"></div></td>		
+						<td>Phone</td>
+						<td><div class="label-field"><input id="ph_no" name="registration[ph_no]" size="30" type="text"></div></td>	
+							
+						
+					</tr>
+					<tr>
+						<td>Coll.Time</td>
+				 		<td><div class="text-input-bg-small"><input id="registration_repot_collection_time_1i" name="registration[repot_collection_time(1i)]" type="hidden" value="2012">
+<input id="registration_repot_collection_time_2i" name="registration[repot_collection_time(2i)]" type="hidden" value="12">
+<input id="registration_repot_collection_time_3i" name="registration[repot_collection_time(3i)]" type="hidden" value="28">
+<select id="registration_repot_collection_time_4i" name="registration[repot_collection_time(4i)]">
+<option value="00">00</option>
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option selected="selected" value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+</select>
+ : <select id="registration_repot_collection_time_5i" name="registration[repot_collection_time(5i)]">
+<option value="00">00</option>
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+<option value="41">41</option>
+<option value="42">42</option>
+<option value="43">43</option>
+<option selected="selected" value="44">44</option>
+<option value="45">45</option>
+<option value="46">46</option>
+<option value="47">47</option>
+<option value="48">48</option>
+<option value="49">49</option>
+<option value="50">50</option>
+<option value="51">51</option>
+<option value="52">52</option>
+<option value="53">53</option>
+<option value="54">54</option>
+<option value="55">55</option>
+<option value="56">56</option>
+<option value="57">57</option>
+<option value="58">58</option>
+<option value="59">59</option>
+</select>
+</div></td>
+			  			<td>Coll.Date</td>
+				 		<td><input class="tcal label-field-direct-input" id="registration_report_collection_date" name="registration[report_collection_date]" size="30" type="text" value="2012-12-28"></td>
+			 	 		<td>Test Status<sup>*<sup></sup></sup></td>
+				 		<td><div class="text-input-bg"><select id="test_status" name="registration[test_status]"><option value="Sample Received">Sample Received</option>
+<option value="Completed">Completed</option>
+<option value="Canceled">Canceled</option>
+<option value="Scheduled">Scheduled</option></select></div></td>
+			  		</tr>
+					<tr>
+						<td>Reg.Type<sup>*<sup></sup></sup></td>
+						<td><div class="text-input-bg"><select id="reg_type" name="registration[reg_type]" onchange="select_reg_type(this.selectedIndex)"><option value="">Please select</option>
+<option value="Self">Self</option>
+<option value="Referral Doctor">Referral Doctor</option>
+<option value="Collection Center">Collection Center</option></select></div></td>
+					</tr>
+					<tr>
+						<td colspan="6"><div id="referral_details" style="display:none;"><table width="100%"><tbody><tr>
+						<td>Referral Name<sup>*<sup></sup></sup></td>
+						<td><div class="text-input-bg"><select id="referral_id" name="registration[referral_id]" onchange="get_referral_address(this.value)"><option value="">Please select</option>
+<option value="1">Laxmi Lavanya.A</option></select></div></td>
+						<td><a href="javascript:void(0)" style="color:blue;" onclick="window.open(&#39;/newlab/referral_clinics/add_new/1?call_from=registrations&#39;,&#39;open_window&#39;,&#39;dependent, width=1150, height=500,top=50,left=50&#39;)">New</a></td>
+			  		 	<td>Address</td>
+						<td><div class="label-field"><input id="referral_address" name="referral_address[]" readonly="true" size="30" type="text"></div></td>			
+			  			<td>Contact No</td>
+						<td><div class="label-field"><input id="contact_no" name="contact_no[]" readonly="true" size="30" type="text"></div></td></tr></tbody></table></div></td>		
+					</tr>
+					<tr>
+						<td colspan="6"><div id="collection_center_details" style="display:none;"><table width="100%"><tbody><tr>
+						<td>Center Name<sup>*<sup></sup></sup></td>
+						<td><div class="text-input-bg"><select id="collection_center_id" name="registration[collection_center_id]" onchange="select_collection_center_name(this.value)"><option value="">Please select</option>
+<option value="1">St Theresa Hospital</option>
+<option value="2">Well Care</option>
+<option value="3">Global eye hospital</option>
+<option value="4">RAVI HOSPITAL</option>
+<option value="5">srija</option></select></div></td>
+						<td><a href="javascript:void(0)" style="color:blue;" onclick="window.open(&#39;/newlab/collection_centers/add_new/1?call_from=registrations&#39;,&#39;open_window&#39;,&#39;dependent, width=1150, height=500,top=50,left=50&#39;)">New</a></td>
+			  		 	<td>Address</td>
+						<td><div class="label-field"><input id="collection_center_address" name="collection_center_address[]" readonly="true" size="30" type="text"></div></td>			
+			  			<td>Contact No</td>
+						<td><div class="label-field"><input id="collection_center_no" name="collection_center_no[]" readonly="true" size="30" type="text"></div></td></tr></tbody></table></div></td>		
+					</tr>		
+							
+					<tr>
+						<td>Department<sup>*<sup></sup></sup></td>
+						<td><div class="text-input-bg"><select id="department" name="department[]" onchange="get_test_names_by_department(this.value)"><option value="">Please select</option>
+<option value="Laboratory">Laboratory</option>
+<option value="Radiology">Radiology</option></select></div></td>
+						<td>Lab Services<sup>*<sup></sup></sup></td>
+						<td colspan="3"><div class="label-field"><input id="tests" name="tests[]" size="30" type="text" autocomplete="off" class="ac_input"></div></td>
+					</tr>
+					<tr>
+						<td colspan="6">
+							 <div id="table_wrapper">
+							 <div id="header_ind">
+								 	<div id="head4">S.No</div>	
+								 	<div id="head4">Test Group</div>
+									<div id="head4">Test Name</div>
+									<div id="head4">Rate</div>
+									<div id="head4">Discount(%)</div>
+									<div id="head4">Discount Amt</div>
+									<div id="head4">Amount</div>
+									<div id="head4">Status</div>
+									<div id="head3">Del</div>
+							 </div>
+							 <div id="tbody">
+								  <table id="scroll_table" class="fixed">
+										
+											
+											<tbody><tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r0c1" name="registration[registration_children_attributes][0][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r0c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r0c3" name="registration[registration_children_attributes][0][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r0c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r0c5" name="registration[registration_children_attributes][0][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r0c6" name="registration[registration_children_attributes][0][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r0c7" name="registration[registration_children_attributes][0][discount_per]" onkeyup="qty_amount_calculation(&#39;0&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r0c8" name="registration[registration_children_attributes][0][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r0c9" name="registration[registration_children_attributes][0][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r0c10" name="registration[registration_children_attributes][0][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r0c11" name="registration[registration_children_attributes][0][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r1c1" name="registration[registration_children_attributes][1][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r1c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r1c3" name="registration[registration_children_attributes][1][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r1c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r1c5" name="registration[registration_children_attributes][1][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r1c6" name="registration[registration_children_attributes][1][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r1c7" name="registration[registration_children_attributes][1][discount_per]" onkeyup="qty_amount_calculation(&#39;1&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r1c8" name="registration[registration_children_attributes][1][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r1c9" name="registration[registration_children_attributes][1][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r1c10" name="registration[registration_children_attributes][1][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r1c11" name="registration[registration_children_attributes][1][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r2c1" name="registration[registration_children_attributes][2][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r2c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r2c3" name="registration[registration_children_attributes][2][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r2c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r2c5" name="registration[registration_children_attributes][2][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r2c6" name="registration[registration_children_attributes][2][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r2c7" name="registration[registration_children_attributes][2][discount_per]" onkeyup="qty_amount_calculation(&#39;2&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r2c8" name="registration[registration_children_attributes][2][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r2c9" name="registration[registration_children_attributes][2][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r2c10" name="registration[registration_children_attributes][2][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r2c11" name="registration[registration_children_attributes][2][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r3c1" name="registration[registration_children_attributes][3][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r3c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r3c3" name="registration[registration_children_attributes][3][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r3c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r3c5" name="registration[registration_children_attributes][3][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r3c6" name="registration[registration_children_attributes][3][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r3c7" name="registration[registration_children_attributes][3][discount_per]" onkeyup="qty_amount_calculation(&#39;3&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r3c8" name="registration[registration_children_attributes][3][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r3c9" name="registration[registration_children_attributes][3][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r3c10" name="registration[registration_children_attributes][3][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r3c11" name="registration[registration_children_attributes][3][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r4c1" name="registration[registration_children_attributes][4][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r4c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r4c3" name="registration[registration_children_attributes][4][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r4c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r4c5" name="registration[registration_children_attributes][4][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r4c6" name="registration[registration_children_attributes][4][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r4c7" name="registration[registration_children_attributes][4][discount_per]" onkeyup="qty_amount_calculation(&#39;4&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r4c8" name="registration[registration_children_attributes][4][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r4c9" name="registration[registration_children_attributes][4][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r4c10" name="registration[registration_children_attributes][4][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r4c11" name="registration[registration_children_attributes][4][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r5c1" name="registration[registration_children_attributes][5][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r5c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r5c3" name="registration[registration_children_attributes][5][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r5c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r5c5" name="registration[registration_children_attributes][5][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r5c6" name="registration[registration_children_attributes][5][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r5c7" name="registration[registration_children_attributes][5][discount_per]" onkeyup="qty_amount_calculation(&#39;5&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r5c8" name="registration[registration_children_attributes][5][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r5c9" name="registration[registration_children_attributes][5][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r5c10" name="registration[registration_children_attributes][5][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r5c11" name="registration[registration_children_attributes][5][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r6c1" name="registration[registration_children_attributes][6][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r6c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r6c3" name="registration[registration_children_attributes][6][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r6c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r6c5" name="registration[registration_children_attributes][6][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r6c6" name="registration[registration_children_attributes][6][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r6c7" name="registration[registration_children_attributes][6][discount_per]" onkeyup="qty_amount_calculation(&#39;6&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r6c8" name="registration[registration_children_attributes][6][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r6c9" name="registration[registration_children_attributes][6][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r6c10" name="registration[registration_children_attributes][6][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r6c11" name="registration[registration_children_attributes][6][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r7c1" name="registration[registration_children_attributes][7][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r7c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r7c3" name="registration[registration_children_attributes][7][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r7c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r7c5" name="registration[registration_children_attributes][7][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r7c6" name="registration[registration_children_attributes][7][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r7c7" name="registration[registration_children_attributes][7][discount_per]" onkeyup="qty_amount_calculation(&#39;7&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r7c8" name="registration[registration_children_attributes][7][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r7c9" name="registration[registration_children_attributes][7][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r7c10" name="registration[registration_children_attributes][7][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r7c11" name="registration[registration_children_attributes][7][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r8c1" name="registration[registration_children_attributes][8][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r8c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r8c3" name="registration[registration_children_attributes][8][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r8c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r8c5" name="registration[registration_children_attributes][8][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r8c6" name="registration[registration_children_attributes][8][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r8c7" name="registration[registration_children_attributes][8][discount_per]" onkeyup="qty_amount_calculation(&#39;8&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r8c8" name="registration[registration_children_attributes][8][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r8c9" name="registration[registration_children_attributes][8][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r8c10" name="registration[registration_children_attributes][8][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r8c11" name="registration[registration_children_attributes][8][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r9c1" name="registration[registration_children_attributes][9][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r9c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r9c3" name="registration[registration_children_attributes][9][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r9c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r9c5" name="registration[registration_children_attributes][9][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r9c6" name="registration[registration_children_attributes][9][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r9c7" name="registration[registration_children_attributes][9][discount_per]" onkeyup="qty_amount_calculation(&#39;9&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r9c8" name="registration[registration_children_attributes][9][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r9c9" name="registration[registration_children_attributes][9][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r9c10" name="registration[registration_children_attributes][9][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r9c11" name="registration[registration_children_attributes][9][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r10c1" name="registration[registration_children_attributes][10][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r10c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r10c3" name="registration[registration_children_attributes][10][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r10c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r10c5" name="registration[registration_children_attributes][10][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r10c6" name="registration[registration_children_attributes][10][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r10c7" name="registration[registration_children_attributes][10][discount_per]" onkeyup="qty_amount_calculation(&#39;10&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r10c8" name="registration[registration_children_attributes][10][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r10c9" name="registration[registration_children_attributes][10][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r10c10" name="registration[registration_children_attributes][10][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r10c11" name="registration[registration_children_attributes][10][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r11c1" name="registration[registration_children_attributes][11][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r11c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r11c3" name="registration[registration_children_attributes][11][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r11c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r11c5" name="registration[registration_children_attributes][11][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r11c6" name="registration[registration_children_attributes][11][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r11c7" name="registration[registration_children_attributes][11][discount_per]" onkeyup="qty_amount_calculation(&#39;11&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r11c8" name="registration[registration_children_attributes][11][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r11c9" name="registration[registration_children_attributes][11][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r11c10" name="registration[registration_children_attributes][11][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r11c11" name="registration[registration_children_attributes][11][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r12c1" name="registration[registration_children_attributes][12][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r12c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r12c3" name="registration[registration_children_attributes][12][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r12c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r12c5" name="registration[registration_children_attributes][12][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r12c6" name="registration[registration_children_attributes][12][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r12c7" name="registration[registration_children_attributes][12][discount_per]" onkeyup="qty_amount_calculation(&#39;12&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r12c8" name="registration[registration_children_attributes][12][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r12c9" name="registration[registration_children_attributes][12][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r12c10" name="registration[registration_children_attributes][12][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r12c11" name="registration[registration_children_attributes][12][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r13c1" name="registration[registration_children_attributes][13][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r13c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r13c3" name="registration[registration_children_attributes][13][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r13c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r13c5" name="registration[registration_children_attributes][13][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r13c6" name="registration[registration_children_attributes][13][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r13c7" name="registration[registration_children_attributes][13][discount_per]" onkeyup="qty_amount_calculation(&#39;13&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r13c8" name="registration[registration_children_attributes][13][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r13c9" name="registration[registration_children_attributes][13][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r13c10" name="registration[registration_children_attributes][13][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r13c11" name="registration[registration_children_attributes][13][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r14c1" name="registration[registration_children_attributes][14][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r14c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r14c3" name="registration[registration_children_attributes][14][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r14c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r14c5" name="registration[registration_children_attributes][14][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r14c6" name="registration[registration_children_attributes][14][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r14c7" name="registration[registration_children_attributes][14][discount_per]" onkeyup="qty_amount_calculation(&#39;14&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r14c8" name="registration[registration_children_attributes][14][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r14c9" name="registration[registration_children_attributes][14][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r14c10" name="registration[registration_children_attributes][14][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r14c11" name="registration[registration_children_attributes][14][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r15c1" name="registration[registration_children_attributes][15][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r15c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r15c3" name="registration[registration_children_attributes][15][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r15c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r15c5" name="registration[registration_children_attributes][15][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r15c6" name="registration[registration_children_attributes][15][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r15c7" name="registration[registration_children_attributes][15][discount_per]" onkeyup="qty_amount_calculation(&#39;15&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r15c8" name="registration[registration_children_attributes][15][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r15c9" name="registration[registration_children_attributes][15][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r15c10" name="registration[registration_children_attributes][15][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r15c11" name="registration[registration_children_attributes][15][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r16c1" name="registration[registration_children_attributes][16][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r16c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r16c3" name="registration[registration_children_attributes][16][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r16c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r16c5" name="registration[registration_children_attributes][16][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r16c6" name="registration[registration_children_attributes][16][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r16c7" name="registration[registration_children_attributes][16][discount_per]" onkeyup="qty_amount_calculation(&#39;16&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r16c8" name="registration[registration_children_attributes][16][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r16c9" name="registration[registration_children_attributes][16][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r16c10" name="registration[registration_children_attributes][16][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r16c11" name="registration[registration_children_attributes][16][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r17c1" name="registration[registration_children_attributes][17][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r17c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r17c3" name="registration[registration_children_attributes][17][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r17c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r17c5" name="registration[registration_children_attributes][17][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r17c6" name="registration[registration_children_attributes][17][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r17c7" name="registration[registration_children_attributes][17][discount_per]" onkeyup="qty_amount_calculation(&#39;17&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r17c8" name="registration[registration_children_attributes][17][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r17c9" name="registration[registration_children_attributes][17][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r17c10" name="registration[registration_children_attributes][17][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r17c11" name="registration[registration_children_attributes][17][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r18c1" name="registration[registration_children_attributes][18][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r18c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r18c3" name="registration[registration_children_attributes][18][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r18c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r18c5" name="registration[registration_children_attributes][18][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r18c6" name="registration[registration_children_attributes][18][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r18c7" name="registration[registration_children_attributes][18][discount_per]" onkeyup="qty_amount_calculation(&#39;18&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r18c8" name="registration[registration_children_attributes][18][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r18c9" name="registration[registration_children_attributes][18][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r18c10" name="registration[registration_children_attributes][18][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r18c11" name="registration[registration_children_attributes][18][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+											
+											<tr>
+												<td class="td4 child_table"><input class="text_field_child" id="r19c1" name="registration[registration_children_attributes][19][s_no]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r19c2" name="test_group_name[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r19c3" name="registration[registration_children_attributes][19][test_group]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r19c4" name="test_name_id[]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r19c5" name="registration[registration_children_attributes][19][test_name]" readonly="true" type="hidden">
+												<td class="td4 child_table"><input class="text_field_child" id="r19c6" name="registration[registration_children_attributes][19][rate]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table child_td"><input class="text_field_child child_td" id="r19c7" name="registration[registration_children_attributes][19][discount_per]" onkeyup="qty_amount_calculation(&#39;19&#39;)" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r19c8" name="registration[registration_children_attributes][19][discount_amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r19c9" name="registration[registration_children_attributes][19][amount]" readonly="true" size="30" type="text"></td>
+												<td class="td4 child_table"><input class="text_field_child" id="r19c10" name="registration[registration_children_attributes][19][status]" readonly="true" size="30" type="text"></td>
+												<input class="text_field_child" id="r19c11" name="registration[registration_children_attributes][19][department]" readonly="true" type="hidden">	
+												<td class="td3 child_table">&nbsp;</td>
+											</tr>
+											
+										
+									 </tbody></table>
+							 </div>
+						</div>
+						</td>
+					</tr>
+										
+			  		<tr>
+				 		<td>Prepared By</td>
+				 		<td><div class="text-input-bg"><select id="prepared_by" name="registration[prepared_by]"><option value="">Please select</option>
+<option value="1">Kiran</option>
+<option value="2">Charn</option>
+<option value="3">Swamy</option>
+<option value="4">Bhim</option>
+<option value="5">Rohith</option></select></div></td>
+						<td>Gross<sup>*</sup></td>
+				 		<td><div class="label-field"><input id="gross" name="registration[gross]" size="30" type="text" value="0.0"></div></td>
+			  		</tr>
+					<tr>
+						<td>Dis.Authority<sup>*</sup></td>
+				 		<td><div class="text-input-bg"><select id="authority" name="registration[authority]" onchange="enable_fields()"><option value="">Please select</option>
+<option value="1">Kiran</option>
+<option value="2">Charn</option>
+<option value="3">Swamy</option>
+<option value="4">Bhim</option>
+<option value="5">Rohith</option></select></div></td>
+						<td>Discount(%)</td>
+				 		<td><div class="label-field"><input disabled="disabled" id="discount" name="registration[discount]" onkeyup="discount_calculation()" size="30" type="text" value="0.0"></div></td>
+						<td>Discount Amt</td>
+				 		<td><div class="label-field"><input disabled="disabled" id="discount_amount" name="registration[discount_amount]" size="30" type="text"></div></td>
+					</tr>
+					<tr>
+						<td>Sub Total<sup>*</sup></td>
+				 		<td><div class="label-field"><input id="sub_total" name="registration[sub_total]" size="30" type="text" value="0.0"></div></td>
+						
+						<td>Net Amount<sup>*</sup></td>
+				 		<td><div class="label-field"><input id="net_amount" name="registration[net_amount]" onkeyup="due_calculation(this.value)" size="30" type="text" value="0.0"></div></td>
+					
+						<td>Due</td>
+				 		<td><div class="label-field"><input id="due" name="registration[due]" size="30" type="text" value="0.0"></div></td>
+					</tr>
+				</tbody></table>
+				 <center>
+					<input class="preview" id="registration_submit" name="commit" type="submit" value="Save"><span id="creating_events" style="display:none;">Creating, Please wait...</span>
+				</center>
+</form>
+
+
+
+
+
+</div>
+
+
+
+
+<div style="display: none; position: absolute; " class="ac_results"></div></body></html>

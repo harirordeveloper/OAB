@@ -1,0 +1,59 @@
+<h1>Listing org_details</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Mobile</th>
+    <th>Country</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Address</th>
+    <th>Postal code</th>
+    <th>Org name</th>
+    <th>Org country</th>
+    <th>Org state</th>
+    <th>Org city</th>
+    <th>Org location</th>
+    <th>Org address</th>
+    <th>Org postal code</th>
+    <th>Org phone1</th>
+    <th>Org phone2</th>
+    <th>Sign up as</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @org_details.each do |org_detail| %>
+  <tr>
+    <td><%= org_detail.first_name %></td>
+    <td><%= org_detail.last_name %></td>
+    <td><%= org_detail.mobile %></td>
+    <td><%= org_detail.country_id %></td>
+    <td><%= org_detail.state_id %></td>
+    <td><%= org_detail.city_id %></td>
+    <td><%= org_detail.address %></td>
+    <td><%= org_detail.postal_code %></td>
+    <td><%= org_detail.org_name %></td>
+    <td><%= org_detail.org_country %></td>
+    <td><%= org_detail.org_state %></td>
+    <td><%= org_detail.org_city %></td>
+    <td><%= org_detail.org_location %></td>
+    <td><%= org_detail.org_address %></td>
+    <td><%= org_detail.org_postal_code %></td>
+    <td><%= org_detail.org_phone1 %></td>
+    <td><%= org_detail.org_phone2 %></td>
+    <td><%= org_detail.sign_up_as %></td>
+    <td><%= org_detail.user_id %></td>
+    <td><%= link_to 'Show', org_detail %></td>
+    <td><%= link_to 'Edit', edit_org_detail_path(org_detail) %></td>
+    <td><%= link_to 'Destroy', org_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Org detail', new_org_detail_path %>

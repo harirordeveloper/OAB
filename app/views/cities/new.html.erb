@@ -1,0 +1,45 @@
+<script type="text/javascript">
+ function calls()
+    {
+     cal = $('#city_name').val();
+     jQuery.ajax({
+          	url: '/locations/search',
+		     	type: "POST",
+                        data: { cal: cal },
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        success: function(result){
+                                                    jQuery('#location_id').html(result);
+                                                  },
+                        
+                        error: function(){
+                                          alert('No Locations Found');
+                                          }
+               });
+	
+    }
+</script>
+<br />
+<br />
+<br />
+<div class="field">
+<%= form_for @city do |f| %>
+<table>
+<tr>
+  <td><%= f.label :name, "Locations" %></td>
+  <td><%= f.text_field :name, "data-pre" => @city.locations.map(&:attributes).to_json,:onChange => "calls()" %></td>
+</tr>
+</table>
+<% end %>
+</div>
+<table><tr></tr><tr></tr></table>
+<table><tr></tr><tr></tr></table>
+<table><tr></tr><tr></tr></table>
+<table><tr></tr><tr></tr></table>
+
+<div id="location_id">
+
+</div>
+
+
+
+

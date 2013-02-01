@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Day:</b>
+  <%= @clinic_timing.day %>
+</p>
+
+<p>
+  <b>Morning time:</b>
+  <%= @clinic_timing.morning_time %>
+</p>
+
+<p>
+  <b>Evening time:</b>
+  <%= @clinic_timing.evening_time %>
+</p>
+
+<p>
+  <b>Others:</b>
+  <%= @clinic_timing.others %>
+</p>
+
+<p>
+  <b>Clinic:</b>
+  <%= @clinic_timing.clinic %>
+</p>
+
+
+<%= link_to 'Edit', edit_clinic_timing_path(@clinic_timing) %> |
+<%= link_to 'Back', clinic_timings_path %>

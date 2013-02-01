@@ -1,0 +1,134 @@
+#content_header {
+    padding-left:20px;
+    height:137px;
+
+    background: #fff url(/assets/adminheader.jpg) bottom no-repeat;
+  
+}
+#content_header h1 {
+    margin:0px;
+    padding:0px;
+    padding-top:65px;
+    color:#999;
+}
+#content_header h3 {
+    margin:0px;
+    padding:0px;
+    color:#b00;
+}
+
+#user_options {
+    padding:0px;
+    margin:0px;
+    margin-top:15px;
+    height:400px;
+}
+#user_options .option_buttons {
+    display:block;
+    float:left;
+    height:175px;width:175px;
+    margin-left:10px;
+    margin-top:20px;
+    outline:none;
+}
+
+#company_button {background:#fff url(/images/dashboard_buttons/Company.png) 0 0 no-repeat;}
+#company_button:hover {background:#fff url(/images/dashboard_buttons/Company.png) -5px 0 no-repeat;}
+
+#customer_details_button {background:#fff url(/images/dashboard_buttons/Customer.png) 0 0 no-repeat;}
+#customer_details_button:hover {background:#fff url(/images/dashboard_buttons/Customer.png) -5px 0 no-repeat;}
+
+#accounts_button {background:#fff url(/images/dashboard_buttons/Accounts.png) 0 0 no-repeat;}
+#accounts_button:hover {background:#fff url(/images/dashboard_buttons/Accounts.png) -5px 0 no-repeat;}
+
+#products_news_button {background:#fff url(/images/dashboard_buttons/Products.png) 0 0 no-repeat;}
+#products_news_button:hover {background:#fff url(/images/dashboard_buttons/Products.png) -5px 0 no-repeat;}
+
+#purchases_button {background:#fff url(/images/dashboard_buttons/Purchase.png) 0 0 no-repeat;}
+#purchases_button:hover {background:#fff url(/images/dashboard_buttons/Purchase.png) -5px 0 no-repeat;}
+
+#sales_button {background:#fff url(/images/dashboard_buttons/Sales.png) 0 0 no-repeat;}
+#sales_button:hover {background:#fff url(/images/dashboard_buttons/Sales.png) -5px 0 no-repeat;}
+
+#payment_button {background:#fff url(/images/dashboard_buttons/Payments.png) 0 0 no-repeat;}
+#payment_button:hover {background:#fff url(/images/dashboard_buttons/Payments.png) -5px 0 no-repeat;}
+
+#reports_button {background:#fff url(/images/dashboard_buttons/Reports.png) 0 0 no-repeat;}
+#reports_button:hover {background:#fff url(/images/dashboard_buttons/Reports.png) -5px 0 no-repeat;}
+
+#dashboards_button {background:#fff url(/images/dashboard_buttons/Dashboard.png) 0 0 no-repeat;}
+#dashboards_button:hover {background:#fff url(/images/dashboard_buttons/Dashboard.png) -5px 0 no-repeat;}
+
+
+#organization_button {background:#fff url(/images/dashboard_buttons/org1.jpg) 0 0 no-repeat;}
+#organization_button:hover {background:#fff url(/images/dashboard_buttons/org1.jpg) -5px 0 no-repeat;}
+
+
+#profile_button {background:#fff url(/images/dashboard_buttons/Profiles1.png) 0 0 no-repeat;}
+#profile_button:hover {background:#fff url(/images/dashboard_buttons/Profiles1.png) -5px 0 no-repeat;}
+
+
+#user_button {background:#fff url(/images/dashboard_buttons/Users1.png) 0 0 no-repeat;}
+#user_button:hover {background:#fff url(/images/dashboard_buttons/Users1.png) -5px 0 no-repeat;}
+
+#registrations_button {background:#fff url(/images/dashboard_buttons/Registrations.png) 0 0 no-repeat;}
+#registrations_button:hover {background:#fff url(/images/dashboard_buttons/Registrations.png) -5px 0 no-repeat;}
+
+#registration_cancels_button {background:#fff url(/images/dashboard_buttons/Registration_cancels.png) 0 0 no-repeat;}
+#registration_cancels_button:hover {background:#fff url(/images/dashboard_buttons/Registration_cancels.png) -5px 0 no-repeat;}
+
+
+#perform_tests_button {background:#fff url(/images/dashboard_buttons/Perform_Test.png) 0 0 no-repeat;}
+#perform_tests_button:hover {background:#fff url(/images/dashboard_buttons/Perform_Test.png) -5px 0 no-repeat;}
+
+#card_button {background:#fff url(/images/dashboard_buttons/membershipcard.jpg) 0 0 no-repeat;}
+#card_button:hover {background:#fff url(/images/dashboard_buttons/membershipcard.jpg) -5px 0 no-repeat;}
+
+#test_button {background:#fff url(/images/dashboard_buttons/testmaster.jpg) 0 0 no-repeat;}
+#test_button:hover {background:#fff url(/images/dashboard_buttons/testmaster.jpg) -5px 0 no-repeat;}
+
+
+#dashboard_button {background:#fff url(/images/dashboard_buttons/Dashboard.png) 0 0 no-repeat;}
+#dashboard_button:hover {background:#fff url(/images/dashboard_buttons/Dashboard.png) -5px 0 no-repeat;}
+
+#inventory_button {background:#fff url(/images/dashboard_buttons/Products.png) 0 0 no-repeat;}
+#inventory_button:hover {background:#fff url(/images/dashboard_buttons/Products.png) -5px 0 no-repeat;}
+
+#purchase_button {background:#fff url(/images/dashboard_buttons/Purchase.png) 0 0 no-repeat;}
+#purchase_button:hover {background:#fff url(/images/dashboard_buttons/Purchase.png) -5px 0 no-repeat;}
+
+#sales_button {background:#fff url(/images/dashboard_buttons/Sales.png) 0 0 no-repeat;}
+#sales_button:hover {background:#fff url(/images/dashboard_buttons/Sales.png) -5px 0 no-repeat;}
+
+#inv_payment_button {background:#fff url(/images/dashboard_buttons/Payments.png) 0 0 no-repeat;}
+#inv_payment_button:hover {background:#fff url(/images/dashboard_buttons/Payments.png) -5px 0 no-repeat;}
+
+
+#inventory_new_button {background:#fff url(/images/dashboard_buttons/Inventory.jpg) 0 0 no-repeat;}
+#inventory_new_button {background:#fff url(/images/dashboard_buttons/Inventory.jpg) -5px 0 no-repeat;}
+
+
+.reminder1{
+    position: relative;
+    overflow: hidden;
+    float:left;
+    width: 190px;
+}
+.count{
+    position:absolute;
+    top: 66px;
+    left: 66px;
+    background:none repeat scroll 0 0 #9d0e00;
+    -moz-border-radius:10px;
+      -webkit-border-radius:10px;
+    font-size: 11px;
+    text-align: center;
+    color:#fff;
+    height:15px;
+    width:15px;
+}
+
+/* 'nicetitle' styles for tooltip. */
+
+div.nicetitle { position: absolute; padding: 4px; top: 0px; left: 0px; color: white; font-size: 13px; font-family: Verdana, Helvetica, Arial, sans-serif; width: 25em; font-weight: bold; text-align: center; background: url(/images/ntbg.png); margin-top: 140px; margin-left: -80px; -moz-border-radius: 12px; -webkit-border-radius: 12px; }
+div.nicetitle p { margin: 0; padding: 0 3px; }

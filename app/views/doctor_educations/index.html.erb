@@ -1,0 +1,31 @@
+<h1>Listing doctor_educations</h1>
+
+<table>
+  <tr>
+    <th>Degree</th>
+    <th>College</th>
+    <th>Address</th>
+    <th>Year of pass</th>
+    <th>Consultant master</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @doctor_educations.each do |doctor_education| %>
+  <tr>
+    <td><%= doctor_education.degree %></td>
+    <td><%= doctor_education.college %></td>
+    <td><%= doctor_education.address %></td>
+    <td><%= doctor_education.year_of_pass %></td>
+    <td><%= doctor_education.consultant_master %></td>
+    <td><%= link_to 'Show', doctor_education %></td>
+    <td><%= link_to 'Edit', edit_doctor_education_path(doctor_education) %></td>
+    <td><%= link_to 'Destroy', doctor_education, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Doctor education', new_doctor_education_path %>

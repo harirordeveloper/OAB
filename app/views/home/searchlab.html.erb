@@ -1,0 +1,56 @@
+<script></script>
+<style>
+#td1 {
+width: 250px;
+   }
+
+
+#tddata_odd{
+ border:0px solid grey;background:#EBF6EE;margin-top:10px;margin-bottom:5px;margin-left:5px;margin-right:25px;height: 40px;
+}
+
+#tddata_even{
+ border:0px solid grey;background:white;margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:25px;height: 40px;
+}
+</style>
+<table class="hos" width="100%" >
+	
+
+<% a = "b" %>			
+<% for clinic in @clinic_selected %>
+  
+<% if a=="b" %>
+ 
+<tr id="tddata_odd">
+<td style="color: rgb(226, 160, 19);font-weight: bold;"><%= clinic.name %></td>
+   <% c = LabProfileMaster.find_by_id(clinic.id) %>
+ <% if c %>
+<td><%=  c.services  %></td>
+ <% else %>
+ <td></td>
+ <% end %>
+   <% l = Location.find_by_id(clinic.location_id) %>
+<td align="center"><%= l.name %></td>
+
+</tr>
+<% a = "c" %>
+<% else %>
+   
+<tr id="tddata_even">
+<td style="color: rgb(226, 160, 19);font-weight: bold;"><%= clinic.name %></td>
+   <% c = LabProfileMaster.find_by_id(clinic.id) %>
+ <% if c %>
+<td ><%=  c.services  %></td>
+ <% else %>
+ <td></td>
+ <% end %>
+   <% l = Location.find_by_id(clinic.location_id) %>
+<td align="center"><%= l.name %></td>
+
+</tr>
+<% a = "b" %>
+<% end %>
+
+
+<% end %>
+</table>

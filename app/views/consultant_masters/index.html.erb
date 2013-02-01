@@ -1,0 +1,60 @@
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example').dataTable();
+});
+</script>
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr>
+<td width="150px" style="font-family :arial;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add Consultant', new_consultant_master_path %></font></td>
+<td width="850px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+<table id="example">
+   <thead>
+    <th width="70px">Name</th>
+    <th width="70px">Degree</th>
+    <th width="70px">Total exp</th>
+    <th width="70px">Qualifications</th>
+    <th width="70px">Expertise</th>
+   
+    <th ></th>
+    
+  </thead>
+
+
+  <tbody>
+
+<% @consultant_masters.each do |consultant_master| %>
+<tr>
+    <td><%= consultant_master.name %></td>
+    <td><%= consultant_master.degree %></td>
+  
+    <td><%= consultant_master.total_exp %></td>
+   
+   
+    <td><%= consultant_master.qualifications %></td>
+    <td><%= consultant_master.expertise %></td>
+   
+  
+
+  
+<td align="center"><%=  link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to VIEW This Record",:width=>20,:height=>20), consultant_master %>&nbsp&nbsp&nbsp
+ <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) ,edit_consultant_master_path(consultant_master) %>&nbsp&nbsp&nbsp
+    <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), consultant_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+

@@ -1,0 +1,15 @@
+<br />
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= root_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @labbranch %> |
+<%= link_to 'Back', labbranches_path %>

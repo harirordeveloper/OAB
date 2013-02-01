@@ -1,0 +1,114 @@
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= root_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <b>lab:</b>
+  <%= @labbranch.lab_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @labbranch.name %>
+</p>
+
+<p>
+  <b>Displayname:</b>
+  <%= @labbranch.displayname %>
+</p>
+
+<p>
+  <b>Branches:</b>
+  <%= @labbranch.branches %>
+</p>
+
+<p>
+  <b>Discontinue:</b>
+  <%= @labbranch.discontinue %>
+</p>
+
+<p>
+  <b>Expdate:</b>
+  <%= @labbranch.expdate %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%= @labbranch.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @labbranch.address2 %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @labbranch.location_id %>
+</p>
+
+<p>
+  <b>Landmarks:</b>
+  <%= @labbranch.landmarks %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @labbranch.city_id %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @labbranch.state_id %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @labbranch.country_id %>
+</p>
+
+<p>
+  <b>Pin:</b>
+  <%= @labbranch.pin %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%= @labbranch.fax %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @labbranch.website %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @labbranch.email %>
+</p>
+
+<p>
+  <b>Altemail:</b>
+  <%= @labbranch.altemail %>
+</p>
+
+<p>
+  <b>Choosefile:</b>
+  <%= @labbranch.choosefile %>
+</p>
+
+
+<%= link_to 'Edit', edit_labbranch_path(@labbranch) %> |
+<%= link_to 'Back', labbranches_path %>

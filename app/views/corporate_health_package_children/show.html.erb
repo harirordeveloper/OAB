@@ -1,0 +1,33 @@
+<p>
+  <b>S no:</b>
+  <%=h @corporate_health_package_child.s_no %>
+</p>
+
+<p>
+  <b>Test:</b>
+  <%=h @corporate_health_package_child.test_id %>
+</p>
+
+<p>
+  <b>Test name:</b>
+  <%=h @corporate_health_package_child.test_name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @corporate_health_package_child.price %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%=h @corporate_health_package_child.discount %>
+</p>
+
+<p>
+  <b>Net price:</b>
+  <%=h @corporate_health_package_child.net_price %>
+</p>
+
+
+<%= link_to 'Edit', edit_corporate_health_package_child_path(@corporate_health_package_child) %> |
+<%= link_to 'Back', corporate_health_package_children_path %>

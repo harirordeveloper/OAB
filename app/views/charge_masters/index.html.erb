@@ -1,0 +1,98 @@
+<%= javascript_include_tag 'jquery' %>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<%= javascript_include_tag 'jquery_ujs' %>
+<!--To get the data tables-->
+<%= javascript_include_tag "dataTables/jquery.dataTables" %>
+<%= javascript_include_tag "dataTables/jquery.dataTables.min" %>
+<%= stylesheet_link_tag "jquery.dataTables1" %>
+<%= stylesheet_link_tag "jquery.dataTables_themeroller1" %>
+<%= stylesheet_link_tag "demo_page" %>
+<%= stylesheet_link_tag "demo_table" %>
+<%= stylesheet_link_tag "demo_table_jui" %>
+<%= stylesheet_link_tag "demo_validation" %>
+
+
+
+<style>
+#choos_no {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+#choos_yes {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example2').dataTable();
+});
+</script>
+<table>
+
+ 
+ <tr>
+<td width="150px" style="font-family :arial;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add Charge', new_charge_master_path %></font></td>
+
+<td width="850px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+
+<table id="example2">
+  <thead>  <tr>
+    <th>Lab</th>
+    <th>Test group</th>
+    <th>Test sub group</th>
+    <th>Test name</th>
+    <th>Price</th>
+    <th></th>
+    
+  </tr>
+ </thead>
+<tbody>
+<% @charge_masters.each do |charge_master| %>
+  
+  <tr>
+    <td><%= charge_master.lab_id %></td>
+    <td><%= charge_master.test_group_id %></td>
+    <td><%= charge_master.test_sub_group_id %></td>
+    <td><%= charge_master.test_name %></td>
+    <td><%= charge_master.price %></td>
+    <td><%= link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), charge_master %>
+   <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) , edit_charge_master_path(charge_master) %>
+    <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), charge_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+

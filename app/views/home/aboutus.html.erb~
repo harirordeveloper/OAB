@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<title>online medlab</title>
+<%= stylesheet_link_tag "default.css"%>
+<%= stylesheet_link_tag "style.css"%>
+<%= stylesheet_link_tag "styles.css"%>
+<%= stylesheet_link_tag "page.css"%>
+<%= stylesheet_link_tag "jquery-ui"%>
+
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<%= javascript_include_tag "jquery.min" %>
+<%= javascript_include_tag "jquery.ba-haschange" %>
+<%= javascript_include_tag "script" %>
+<script>
+
+$(document).ready(function() {
+
+﻿$(function () {
+    var items = $('#v-nav>ul>li').each(function () {
+        $(this).click(function () {
+            //remove previous class and add it to clicked tab
+            items.removeClass('current');
+            $(this).addClass('current');
+
+            //hide all content divs and show current one
+            $('#v-nav>div.tab-content').hide().eq(items.index($(this))).show('fast');
+
+            window.location.hash = $(this).attr('tab');
+        });
+    });
+
+    if (location.hash) {
+        showTab(location.hash);
+    }
+    else {
+        showTab("tab1");
+    }
+
+    function showTab(tab) {
+        $("#v-nav ul li:[tab*=" + tab + "]").click();
+    }
+
+    // Bind the event hashchange, using jquery-hashchange-plugin
+    $(window).hashchange(function () {
+        showTab(location.hash.replace("#", ""));
+    })
+
+    // Trigger the event hashchange on page load, using jquery-hashchange-plugin
+    $(window).hashchange();
+});
+});
+
+</script>
+
+
+
+
+        <script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+    </script>
+    <!--tabs styles over-->
+
+</head>
+
+<body>
+
+<!-- start wrapper -->
+
+<div id="wrapper">
+
+	<!-- start menu -->
+
+	<div id="menu">
+		<ul>
+			<li><a href="/home/index">Home</a></li>
+			<li><a href="/home/aboutus">About Us</a></li>
+			<li><a href="/home/hospitals_clinics">Hospitals / Clinics</a></li>
+			<li><a href="/home/labs">Labs</a></li>
+			<li><a href="/home/partners">Partners</a></li>
+			<li><a href="/home/support">Support</a></li>
+		</ul>
+	</div>
+
+	<!-- end menu -->
+
+	<!-- start header -->
+
+	<div id="header">
+		<div id="logo">
+			<a href="#"><img src="/assets/logo.gif" style="width: 270px;height: 57px;"></a>
+		</div>
+		<div id="call1">
+		    <img src="/assets/phone.png" style="width:21px;">
+		</div>
+		<div id="call">
+		    	For Appointment call us at <span class="calltext">(040) 40203231</span>
+		</div>
+
+		<div id="socioc">
+		<img src="/assets/fu.gif" style="height: 21px;">
+			<a href=""><img src="/assets/f.png" style="width: 33px;"></a> <a href=""><img src="/assets/t.png" style="width: 33px;"></a> <a href=""><img src="/assets/l.png" style="width: 48px;"></a> <a href=""><img src="/assets/yt.gif" style="width: 68px;"></a>
+		</div>
+	</div>
+<div id="headerbot"></div>
+	<!-- end header -->
+
+	<!-- start page -->
+
+	<div id="page">
+		<div id="bgtop"></div>
+
+		<div id="bgbottom">
+
+			<!-- start content -->
+
+			<div id="content">
+
+				<div class="post">
+
+					<div class="bigpix">
+						
+
+
+</div>
+		
+		
+		<div style="float: left;width: 100%;min-height: 452px;margin-bottom: 15px;">
+		
+		<h1 class="title">About Us</h1>
+            <div id="v-nav">
+                <ul>
+                    <li tab="tab1" class="first current">About Us</li>
+                    <li tab="tab2">Benefits</li>
+                    <li tab="tab3">Contact Us</li>
+                    
+                </ul>
+
+                <div class="tab-content">
+                    <h4 class="head"><a href="#">About Us:</a></h4>
+						
+					<p><b>Healthcare Online</b> is brought to you by Exleaz Technologies India Private Ltd.<br><br>  <b>Healthcare Online</b> service provides a gateway for healthcare providers to connect to their patients. Patients benefit from far greater choice and can book instant appointments with their chosen healthcare provider based on their needs and preferences. <br> <br> At <b>Healthcare Online </b> you can search Top Indian Doctors Online, Best Indian Doctors Online. The service is accessible 24/7 via the website, and is supported by the option of telephone bookings via the HelpingDoc call centre. It is not just the booking of a doctor that is done through our website, but the patients can also read out the information regarding the listed doctors,near by location ,preferred specialty and with review rating . So no more boring waitings at Hospitals/Clinics. Booking for appointments online not only offers convenience to the patients, it also helps Doctors to reduce cost and no-shows. </p>
+					<p>The website allows Hospitals/Clinics/Doctors as well as Patients to signup for an account.</p>
+					
+		</div>
+
+                <div class="tab-content">
+                    <h4 class="head"><a href="#">Benefits:</a></h4>
+					
+					<p class="boxes1">3 -Simple Steps to Book Appointment: </p>	
+		<div class="thboxes3">
+        		<table border="0" cellpadding="0" cellspacing="0" width="680" style="margin: 0 auto;">
+                                    <tbody><tr>
+                                        <td valign="top">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="201">
+                                                <tbody><tr>
+                                                    <td align="left" background="/assets/step1_img.jpg" height="180" valign="top">
+                                                        <div class="para_div">
+                                                            Search the Doctor/Speciality Hospital/Clinic near to your Location.<br>
+                                                            </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                        <td valign="top">
+                                            <img id="ctl00_ContentPlaceHolder1_FrontEndSearchBox1_UcService1_Image1" src="/assets/arrow_image.jpg" style="height:180px;width:25px;border-width:0px;"></td>
+                                        <td valign="top">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="201">
+                                                <tbody><tr>
+                                                    <td background="/assets/step2_img.jpg" height="180" valign="top">
+                                                        <div class="para_div">
+                                                            Book appointment and you will receive an instant sms or email about your appointment timings.<br>
+                                                            </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                        <td valign="top">
+                                            <img id="ctl00_ContentPlaceHolder1_FrontEndSearchBox1_UcService1_Image3" src="/assets/arrow_image.jpg" style="height:180px;width:25px;border-width:0px;"></td>
+                                        <td valign="top">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="201">
+                                                <tbody><tr>
+                                                    <td background="/assets/step3_img.jpg" height="180" valign="top">
+                                                        <div class="para_div">
+                                                            Visit the doctor / hospital / clinic on time .<br>
+                                                            <br>
+                                                            "No boaring waitings at Hospitals / Clinics".</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+<p class="boxes" style="text-decoration: underline;">"Save Time to wait at Hospitals / Clinics" </p>
+</div><!--table background div ends-->
+		
+					
+					 <br>
+					<p><b>For Doctors/Hospitals/clinics:</b><br><br>
+					A doctor/hospital/clinis can manage all his/her appointments through the website and through the appointment management system available to him/her from his clinic. The website also allows appointments over phone and confirmation sent to the doctor. This enables a Doctor to literally “outsource” all appointment related activity for new and existing patients to DoctorsBooking.com. The system also allows doctors to track history of the patients. Apart from the patient management, the website provides an opportunity for Doctors to market their services through the website. Until now, most doctors rely on Word of Mouth or referral marketing. By listing their services on the website, Doctors get more exposure in online search engines and thereby increase their chances of getting new patients.	<br><br>
+					<b>For Patients:</b><br><br>
+					    For the patients, the site offers various services such as convenience of booking the appointment online. It also has a search feature for patients who aren’t sure what Doctor they wish to see. The location search allows patients to check the nearest Doctor available. Patients can also make the booking via phone. In this case, the patient has to remember only one phone number. Even if the Doctor changes his phone number, the patients can still call up the DoctorsBooking call center and take appointments.<br><br>
+						The company has about 100 Doctors registered on the website.
+					    </p>
+                </div>
+
+                <div class="tab-content">
+                    <h4 class="head"><a href="#">Contact Us:</a></h4>
+					<p>We would be delighted to hear from you. We welcome your queries and questions on any of our products or services.
+					</p>
+					<form action="">
+					    <table class="lable">
+						<tr><td><label for="name">Name</label></td><td><input type="text" name="name" id="name" class="labelpad"></td></tr>
+						<tr><td><label for="email">Email</label></td><td><input type="text" name="email" id="email" class="labelpad"></td></tr>
+						<tr><td><label for="subject">Subject</label></td><td><input type="text" name="subject" id="subject" class="labelpad"></td></tr>
+						<tr><td><label for="message">Message</label></td><td><textarea rows="3" cols="17" name="message" id="message" class="textrad">
+
+</textarea></td></tr>
+												<tr><td></td><td><input type="submit" value="Submit" class="lbesub"></td></tr>
+					    </table>
+						    <br>
+							<br>
+						    <div class="line"></div>
+						     
+					    
+  
+  
+</form>
+                </div>
+
+                </div>
+	    
+	
+        <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+        </script>
+        <script type="text/javascript">
+            try {
+                var pageTracker = _gat._getTracker("UA-16380505-1");
+                pageTracker._trackPageview();
+            }
+            catch (err) {
+            } 
+        </script>
+	</div>
+		
+		
+		
+		
+				
+
+				</div>
+
+			</div>
+
+			<!-- end content -->
+
+						
+
+			<!-- start sidebar two -->
+
+			<div id="sidebar2" class="sidebar">
+				<ul>
+					<li>
+						<h1 class="borbot">Featured Product</h1>
+						<div class="botm">
+							<table summary="Calendar">
+												
+								<tbody>
+								<tr>
+								<td><img src="/assets/medieaz.gif"  style="width: 183px;height: 88px;border: 1px solid #DDD;border-radius: 4px;margin: 10px;"></td>
+								</tbody>
+							</table>
+						</div>
+					</li>
+					<li class="botm">
+						<h1 class="borbot">Press Room</h1>
+						<p style="color: #1D62B3;">Exleaz Managing Director Mr.Sam in TV5 News</p>
+						<a href="#"><iframe width="200" height="150" src="http://www.youtube.com/embed/nyuAnkxeneI" frameborder="0" allowfullscreen></iframe></a>
+						</li>
+					<li>
+					    <h1 class="borbot">Top Rated Hospitals / Clinics</h2>
+					    <div id="calendar_wrap">
+							<table summary="Calendar">
+								
+								<tbody>
+									<tr>
+										<td><a href="#"><img src="/assets/emory.png" style="width: 150px;"></a></td>
+																													
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/vamshi.jpg" style="width: 150px;"></a></td>
+										
+										</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/gsl_logo.gif" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/smhlogo.png" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/midas.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/svl.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									
+								</tbody>
+							</table>
+						</div></li>
+					
+				</ul>
+			</div>
+			<!-- end sidebar two -->
+
+			<div style="clear: both;">&nbsp;</div>
+
+		</div>
+
+	</div>
+
+	<!-- end page -->
+
+	<hr />
+
+
+	<!-- start footer -->
+
+	<div id="footer">
+		<ul>
+                <li><a href="/home/home">Home</a></li><li><a href="/home/aboutus">About Us</a></li><li><a href="/home/hospitals_clinics">Hospitals/Clinics</a></li><li><a href="/home/labs">Labs</a></li><li><a href="/home/partners">Patners</a></li><li><a href="/home/support">Support</a></li><li><a href="/home/contactus">Contact Us</a></li><li><a href="/home/feedback">Feedback</a></li><li><a href="#">Privacy Policy</a></li><li class="last">© Copyright 2013 OnlineMedLab</li>
+              </ul>
+	</div>
+
+
+	<!-- end footer -->
+
+</div>
+
+<!-- end wrapper -->
+
+</body>
+
+</html>
+

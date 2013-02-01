@@ -1,0 +1,59 @@
+<div id="contentform">
+<div>
+<%= form_tag locations_path, :method => :get do %>
+
+<div class="field">
+    <%= submit_tag "Search Near", :name => nil %>
+  <%= text_field_tag :search, params[:search],:size=>10 %>
+  </div>
+
+<p>
+  
+</p>
+ 
+<% end %>
+
+
+<h1>Listing locations</h1>
+
+<table id="locations">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Longitude</th>
+    <th>Latitude</th>
+    <th>Gmaps</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+</thead>
+<tbody>
+<% @locations.each do |location| %>
+  <tr>
+    <td><%= location.name %></td>
+    <td><%= location.address %></td>
+    <td><%= location.longitude %></td>
+    <td><%= location.latitude %></td>
+    <td><%= location.gmaps %></td>
+    <td><%= link_to 'Show', location %></td>
+    <td><%= link_to 'Edit', edit_location_path(location) %></td>
+    <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+
+</table>
+
+<br />
+
+<%= link_to 'New Location', new_location_path %>
+
+</div>
+<div id="contentform">
+
+<%= gmaps4rails(@json) %></div>
+
+
+

@@ -1,0 +1,198 @@
+
+<script>
+function select_admn_category(id)
+	{
+
+		var admn_category=document.getElementById(id).value
+		if(admn_category=="Lab Branches")
+		{
+			
+			document.getElementById('clinicbranch').style.display='none'
+			document.getElementById('labbranch').style.display='block'
+			
+		}
+		else
+		{
+			
+			document.getElementById('clinicbranch').style.display='block'
+			document.getElementById('labbranch').style.display='none'
+			
+
+			
+		}
+				
+	}
+
+</script>
+
+
+<style>
+#choos_no {
+width: 118px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+#choos_yes {
+width: 118px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+</style>
+
+
+</head>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example2').dataTable();
+});
+</script>
+
+
+
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<div id="clinicbranch" style="display:block;">
+
+<table>
+
+ <tr>
+<td style="padding-left: 378px;">
+<input type="submit" value="Clinic Branches" name="Clinic Branches" id="choos_no" onClick="select_admn_category(id)">
+</td>
+<td>
+<input type="submit" value="Lab Branches" name="Lab Branches" id="choos_yes" onClick="select_admn_category(id)">
+</td>
+
+<td width="950px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+<table id="example2">
+  <thead> 
+    
+    <th>Name</th>
+    <th>Display Name</th>
+    <th>Address1</th>
+   
+    <th  width=100px ></th>
+    
+ </thead> 
+
+
+  <tbody>
+   <% @clinicbranches.each do |clinicbranch| %>
+    <tr>
+    <td><%= clinicbranch.name %></td>
+    <td><%= clinicbranch.displayname %></td>
+   
+    <td><%= clinicbranch.address1 %></td>
+     
+    <td width="80px"><%= link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), clinicbranch %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+ <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) , edit_clinicbranch_path(clinicbranch) %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+   <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), clinicbranch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  </tr>
+<% end %>
+
+</tbody>
+</table>
+
+</div>
+
+
+<div id="labbranch" style="display:none;">
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example1').dataTable();
+});
+</script>
+
+
+<table>
+
+ <tr>
+<td style="padding-left: 378px;">
+<input type="submit" value="Clinic Branches" name="Clinic Branches" id="choos_no" onClick="select_admn_category(id)">
+</td>
+<td>
+<input type="submit" value="Lab Branches" name="Lab Branches" id="choos_yes" onClick="select_admn_category(id)">
+</td>
+
+<td width="950px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<table id="example1">
+  <thead> 
+    
+    <th>Name</th>
+    <th>Display Name</th>
+    <th>Address</th>
+   <th width=100px ></th>
+    
+ </thead> 
+
+
+  <tbody>
+   <% @labbranches.each do |labbranch| %>
+    <tr>
+    <td><%= labbranch.name %></td>
+    <td><%= labbranch.displayname %></td>
+    <td><%= labbranch.address1 %></td>
+  
+    <td width="80px"><%= link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), labbranch %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+ <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) , edit_labbranch_path(labbranch) %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+    <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), labbranch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  </tr>
+</tbody>
+<% end %>
+
+
+</table>
+
+
+</div>
+
+

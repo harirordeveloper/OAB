@@ -1,0 +1,2 @@
+module ClinicTimingsHelper
+end

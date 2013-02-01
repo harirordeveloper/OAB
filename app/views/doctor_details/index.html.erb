@@ -1,0 +1,49 @@
+<h1>Listing doctor_details</h1>
+
+<table>
+  <tr>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Mobile</th>
+    <th>Country</th>
+    <th>State</th>
+    <th>City</th>
+    <th>Location</th>
+    <th>Gender</th>
+    <th>Profile title</th>
+    <th>Experience</th>
+    <th>Speciality</th>
+    <th>Expertise</th>
+    <th>Specializations</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @doctor_details.each do |doctor_detail| %>
+  <tr>
+    <td><%= doctor_detail.first_name %></td>
+    <td><%= doctor_detail.last_name %></td>
+    <td><%= doctor_detail.mobile %></td>
+    <td><%= doctor_detail.country_id %></td>
+    <td><%= doctor_detail.state_id %></td>
+    <td><%= doctor_detail.city_id %></td>
+    <td><%= doctor_detail.location_id %></td>
+    <td><%= doctor_detail.gender %></td>
+    <td><%= doctor_detail.profile_title %></td>
+    <td><%= doctor_detail.experience %></td>
+    <td><%= doctor_detail.speciality %></td>
+    <td><%= doctor_detail.expertise %></td>
+    <td><%= doctor_detail.specializations %></td>
+    <td><%= doctor_detail.user_id %></td>
+    <td><%= link_to 'Show', doctor_detail %></td>
+    <td><%= link_to 'Edit', edit_doctor_detail_path(doctor_detail) %></td>
+    <td><%= link_to 'Destroy', doctor_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Doctor detail', new_doctor_detail_path %>

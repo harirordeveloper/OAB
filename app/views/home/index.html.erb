@@ -1,0 +1,144 @@
+
+
+<script></script>
+   
+                        <div id="tabspan">
+                            <!--tabs content-->
+                <div id="tabs">
+    <ul>
+        <li><a style="padding-left: 60px;padding-right: 60px;" href="#tabs-1">Find Doctor/Specialist</a></li>
+        <li><a style="padding-left: 60px;padding-right: 60px;" href="#tabs-2">Find Hospital/Clinic</a></li>
+        <li><a style="padding-left: 60px;padding-right: 60px;width: 132px;" href="#tabs-3">Find Lab</a></li>
+    </ul>
+
+
+<div id="tabs-1">
+<%= form_for @location,:url => {:controller => "locations",:action => "doctor_search"} do |f| %>
+<form><fieldset class="fieldset">
+ 
+<table id=tab1 width="100%" align="center" style="padding-left: 111px;">
+</br>
+
+<tr>
+<td width="100px"><table id="tab1row1"  width="50%">
+
+  <tr>
+       <tr><td width="150px" >Doctor/Specialist</td></tr>
+       <tr><td style="padding-right: 26px;padding-bottom: 14px;"><%= text_field(:doctor, :name,:class=>"tabbox",:name => "doctor") %></td></tr>
+       <tr><td>Location</td></tr>
+       <tr><td><%= f.text_field :city, data: {autocomplete_source: Location.order(:name).map(&:name)},:class=>"tabbox",:name => "location" %></td></tr>
+  </tr>
+
+</table></td>
+
+<td><table id="tab1row2"  width="100%">
+
+  <tr>
+       <tr><td >City</td></tr>
+       <tr><td style="padding-bottom: 14px;"><%= select_tag :city_id, options_from_collection_for_select(City.all, "id", "name"),:prompt => "Select City", :class=>"tabbox" %></td></tr>
+      <tr> <td>Speciality</td></tr>
+       <tr><td><%= select_tag :speciality_id,options_from_collection_for_select(SpecalitiesMaster.all, "id", "name"),:prompt => "Select Speciality", :class=>"tabbox" %></td></tr>
+  </tr>
+
+</table></td></tr>
+
+
+
+<tr>
+ <table><tr><td style="padding-left: 382px;padding-top: 26px;"><input type="submit" value= "Search"  class="btnsearch"  ></td></tr> <table></tr>
+</table>
+
+</fieldset></form>
+<% end %>
+</div>
+
+<!--######################## CLINIC SEARCH #################################-->
+
+    <div id="tabs-2">
+ <%= form_for @location,:url => {:controller => "locations",:action => "search"} do |f| %>
+        <form>  <fieldset class="fieldset">
+   
+<table id=tab2 width="100%" align="center" style="padding-left: 111px;">
+</br>
+
+<tr>
+<td width="100px"><table id="tab2row1"  width="50%">
+
+  <tr>
+       <tr><td width="150px">Hospital/Clinic Name</td></tr>
+       <tr><td  style="padding-right: 26px;padding-bottom: 14px;"><%= text_field(:clinic, :name,:class=>"tabbox",:name => "clinic") %></td></tr>
+       
+
+<tr><td>Location</td></tr>
+       <tr><td> <%= f.text_field :address, data: {autocomplete_source: Location.order(:name).map(&:name)},:class=>"tabbox",:name => "location" %></td></tr>
+  </tr>
+
+
+
+</table></td>
+
+<td><table id="tab1row2"  width="100%">
+
+  <tr>
+       <tr><td >City</td></tr>
+       <tr><td style="padding-bottom: 14px;"><%= select_tag :city_id, options_from_collection_for_select(City.all, "id", "name"),:prompt => "Select City",:class=>"tabbox" %></td></tr>
+      <tr> <td>Speciality</td></tr>
+       <tr><td><%= select_tag :speciality_id,options_from_collection_for_select(SpecalitiesMaster.all, "id", "name"),:prompt => "Select Speciality", :class=>"tabbox" %></td></tr>
+  </tr>
+
+</table></td></tr>
+
+<tr> <table><tr><td style="padding-left: 382px;padding-top: 26px;"><input type="submit" value= "Search"  class="btnsearch"  ></td></tr> <table></tr>
+</table>
+ </fieldset></form>
+         <% end %>
+</div>
+<!--##################### CLINIC  SEARCH END #########################-->
+
+
+<!--###################### LAB SEARCH ################################-->
+
+<div id="tabs-3">
+       <%= form_for @location,:url => {:controller => "locations",:action => "labsearch"} do |f| %>
+        <form>  <fieldset class="fieldset">
+   
+<table id=tab2 width="100%" align="center" style="padding-left: 111px;">
+</br>
+
+<tr>
+<td width="100px"><table id="tab2row1"  width="50%">
+
+  <tr>
+       <tr><td width="150px">Lab Name</td></tr>
+       <tr><td  style="padding-right: 26px;padding-bottom: 14px;"><%= text_field(:clinic, :name,:class=>"tabbox",:name => "lab") %></td></tr>
+       
+
+<tr><td>Location</td></tr>
+       <tr><td> <%= f.text_field :name, data: {autocomplete_source: Location.order(:name).map(&:name)},:class=>"tabbox",:name => "location" %></td></tr>
+  </tr>
+
+
+
+
+</table></td>
+
+<td><table id="tab1row2"  width="100%">
+
+  <tr>
+       <tr><td >City</td></tr>
+       <tr><td style="padding-bottom: 14px;"><%= select_tag :city_id, options_from_collection_for_select(City.all, "id", "name"),:prompt => "Select City",:class=>"tabbox" %></td></tr>
+      <tr> <td>Speciality</td></tr>
+       <tr><td><%= select_tag :speciality_id,options_from_collection_for_select(SpecalitiesMaster.all, "id", "name"),:prompt => "Select Speciality", :class=>"tabbox" %></td></tr>
+  </tr>
+
+</table></td></tr>
+
+<tr> <table><tr><td style="padding-left: 382px;padding-top: 26px;"><input type="submit" value= "Search"  class="btnsearch"  ></td></tr> <table></tr>
+</table>
+ </fieldset></form>
+         <% end %>
+    </div>
+<!--################## LAB SEARCH END  #####################################-->
+</div><!--tabs over-->
+</div><!--tabspan content over-->
+

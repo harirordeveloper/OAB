@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cliniccode:</b>
+  <%= @consultant.clinic_id %>
+</p>
+
+<p>
+  <b>Branchcode:</b>
+  <%= @consultant.clinicbranch_id %>
+</p>
+
+<p>
+  <b>Consultantcode:</b>
+  <%= @consultant.consultantcode %>
+</p>
+
+<p>
+  <b>Speciality:</b>
+  <%= @consultant.speciality %>
+</p>
+
+<p>
+  <b>Experience:</b>
+  <%= @consultant.experience %>
+</p>
+
+<p>
+  <b>Workingat:</b>
+  <%= @consultant.workingat %>
+</p>
+
+<p>
+  <b>Mrngtime:</b>
+  <%= @consultant.mrngtime %>
+</p>
+
+<p>
+  <b>Evengtime:</b>
+  <%= @consultant.evengtime %>
+</p>
+
+
+<%= link_to 'Edit', edit_consultant_path(@consultant) %> |
+<%= link_to 'Back', consultants_path %>

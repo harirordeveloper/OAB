@@ -1,0 +1,44 @@
+.button1
+        {
+          background: yellow;
+          padding: 12px;
+          font-weight: bold;
+          cursor: pointer;
+          cursor: hand;
+        }
+
+.preview {
+color: #08233E;
+font: 0.8em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+background: url('/images/overlay.png') repeat-x center #FC0;
+background-color: rgba(255, 204, 0, 1);
+cursor: pointer;
+text-decoration: none;
+width: 100px;
+height: 30px;
+font-weight: bold;
+cursor: pointer;
+cursor: hand;
+border: 1px solid #FC0;
+}
+
+.preview:hover{background-color:rgba(255,204,0,0.8);}
+.preview:active{position:relative;top:2px;}
+
+
+.preview-small{
+color: #08233E;
+font: 0.8em Futura, ‘Century Gothic’, AppleGothic, sans-serif;
+background: url('/images/overlay.png') repeat-x center #FC0;
+background-color: rgba(255, 204, 0, 1);
+cursor: pointer;
+text-decoration: none;
+width: 50px;
+height: 30px;
+font-weight: bold;
+cursor: pointer;
+cursor: hand;
+border: 1px solid #FC0;
+}
+.preview-small:hover{background-color:rgba(255,204,0,0.8);}
+.preview-small:active{position:relative;top:2px;}

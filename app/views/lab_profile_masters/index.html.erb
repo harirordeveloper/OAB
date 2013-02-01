@@ -1,0 +1,163 @@
+
+<script>
+function select_admn_category(id)
+	{
+
+		var admn_category=document.getElementById(id).value
+		if(admn_category=="Lab")
+		{
+			
+			document.getElementById('clinicdiv').style.display='none'
+			document.getElementById('labdiv').style.display='block'
+			
+		}
+		else
+		{
+			
+			document.getElementById('clinicdiv').style.display='block'
+			document.getElementById('labdiv').style.display='none'
+			
+
+			
+		}
+				
+	}
+
+</script>
+
+
+<style>
+#choos_no {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+#choos_yes {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+</style>
+
+<table style="padding-top: 28px;padding-left: 457PX;">
+<tr>
+<td>
+<input type="submit" value="Clinics" name="Clinics" id="choos_no" onClick="select_admn_category(id)">
+</td>
+<td>
+<input type="submit" value="Lab" name="Lab" id="choos_yes" onClick="select_admn_category(id)">
+</td>
+</tr>
+</table>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example').dataTable();
+});
+</script>
+
+
+
+
+<div id="clinicdiv" style="display:block;">
+<table>
+	<tr>
+		<td width="150px" style="font-family :arial;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add Profile', new_clinic_profile_master_path %></font></td>
+		<td width="850px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td>
+	</tr>
+</table>
+
+<table id='example'>
+  <thead>
+    <th>Clinic</th>
+    <th>Services</th>
+    <th></th>
+    
+ </thead>
+<tbody>
+<% @clinic_profile_masters.each do |clinic_profile_master| %>
+<tr>
+    <td><%= clinic_profile_master.clinic.name %></td>
+    <td><%= clinic_profile_master.services %></td>
+   
+    <td align="center"><%=  link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to VIEW This Record",:width=>20,:height=>20), clinic_profile_master %>&nbsp&nbsp&nbsp
+    <%=  link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), edit_clinic_profile_master_path(clinic_profile_master) %>&nbsp&nbsp&nbsp
+   <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), clinic_profile_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ 
+<% end %>
+</tr>
+</tbody>
+</table>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example1').dataTable();
+});
+</script>
+
+
+
+
+
+<div id="labdiv" style="display:none;">
+<table>
+	<tr>
+		<td width="150px" style="font-family :arial;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add Profile', new_lab_profile_master_path %></font></td>
+		<td width="850px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td>
+	</tr>
+</table>
+<table id='example1'>
+  <thead>
+    <th>Lab</th>
+    <th>Services</th>
+    <th></th>
+    
+ </thead>
+<tbody>
+<% @lab_profile_masters.each do |lab_profile_master| %>
+<tr>
+    <td><%= lab_profile_master.lab.name %></td>
+    <td><%= lab_profile_master.services %></td>
+   
+    <td align="center"><%=  link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to VIEW This Record",:width=>20,:height=>20), lab_profile_master %>&nbsp&nbsp&nbsp
+    <%=  link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), edit_lab_profile_master_path(lab_profile_master) %>&nbsp&nbsp&nbsp
+   <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), lab_profile_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ 
+<% end %>
+</tr>
+</tbody>
+</table>
+</div>
+

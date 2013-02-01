@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lab masters:</b>
+  <%= @test_group.lab_masters_id %>
+</p>
+
+<p>
+  <b>Discontinued:</b>
+  <%= @test_group.discontinued %>
+</p>
+
+<p>
+  <b>Department:</b>
+  <%= @test_group.department %>
+</p>
+
+<p>
+  <b>Group:</b>
+  <%= @test_group.group_id %>
+</p>
+
+<p>
+  <b>Group name:</b>
+  <%= @test_group.group_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_test_group_path(@test_group) %> |
+<%= link_to 'Back', test_groups_path %>

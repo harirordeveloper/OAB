@@ -1,0 +1,37 @@
+<h1>Listing consultants</h1>
+
+<table>
+  <tr>
+    <th>Cliniccode</th>
+    <th>Branchcode</th>
+    <th>Consultantcode</th>
+    <th>Speciality</th>
+    <th>Experience</th>
+    <th>Workingat</th>
+    <th>Mrngtime</th>
+    <th>Evengtime</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @consultants.each do |consultant| %>
+  <tr>
+    <td><%= consultant.clinic_id %></td>
+    <td><%= consultant.clinicbranch_id %></td>
+    <td><%= consultant.consultantcode %></td>
+    <td><%= consultant.speciality %></td>
+    <td><%= consultant.experience %></td>
+    <td><%= consultant.workingat %></td>
+    <td><%= consultant.mrngtime %></td>
+    <td><%= consultant.evengtime %></td>
+    <td><%= link_to 'Show', consultant %></td>
+    <td><%= link_to 'Edit', edit_consultant_path(consultant) %></td>
+    <td><%= link_to 'Destroy', consultant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Consultant', new_consultant_path %>

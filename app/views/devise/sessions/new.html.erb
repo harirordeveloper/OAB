@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#" xml:lang="en" lang="en"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+ 
+
+  <title>Online Media</title>
+  <meta name="description" content="MindMeister">
+  <meta name="author" content="MeisterLabs">
+  <meta name="publisher" content="MeisterLabs">
+  <meta name="distribution" content="global">
+  <meta name="robots" content="follow, all">
+  <meta name="language" content="en">
+  <meta name="revisit-after" content="5 days">
+  
+
+<%=javascript_include_tag "core" %>
+<%=javascript_include_tag "en" %>
+<%=javascript_include_tag "ga" %>
+
+<%=javascript_include_tag "login" %>
+
+<%= stylesheet_link_tag "common" %>
+  <%= stylesheet_link_tag "dlgbox" %>
+
+<script type="text/javascript">
+    if (!MM.status.isOffline()) {
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-630904-2']);
+        _gaq.push(['_setCustomVar', 1, 'UserAuth', 'login_false', 3]);
+        _gaq.push(['_trackPageview']);
+    
+
+    
+
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    /* Send the same tracking events to Google Ad words */
+    
+    }
+</script>
+
+
+<style>
+#lablefield{
+
+color: #10334D;
+line-height: 24px;
+font-size: 14px;
+}
+
+#login-box-field{width: 214px;
+
+}
+#th1{
+font-weight: normal;
+text-align: left;
+
+}
+
+</style>
+
+
+
+
+<script src="login_files/login.js" type="text/javascript" id="login.js"></script></head>
+
+
+<body class="b-ff
+   l-en hidden">
+<div id="fb-root"></div>
+
+</script>
+
+
+<div class="p40">
+    <div class="dialog center">
+  <div class="close" onclick="window.location.href = '/'"></div>
+  <div class="dialog_content login">
+      
+
+<style type="text/css">
+  .flyout.selected {
+    box-shadow: none;
+  }
+
+  .google {
+    background: transparent url('/images/x1/common-64.png') no-repeat 0 -1410px;
+    width: 64px;
+    height: 64px;
+  }
+</style>
+
+
+
+
+
+
+  <div style="margin: 25px 0; text-align: center; clear:both;">
+    <a href="https://www.mindmeister.com/"><img alt="free online mind mapping" src="/assets/logo.gif" width="300" height="56"></a>
+  </div>
+
+
+<div id="logins">
+
+  <form style=""  id="signin_standard" method="post" name="signin_standard">
+
+    
+    <div class="content" style="height:139px;">
+
+<table>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+ <tr>
+<td id="th1"><div id="lablefield" ><strong>User Name</strong></div> </td>
+<td style="padding-left: 66px;padding-bottom: 10px;"><div><%= f.text_field(:username,:id=>"login-box-field") %></div></td>
+</tr>
+<tr>
+<td id="th1"><div id="lablefield"><strong style="margin-right: 8px;">Password</strong></div> </td>
+<td style="padding-left: 66px;padding-bottom: 10px;"><div ><%= f.password_field(:password,:id=>"login-box-field") %></div><br /></td>
+</tr>
+
+</table>
+
+  <span class="login-box-options"><% if devise_mapping.rememberable? -%></span>
+    <div class="field" style="text-align: center;">
+
+<table><tr>
+<td style="
+    padding-left: 146px;
+    padding-bottom: 7px;
+"> <%= render "devise/shared/links" %> </td>
+</tr></table>
+<table>
+
+<tr>
+<td style="padding-left: 141px;"><%= f.check_box :remember_me %></td>
+<td> <%= f.label :remember_me %></td>
+</tr>
+
+</table>
+</div>
+  <p align="left" style="color:white; font-weight:bold;"><%= notice %></p>
+
+
+<% end -%>
+
+
+
+  
+</div>
+
+
+<div class="dialog_buttons">
+<table>
+<tr><td style="padding-right: 205px;">
+  <%= image_submit_tag("login/login-btn.png", :border =>"0", :style=>"margin-left:90px;", :width=>"103", :height=>"32") %></td></tr>
+
+</div>
+
+ <% end -%>
+ </form>
+
+
+    </div>
+</div>
+</div>
+
+
+</body></html>

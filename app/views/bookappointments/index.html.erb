@@ -1,0 +1,33 @@
+<h1>Listing bookappointments</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Age</th>
+    <th>Address</th>
+    <th>Phonenum</th>
+    <th>Email</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bookappointments.each do |bookappointment| %>
+  <tr>
+    <td><%= bookappointment.name %></td>
+    <td><%= bookappointment.gender %></td>
+    <td><%= bookappointment.age %></td>
+    <td><%= bookappointment.address %></td>
+    <td><%= bookappointment.phonenum %></td>
+    <td><%= bookappointment.email %></td>
+    <td><%= link_to 'Show', bookappointment %></td>
+    <td><%= link_to 'Edit', edit_bookappointment_path(bookappointment) %></td>
+    <td><%= link_to 'Destroy', bookappointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bookappointment', new_bookappointment_path %>

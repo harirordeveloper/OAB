@@ -1,0 +1,132 @@
+<script type="text/javascript">
+function select_frequency()
+	{
+		document.getElementById("frequency").value="";
+		if(document.getElementById("c0").checked)
+		{
+			document.getElementById("frequency").value="Daily";
+			for(i=1;i<=7;i++)
+				document.getElementById("c"+i).checked=false;
+			return;
+		}
+		for(i=1;i<=7;i++)
+		{
+			if(document.getElementById("c"+i).checked)
+			{
+				if(document.getElementById("frequency").value=="")
+					document.getElementById("frequency").value=i;
+				else
+					document.getElementById("frequency").value=document.getElementById("frequency").value+","+i;			
+			}	
+		}
+	}	
+</script>
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+<%= form_for @test_master,:remote => true do |f| %>
+  <table  style="
+    margin-left: 13px;
+    margin-top: 12px;
+    margin-bottom: 17px;
+    margin-right: 10px;
+    width: '100%';
+">
+  <tr>
+<%= f.hidden_field :report_collection_days,:readOnly => true, :id =>"frequency" %>
+    <td>
+    <div class="label-field">
+    <%= f.label :lab_masters_id,"Lab Masters" %></div></td>
+    <td>
+     <div class="text-input-bg select">
+    <%= f.select :lab_masters_id,options_for_select(Lab.all.collect{|p| [p.name,p.id]}),{:style => 'width : 150px;'} %></div></td>
+    <td>
+    <div class="label-field">
+    <%= f.label :lab_masters_id, "Lab Id" %></div></td>
+    <td>
+    <div class="label-field input">
+    <%= f.text_field :lab_masters_id %></div></td>
+  <td>
+    <div class="label-field">
+
+    <%= f.label :discontinued %></div></td>
+    <td>
+    <div class="label-field input">
+    <%= f.check_box :discontinued %></div></td>
+  </tr>
+  <tr style="height: 70px;">
+  <td>
+    <div class="label-field">
+   <%= f.label :test_groups_id,"Test Group" %></div></td>
+    <td>
+   <div class="text-input-bg select">
+    <%= f.select :test_groups_id,options_for_select(TestGroup.all.collect{|p| [p.group_name,p.id]}),{:style => 'width : 150px;'} %></div></td>
+ 
+  <td>
+    <div class="label-field">
+    <%= f.label :test_subgroup_id,"Test Sub Group" %></div></td>
+    <td>
+   <div class="text-input-bg select">
+    <%= f.select :test_subgroup_id,options_for_select(TestSubGroup.all.collect{|p| [p.sub_group_name,p.id]}),{:style => 'width : 150px;'} %></div></td>
+  <td>
+    <div class="label-field">
+    <%= f.label :test_name %></div></td>
+    <td>
+    <div class="label-field input">
+    <%= f.text_field :test_name %></div></td>
+ </tr>
+ <tr>
+ <td>
+    <div class="label-field">
+    <%= f.label :report_collection_days,"Report Collection Days" %></div></td>
+  
+    
+   <td rowspan="3" ><div style="border:1px solid;width:300px" align="center"><table>
+	<% i=0 %>
+	<% days=['Daily','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'] %>
+	<% for j in 0..7 %>
+		<% if(i%2==0) %>
+	                   <tr>
+		<% end %>
+											<td><%= check_box :status,'', :id => "c"+i.to_s,:onChange=>"select_frequency()" %></td>
+											<td><%= text_field :day_name,'', :style => "border:0px;",:readOnly => true, :size => "14px",:value=>days[j] %></td>
+											<% i=i+1 %>
+		<% if(i%2==0) %>
+											</tr>
+	       <% end %>
+    <% end %>
+							</table></div>
+						</td>
+
+ <td>
+
+  <div class="label-field">
+    <%= f.label :specimen,"Specimen" %></div></td>
+  <td>  <div class="label-field input">
+    <%= f.text_field :specimen %></div></td>
+</tr>
+</table>
+<table style="margin-left: 10px;margin-bottom: 25px;">
+<tr>
+  <td>
+  <div class="label-field">
+    <%= f.label :disclaiming,"Disclaiming" %></div></td>
+  <td>  <div class="field">
+    <%= f.text_area :disclaiming,:rows => 6,:cols => 80 %></div></td></tr>
+<tr>
+ <td>
+  <div class="label-field">
+    <%= f.label :investigation_details,"Investigation Details" %></div></td>
+  <td>  <div class="field">
+    <%= f.text_area :investigation_details,:rows => 6,:cols => 80 %><div></td>
+  </tr>
+</table>
+  <table style="padding-left: 355px;"><tr><td><%= f.submit 'Save',:class=>"button_css" %></td><td><%= f.submit 'Reset',:class=>"button_css",:type=>"reset" %></td><td class="td_button_css" align="center"><%= link_to 'Back', test_masters_path,:class=>"link_background" %></td></tr></table>
+
+<% end %>

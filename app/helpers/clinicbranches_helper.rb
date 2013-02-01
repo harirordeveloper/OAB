@@ -1,0 +1,2 @@
+module ClinicbranchesHelper
+end

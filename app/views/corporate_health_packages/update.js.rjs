@@ -1,0 +1,8 @@
+if @corporate_health_package
+  if !@corporate_health_package.update_attributes(params[:corporate_health_package])
+  	page.alert @corporate_health_package.errors.full_messages(',').join("\n")
+  else
+	page.alert("Record update sucessfully")
+	page << "window.location.reload()"
+  end
+end

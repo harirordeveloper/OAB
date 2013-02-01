@@ -1,0 +1,190 @@
+
+<script></script>
+<style>
+#choos_no {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+#choos_yes {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+</style>
+
+
+
+<script>
+function select_admn_category(id)
+	{
+
+		var admn_category=document.getElementById(id).value
+		
+		if(admn_category=="Lab")
+		{
+			
+			document.getElementById('sp_master').style.display='none'
+			document.getElementById('lab_sp_master').style.display='block'
+			
+		}
+		else
+		{
+			
+			document.getElementById('sp_master').style.display='block'
+			document.getElementById('lab_sp_master').style.display='none'
+			
+
+			
+		}
+				
+	}
+	
+	
+</script>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example').dataTable();
+});
+</script>
+
+
+<div id="sp_master" style="display:block;">
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+<tr>
+<td  style="padding-left: 375px;">
+<input type="submit" value="Clinics" name="Clinics" id="choos_no" onClick="select_admn_category(id)">
+</td>
+<td>
+<input type="submit" value="Lab" name="Lab" id="choos_yes" onClick="select_admn_category(id)">
+</td>
+
+<td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td>
+
+</tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+<table id='example'>
+ <thead>
+    <th>Name</th>
+    <th></th>
+    
+  </thead>
+
+
+<tbody>
+<% @specalities_masters.each do |specalities_master| %>
+  <tr>
+    <td><%= specalities_master.name %></td>
+    <td><%=link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), specalities_master %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+   <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), edit_specalities_master_path(specalities_master) %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+   <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), specalities_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+</div>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example2').dataTable();
+});
+</script>
+
+
+
+
+<div id=lab_sp_master style="display:none;">
+
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+<table>
+<tr>
+<td  style="padding-left: 375px;">
+<input type="submit" value="Clinics" name="Clinics" id="choos_no" onClick="select_admn_category(id)">
+</td>
+<td>
+<input type="submit" value="Lab" name="Lab" id="choos_yes" onClick="select_admn_category(id)">
+</td>
+
+<td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td>
+
+</tr>
+
+</table>
+
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+
+
+<table id='example2'>
+ <thead>
+    <th>Name</th>
+    <th></th>
+    
+  </thead>
+
+
+<tbody>
+<% @labspecalities_masters.each do |lab_specalities_master| %>
+  <tr>
+    <td><%= lab_specalities_master.name %></td>
+    <td><%=link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), lab_specalities_master %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+   <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), edit_lab_specalities_master_path(lab_specalities_master) %>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+   <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), lab_specalities_master, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+
+</div>
+
+

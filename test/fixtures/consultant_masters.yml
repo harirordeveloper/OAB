@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  degree: MyString
+  specialities: MyString
+  total_exp: 1
+  conformation: false
+  charge: 1.5
+  qualifications: MyText
+  expertise: MyText
+  professional_exp: MyText
+  awards_achievments: MyText
+  consultant: 
+
+two:
+  name: MyString
+  degree: MyString
+  specialities: MyString
+  total_exp: 1
+  conformation: false
+  charge: 1.5
+  qualifications: MyText
+  expertise: MyText
+  professional_exp: MyText
+  awards_achievments: MyText
+  consultant: 

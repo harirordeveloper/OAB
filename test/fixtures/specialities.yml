@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  clinicname: MyString
+  branchname: MyString
+  cardiology: false
+  cardiothoracicsurgery: false
+  neurology: false
+  Neurosurgery: false
+  Oncology: false
+  Hematology: false
+  Orthopaedics: false
+  JointReplacement: false
+  Gastroenterology: false
+
+two:
+  clinicname: MyString
+  branchname: MyString
+  cardiology: false
+  cardiothoracicsurgery: false
+  neurology: false
+  Neurosurgery: false
+  Oncology: false
+  Hematology: false
+  Orthopaedics: false
+  JointReplacement: false
+  Gastroenterology: false

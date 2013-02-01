@@ -1,0 +1,29 @@
+<h1>Listing clinic_flows</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>City</th>
+    <th>Speciality</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @clinic_flows.each do |clinic_flow| %>
+  <tr>
+    <td><%= clinic_flow.name %></td>
+    <td><%= clinic_flow.location %></td>
+    <td><%= clinic_flow.city %></td>
+    <td><%= clinic_flow.speciality %></td>
+    <td><%= link_to 'Show', clinic_flow %></td>
+    <td><%= link_to 'Edit', edit_clinic_flow_path(clinic_flow) %></td>
+    <td><%= link_to 'Destroy', clinic_flow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Clinic flow', new_clinic_flow_path %>

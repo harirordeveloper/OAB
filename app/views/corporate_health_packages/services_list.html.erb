@@ -1,0 +1,34 @@
+
+<table class="sofT" width="80%" id="replace" align="center">
+<thead style="background:#378bf8;">
+<tr align="center">
+		<th>S.No</th>	
+		<th>Test Name</th>
+		<th>Price</th>
+	 </tr></thead>
+<tbody style="background:#c6dfff;">
+	<% i=0 %>
+	<% for corporate_health_package_child in @corporate_health_package.corporate_health_package_children %>
+		<tr>	
+			<td ><%= i=i+1 %></td>
+			<td ><%= TestMaster.find_by_sql("select test_name from test_masters where id='#{corporate_health_package_child.test_name_id}'")[0].test_name %></td>
+			<td><%= corporate_health_package_child.price %></td>
+
+		</tr>
+	<% end %>
+	<tfoot style="background:#378bf8;">
+	<tr> <th colspan="2" align="right">Total Amount :</th><th><%= @corporate_health_package.total_package_price %></th></tr>
+	<tr> <th colspan="2" align="right">Fixed Amount :</th><th><%= @corporate_health_package.fixed_price %></th></tr>
+	</tfoot>
+							
+ </table>
+</td>
+</tr>
+</tbody>
+</table>
+					 
+</div></center>
+				
+</div>
+</center>
+

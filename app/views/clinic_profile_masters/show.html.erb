@@ -1,0 +1,69 @@
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= root_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Clinic:</b>
+  <%= @clinic_profile_master.clinic_id %>
+</p>
+
+<p>
+  <b>Clinicbranches:</b>
+  <%= @clinic_profile_master.clinicbranch_id %>
+</p>
+
+<p>
+  <b>About:</b>
+  <%= @clinic_profile_master.about %>
+</p>
+
+<p>
+  <b>Services:</b>
+  <%= @clinic_profile_master.services %>
+</p>
+
+<p>
+  <b>Packages:</b>
+  <%= @clinic_profile_master.packages %>
+</p>
+
+<p>
+  <b>Photo1:</b>
+ 
+<%= image_tag @clinic_profile_master.photo1_url.to_s %>
+</p>
+
+<p>
+  <b>Photo2:</b>
+  <%= image_tag @clinic_profile_master.photo2_url.to_s %>
+</p>
+
+<p>
+  <b>Photo3:</b>
+  <%= image_tag @clinic_profile_master.photo3_url.to_s %>
+</p>
+
+<p>
+  <b>Photo4:</b>
+  <%= image_tag @clinic_profile_master.photo4_url.to_s %>
+</p>
+
+<p>
+  <b>Photo5:</b>
+  <%= image_tag @clinic_profile_master.photo5_url.to_s %>
+</p>
+
+
+<%= link_to 'Edit', edit_clinic_profile_master_path(@clinic_profile_master) %> |
+<%= link_to 'Back', clinic_profile_masters_path %>

@@ -1,0 +1,41 @@
+
+
+<% form_tag locationmaps_path,:method=>:get do %> 
+<><%= text_field_tag :search,params[:search] %>
+<%= submit_tag "Search Near ",:name=>nil %>
+<%end%>
+
+
+<h1>Listing locationmaps</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Longitude</th>
+    <th>Latitude</th>
+    <th>Gmaps</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @locationmaps.each do |locationmap| %>
+  <tr>
+    <td><%= locationmap.name %></td>
+    <td><%= locationmap.address %></td>
+    <td><%= locationmap.longitude %></td>
+    <td><%= locationmap.latitude %></td>
+    <td><%= locationmap.gmaps %></td>
+    <td><%= link_to 'Show', locationmap %></td>
+    <td><%= link_to 'Edit', edit_locationmap_path(locationmap) %></td>
+    <td><%= link_to 'Destroy', locationmap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Location map', new_locationmap_path %>
+
+<%= gmaps4rails(@json)%>

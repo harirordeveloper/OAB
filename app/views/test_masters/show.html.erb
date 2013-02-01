@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lab masters:</b>
+  <%= @test_master.lab_masters_id %>
+</p>
+
+<p>
+  <b>Discontinued:</b>
+  <%= @test_master.discontinued %>
+</p>
+
+<p>
+  <b>Test groups:</b>
+  <%= @test_master.test_groups_id %>
+</p>
+
+<p>
+  <b>Test subgroup:</b>
+  <%= @test_master.test_subgroup_id %>
+</p>
+
+<p>
+  <b>Test name:</b>
+  <%= @test_master.test_name %>
+</p>
+
+<p>
+  <b>Specimen:</b>
+  <%= @test_master.specimen %>
+</p>
+
+<p>
+  <b>Report collection days:</b>
+  <%= @test_master.report_collection_days %>
+</p>
+
+<p>
+  <b>Disclaiming:</b>
+  <%= @test_master.disclaiming %>
+</p>
+
+<p>
+  <b>Investigation details:</b>
+  <%= @test_master.investigation_details %>
+</p>
+
+
+<%= link_to 'Edit', edit_test_master_path(@test_master) %> |
+<%= link_to 'Back', test_masters_path %>

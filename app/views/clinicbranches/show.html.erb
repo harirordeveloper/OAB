@@ -1,0 +1,114 @@
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= root_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <b>Clinic:</b>
+  <%= @clinicbranch.clinic_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @clinicbranch.name %>
+</p>
+
+<p>
+  <b>Displayname:</b>
+  <%= @clinicbranch.displayname %>
+</p>
+
+<p>
+  <b>Branches:</b>
+  <%= @clinicbranch.branches %>
+</p>
+
+<p>
+  <b>Discontinue:</b>
+  <%= @clinicbranch.discontinue %>
+</p>
+
+<p>
+  <b>Expdate:</b>
+  <%= @clinicbranch.expdate %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%= @clinicbranch.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @clinicbranch.address2 %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @clinicbranch.location_id %>
+</p>
+
+<p>
+  <b>Landmarks:</b>
+  <%= @clinicbranch.landmarks %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @clinicbranch.city_id %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @clinicbranch.state_id %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @clinicbranch.country_id %>
+</p>
+
+<p>
+  <b>Pin:</b>
+  <%= @clinicbranch.pin %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%= @clinicbranch.fax %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @clinicbranch.website %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @clinicbranch.email %>
+</p>
+
+<p>
+  <b>Altemail:</b>
+  <%= @clinicbranch.altemail %>
+</p>
+
+<p>
+  <b>Choosefile:</b>
+  <%= @clinicbranch.choosefile %>
+</p>
+
+
+<%= link_to 'Edit', edit_clinicbranch_path(@clinicbranch) %> |
+<%= link_to 'Back', clinicbranches_path %>

@@ -1,0 +1,24 @@
+<html>
+<head>
+<!--To get the token input field-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<%= javascript_include_tag "jquery.tokeninput" %>
+<%= stylesheet_link_tag "token-input-mac" %>
+<%= stylesheet_link_tag "token-input-facebook" %>
+<%= stylesheet_link_tag "token-input" %>
+<!--To get the data tables-->
+<%= javascript_include_tag "dataTables/jquery.dataTables" %>
+<%= javascript_include_tag "dataTables/jquery.dataTables.min" %>
+<%= stylesheet_link_tag "jquery.dataTables1" %>
+<%= stylesheet_link_tag "jquery.dataTables_themeroller1" %>
+<%= stylesheet_link_tag "demo_page" %>
+<%= stylesheet_link_tag "demo_table" %>
+<%= stylesheet_link_tag "demo_table_jui" %>
+<%= stylesheet_link_tag "demo_validation" %>
+
+<%= stylesheet_link_tag "adminstylesheet/child_table" %>
+</head>
+<body>
+ <%= yield %>
+</body>
+</html>

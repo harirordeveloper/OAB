@@ -1,0 +1,111 @@
+
+
+<script name="text/javascript">
+	function cal()
+	{
+             alert("haiiii")
+	}	
+</script>
+
+
+
+<br />
+
+
+
+<%= form_for @corporate_health_package,:remote => true do |f| %>
+	
+	
+			<div>
+			  <table align="center" width="100%" style="
+    margin-left: 16px;
+    margin-bottom: 16px;
+">
+					
+			  		<tr style="
+    height: 41px;
+">
+			   		<td>Lab Name<sup>*<sup></td>
+				 		<td><div class="text-input-bg select"><%= f.select :branch_code,options_for_select(Lab.all.collect{|p|[p.name,p.id]})  %></div></td>
+			  			<td>Lab Id</td>
+				 		<td><div class="label-field"><%= f.text_field :branch_location,:readOnly => true %></div></td>
+			  			<td>Discontinued</td>
+				 		<td><%= f.check_box :discontinued %></td>
+					</tr>
+					<tr style="height: 41px;">
+						<td>Package Code<sup>*<sup></td>
+						<td><div class="label-field"><%= f.text_field :package_code %></div></td>
+			  		 	<td>Package Name<sup>*<sup></td>
+						<td><div class="label-field"><%= f.text_field :package_name %></div></td>
+					</tr>
+<tr style="height: 41px;">
+<td>Group<sup>*<sup></td>
+    <td><div class="text-input-bg select">
+     <%= f.select :test_group_id,options_for_select(TestGroup.all.collect{|p| [p.group_name,p.id]}), {}, :onchange => 'cal()' %>
+    </div></td>
+<td>Sub Group<sup>*<sup></td>
+ <td><div class="text-input-bg select">
+    <%= f.select :test_sub_group_id,options_for_select(TestSubGroup.all.collect{|p| [p.sub_group_name,p.id]}),{:id =>"sub_group_name",:onChange => "if(this.value){get_tests(this.value);}"} %>
+  </div></td>
+									  			<td>Test Name<sup>*<sup></td>
+						<td><div class="text-input-bg">
+<%= f.select :test_sub_group_id,options_for_select(TestMaster.all.collect{|p| [p.test_name,p.id]}),{:id =>"test_name",:onChange => "get_test(this.value)"} %>
+					</tr>
+ <br /><br />
+					<tr>
+						<td colspan="6" style="padding-top: 20px;padding-bottom: 23px;">
+							 <div id="table_wrapper">
+							 <div id="header_ind">
+								 	
+								 	<div id="head4">Test Id</div>
+									<div id="head7">Test Name</div>
+									<div id="head7">Price</div>
+									<div id="head4">Discount Amt</div>
+									<div id="head4">Net Price</div>
+									<div id="head4">Del</div>
+							 </div>
+							 <div id="tbody">
+								  <table id="scroll_table" class="fixed">
+										<% i=0 %>
+										<%= f.fields_for :corporate_health_package_children do |r| %>	
+											<tr>
+<td class="td4 child_table"><%= text_field('test_group_name','',:id =>"r#{i}c2", :class => "text_field_child",:readOnly => true) %></td>
+												<%= r.hidden_field :test_group_id,:id =>"r#{i}c3", :class => "text_field_child",:readOnly => true %>
+												<td class="td7 child_table"><%= text_field('test_name_id','',:id =>"r#{i}c4", :class => "text_field_child",:readOnly => true) %></td>
+												<%= r.hidden_field :test_name_id,:id =>"r#{i}c5", :class => "text_field_child",:readOnly => true %>
+												<td class="td7 child_table"><%= r.text_field :price,:id =>"r#{i}c6", :class => "text_field_child" %></td>
+												<td class="td4 child_table"><%= r.text_field :discount,:id =>"r#{i}c7", :class => "text_field_child", :onKeyup =>"qty_amount_calculation('#{i}')" %></td>
+												<td class="td4 child_table"><%= r.text_field :net_price,:id =>"r#{i}c8", :class => "text_field_child",:readOnly => true %></td>
+												<%= r.hidden_field :department,:id =>"r#{i}c9", :class => "text_field_child",:readOnly => true %>	
+												<td class="td4 child_table">&nbsp;</td>
+											</tr>
+											<% i=i+1 %>
+										<% end %>
+									 </table>
+							 </div>
+						</div>
+						</td>
+					</tr>
+					<tr style="height: 41px;">
+			  			<td>Package Price</td>
+				 		<td><div class="label-field"><%= f.text_field :total_package_price,:id => "total_package_price" %></div></td>
+			  			<td>Discount Amount<sup>*<sup></td>
+				 		<td><div class="label-field"><%= f.text_field :discount,:id=>"discount",:onKeyUp=>"discount_calculation()" %></div></td>
+			 	 		<td>Fixed Price<sup>*<sup></td>
+				 		<td><div class="label-field"><%= f.text_field :fixed_price,:id =>"fixed_price" %></div></td>
+			  		</tr>
+			  		<tr style="height: 41px;">
+				 		<td>Remarks<sup>*<sup></td>
+				 		<td colspan="5"><div class="label-field"><%= f.text_area :remarks,:rows=>3,:columns=>50 %></div></td>
+			  		</tr>
+				</table>
+<br/>
+</div>
+
+				<br/>
+			   <center>
+					<td><%=f.submit 'Save',:class=>"button_css" %><span id = "creating_events" style = "display:none;">Creating, Please wait...</span></td><td><%= f.submit 'Reset',:class=>"button_css",:type=>"reset" %></td><td class="td_button_css" align="center"><%= link_to 'Back', corporate_health_packages_path,:class=>"link_background" %></td>
+				</center>
+		
+<% end %>
+

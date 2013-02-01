@@ -1,0 +1,213 @@
+
+<script>
+function select_admn_category(id)
+	{
+
+		var admn_category=document.getElementById(id).value
+		if(admn_category=="Lab")
+		{
+			
+			document.getElementById('clinicdiv').style.display='none'
+			document.getElementById('labdiv').style.display='block'
+			
+		}
+		else
+		{
+			
+			document.getElementById('clinicdiv').style.display='block'
+			document.getElementById('labdiv').style.display='none'
+			
+
+			
+		}
+				
+	}
+
+</script>
+
+
+<style>
+#choos_no {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+#choos_yes {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+</style>
+
+<table style="padding-top: 28px;padding-left: 457PX;">
+
+</table>
+
+
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example1').dataTable();
+});
+</script>
+
+<div id="clinicdiv" style="display:block;">
+
+
+<table >
+
+ 
+ <tr>
+<td width="150px"style="font-family :arial;width: 378px;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add Clinic', new_clinic_path %></font></td>
+
+<td style="padding-left: 249px;">
+<input type="submit" value="Clinics" name="Clinics" id="choos_no" onClick="select_admn_category(id)">
+</td>
+<td>
+<input type="submit" value="Lab" name="Lab" id="choos_yes" onClick="select_admn_category(id)">
+</td>
+
+
+<td width="850px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+<table id="example1">
+  <thead>
+   
+    <th>Name</th>
+    <th>Display Name</th>
+    <th>Branches</th>
+    <th>Expiry Date</th>
+    <th>Location</th>
+   <th>E-mail</th>
+    <th></th>
+   
+  </thead>
+
+
+  <tbody>
+    <% @clinics.each do |clinic| %>
+<tr>
+    <td class="sorting_1"><%= clinic.name %></td>
+    <td class="sorting_1"><%= clinic.displayname %></td>
+    <td class="sorting_1"><%= clinic.branches %></td>
+    <td class="sorting_1"><%= clinic.expdate %></td>
+    <td class="sorting_1"><%= clinic.location.name %></td>
+    <td class="sorting_1"><%= clinic.email %></td>
+
+
+
+    <td><%=  link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), clinic %>
+    <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) , edit_clinic_path(clinic) %>
+    <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), clinic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ </tr>
+<% end %>
+
+
+
+</tbody>
+</table>
+
+
+</div>
+<!--#####################################################################-->
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example').dataTable();
+});
+</script>
+
+
+<div id="labdiv" style="display:none;">
+
+<table>
+
+ 
+ <tr>
+<td width="150px"style="font-family :arial;width: 378px;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add lab', new_lab_path %></font></td>
+<td style="padding-left: 249px;">
+<input type="submit" value="Clinics" name="Clinics" id="choos_no" onClick="select_admn_category(id)">
+</td>
+<td>
+<input type="submit" value="Lab" name="Lab" id="choos_yes" onClick="select_admn_category(id)">
+</td>
+
+
+<td width="850px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+<table id="example">
+  <thead>
+   
+    <th>Name</th>
+    <th>Display Name</th>
+    <th>Branches</th>
+    <th>Expiry Date</th>
+    <th>Location</th>
+   <th>E-mail</th>
+    <th></th>
+    
+  </thead>
+
+
+  <tbody>
+    <% @labs.each do |lab| %>
+<tr>
+    <td><%= lab.name %></td>
+    <td><%= lab.displayname %></td>
+    <td><%= lab.branches %></td>
+    <td><%= lab.expdate %></td>
+    <td><%= lab.location.name %></td>
+    <td><%= lab.email %></td>
+
+
+
+    <td><%= link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), lab %>
+   <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) , edit_lab_path(lab) %>
+    <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), lab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+ </tr>
+<% end %>
+
+</tbody>
+</table>
+
+
+
+
+
+
+</div>
+
+
+
+
+

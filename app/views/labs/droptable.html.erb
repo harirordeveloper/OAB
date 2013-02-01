@@ -1,0 +1,92 @@
+
+
+<!--To get the token input field-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<%= javascript_include_tag "jquery.tokeninput" %>
+<%= stylesheet_link_tag "token-input-mac" %>
+<%= stylesheet_link_tag "token-input-facebook" %>
+<%= stylesheet_link_tag "token-input" %>
+<!--To get the data tables-->
+<%= javascript_include_tag "dataTables/jquery.dataTables" %>
+<%= javascript_include_tag "dataTables/jquery.dataTables.min" %>
+<%= stylesheet_link_tag "jquery.dataTables" %>
+<%= stylesheet_link_tag "jquery.dataTables_themeroller" %>
+<%= stylesheet_link_tag "demo_page" %>
+<%= stylesheet_link_tag "demo_table" %>
+<%= stylesheet_link_tag "demo_table_jui" %>
+<%= stylesheet_link_tag "demo_validation" %>
+
+<%= stylesheet_link_tag "adminstylesheet/child_table" %>
+
+<script>
+
+       $('#example td.control').live( 'click', function () {
+   var nTr = this.parentNode;
+   var i = $.inArray( nTr, anOpen );
+    
+   if ( i === -1 ) {
+      $('img', this).attr( 'src', sImageUrl+"details_close.png" );
+      oTable.fnOpen( nTr, fnFormatDetails(oTable, nTr), 'details' );
+      anOpen.push( nTr );
+    }
+    else {
+      $('img', this).attr( 'src', sImageUrl+"details_open.png" );
+      oTable.fnClose( nTr );
+      anOpen.splice( i, 1 );
+    }
+} );
+ 
+function fnFormatDetails( oTable, nTr )
+{
+  var oData = oTable.fnGetData( nTr );
+  var sOut =
+    '<div class="innerDetails">'+
+      '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'+
+        '<tr><td>Rendering engine:</td><td>'+oData.engine+'</td></tr>'+
+        '<tr><td>Browser:</td><td>'+oData.browser+'</td></tr>'+
+        '<tr><td>Platform:</td><td>'+oData.platform+'</td></tr>'+
+        '<tr><td>Version:</td><td>'+oData.version+'</td></tr>'+
+        '<tr><td>Grade:</td><td>'+oData.grade+'</td></tr>'+
+      '</table>'+
+    '</div>';
+  return sOut;
+}
+
+</script>
+
+
+<script>
+$(document).ready(function() {
+  var anOpen = [];
+    var sImageUrl = "/assets/";
+     
+    var oTable = $('#example').dataTable( {
+        "bProcessing": true,
+        "sAjaxSource":'/datasource.txt',
+        "aoColumns": [
+            {
+               "mDataProp": null,
+               "sClass": "control center",
+               "sDefaultContent": '<img src="'+sImageUrl+'details_open.png'+'">'
+            },
+            { "mDataProp": "engine" },
+            { "mDataProp": "browser" },
+            { "mDataProp": "grade" }
+        ]
+    } );
+} );
+
+</script>
+
+
+<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Rendering engine</th>
+            <th>Browser</th>
+            <th>CSS grade</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>

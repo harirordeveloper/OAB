@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<table width=100%>
+
+<tr> 
+
+<td><p>
+  <b>Name:</b>
+  <%= @lab.name %>
+</p></td>
+
+<td><p>
+  <b>Displayname:</b>
+  <%= @lab.displayname %>
+</p></td></tr>
+
+
+<tr><td><p>
+  <b>Branches:</b>
+  <%= @lab.branches %>
+</p></td>
+
+<td><p>
+  <b>Discontinue:</b>
+  <%= @lab.discontinue %>
+</p></td>
+
+<td><p>
+  <b>Expdate:</b>
+  <%= @lab.expdate %>
+</p></tr></td>
+
+
+<td><tr><p>
+  <b>Address1:</b>
+  <%= @lab.address1 %>
+</p></td>
+
+<td><p>
+  <b>Address2:</b>
+  <%= @lab.address2 %>
+</p></td>
+
+<td><p>
+  <b>Location:</b>
+  <%= @lab.location.name %>
+</p></td></tr>
+
+<tr><td><p>
+  <b>Landmarks:</b>
+  <%= @lab.landmarks %>
+</p></td>
+
+<td><p>
+  <b>City:</b>
+  <%= @lab.city_id %>
+</p></td>
+
+<td><p>
+  <b>State:</b>
+  <%= @lab.state_id %>
+</p></td>
+</tr>
+
+
+<tr> 
+<td><p>
+  <b>Country:</b>
+  <%= @lab.country_id %>
+</p></td>
+
+<td><p>
+  <b>Pin:</b>
+  <%= @lab.pin %>
+</p></td>
+
+<td><p>
+  <b>Fax:</b>
+  <%= @lab.fax %>
+</p><td></tr>
+
+
+
+<tr><td><p>
+  <b>Website:</b>
+  <%= @lab.website %>
+</p></td>
+
+<td><p>
+  <b>Email:</b>
+  <%= @lab.email %>
+</p></td>
+
+<td><p>
+  <b>Altemail:</b>
+  <%= @lab.altemail %>
+</p><td>
+
+<td><p>
+  <b>Choosefile:</b>
+  <%= @lab.choosefile %>
+</p> </td></tr>
+</table>
+
+
+
+
+
+<%= link_to 'Edit', edit_lab_path(@lab) %> 
+<%= link_to 'Back', labs_path %>

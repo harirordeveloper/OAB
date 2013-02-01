@@ -1,0 +1,129 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<% javascript_include_tag "top_up-min.js"%>
+
+ <script type="text/javascript">
+      TopUp.addPresets({
+        "#images a": {
+          fixed: 0,
+          group: "images",
+          modal: 0,
+          title: "Example"
+        },
+        "#movies": {
+          resizable: 0
+        }
+      });
+    </script>
+
+<style type="text/css">
+table.curvedEdges { border:1px solid grey;-webkit-border-radius:13px;-moz-border-radius:13px;-msborder-radius:13px;-o-border-radius:13px;border-radius:13px; }
+
+table.doctor tr td { border:0px solid grey;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:10px;margin-bottom:10px;margin-left:10px;margin-right:10px; }
+
+#table
+{
+border:8px solid #66b2ff;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;
+}
+table.doctordesc {-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:0px;margin-bottom:10px;margin-left:10px;margin-right:10px; }
+table.curvedEdges td, table.curvedEdges th {  dotted black;padding:5px; }
+
+
+#img2{width:130px;height:90px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:3px solid #BDBDBD;background-color:#E3A20B;}
+</style>
+
+
+<%= stylesheet_link_tag "eventcalcss/eventCalendar1" %>
+<%= stylesheet_link_tag "eventcalcss/paragridma1" %>
+<%= stylesheet_link_tag "eventcalcss/eventCalendar_theme_responsive1" %>
+<%= stylesheet_link_tag "eventcalcss/eventCalendar_theme1" %>
+
+<%= javascript_include_tag "jquery" %>
+<%= javascript_include_tag "jquery_ui" %>
+
+<%= javascript_include_tag "eventcaljs/jquery.eventCalendar.min1" %>
+<%= javascript_include_tag "eventcaljs/jquery.timeago1" %>
+</head>
+<body>
+<% doctor = @doctor %>
+<div id="doctor_link" class="popup popup_draghandle" style="display:none">
+
+<table>
+<tr>
+
+<td width="180px"><%= link_to "Back To Search Results Page", :controller => "locations",:action => "search", :clinic => $gclinic,:location => $glocation, :city => $gcity, :speciality => $gspeciality%></td>
+
+<td width="30px" valign="middle" style="text-align: center;"> Or</td>
+
+<td><%= link_to "Search Again", :controller => "locations",:action => "search", :clinic => $gclinic,:location => $glocation, :city => $gcity, :speciality => $gspeciality%></td>
+</tr>
+</table>
+</br></br>
+
+<table width="100%">
+<tr>
+<table id="table" width=100%  >
+
+<tr>
+
+<td >
+<table  class="doctor" width="100%"  > <!--START OF FULL PROFILE TABLE-->
+
+
+<tr><td style="padding-top: 25px;"><table id="details" class="doctor" width=100%> <!--START OF FULL Doctor Details-->
+
+<tr>
+<td style="
+    width: 171px;
+    padding-left: 10px;
+"><table ><tr>
+<td > <img src="<%= doctor.image %>" alt="Vinod  Raina" title="Vinod  Raina" id="img2"  /></a>
+</td></tr></table></td>
+
+<td> <table id="nestedtable1" >
+   <tr> <td valign="baseline"> <b style="color: orange;" ><%= @doctor.name %></b> </td> </tr>
+   <tr> <td valign="top"><%= @doctor.qualifications %> </td> </tr>
+   <tr> <td> Delhi, India</td> </tr></table>
+</table></td>
+
+</tr><!--END OF FULL Doctor Details-->
+
+
+
+<tr><td style="height: 30px;"></td></tr>
+<!--START OF FULL Doctor Full DEscription-->
+<tr><td><table id="fulldesc" class="doctordesc" width=100%> 
+
+        <tr><% special = @doctor.specialities.split(',') %>
+        <td><b>Specialities</b>:
+           <% for i in 0...special.length %>
+                </br> * <%= special[i] %>
+           <% end %>
+        </td>
+</tr>
+<tr><td><b>Qualifications:</b></br>* <%= @doctor.qualifications %></td></tr>
+<tr><td><b>Degree:</b></br>* <%= @doctor.degree %></td></tr>
+<tr><td><b>Expertise:</b></br>* <%= @doctor.expertise %></td></tr>
+<tr><td><b>Achievements:</b></br>* <%= @doctor.awards_achievments %></td></tr>
+<tr><td><b>Experience:</b></br>* <%= @doctor.professional_exp %></td></tr>
+
+</table></td></tr><!--END OF FULL Doctor Full DEscription-->
+
+</table>
+</td> <!--END OF FULL PROFILE TABLE-->
+
+
+
+</tr>
+
+</table>
+
+</div>
+
+<%= javascript_tag "new Popup('doctor_popup_#{doctor.id}','doctor_link_#{doctor.id}')" %>
+</body>
+</html>

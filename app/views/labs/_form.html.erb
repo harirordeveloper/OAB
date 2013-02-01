@@ -1,0 +1,307 @@
+<script>
+  $(document).ready(function(){
+     $('#myContent').hide();
+  });
+</script>
+<script type="text/javascript">
+function toggle2(showHideDiv, switchTextDiv) {
+	var ele = document.getElementById(showHideDiv);
+	var text = document.getElementById(switchTextDiv);
+	if(ele.style.display == "block") {
+    		ele.style.display = "none";
+		text.innerHTML = "Add Branch";
+  	}
+	else {
+		ele.style.display = "block";
+		text.innerHTML = "Hide Branch";
+	}
+}
+</script>
+
+
+
+<script>
+    $(function() {
+        $( "#lab_expdate" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+    </script>
+
+<script>
+    $(function() {
+        $( "#lab_labbranches_attributes_0_expdate" ).datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    });
+ </script>
+
+
+
+<%= form_for @lab,:remote => true do |f| %>
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+<div id="div1" style="padding-left: 25px;padding-top: 30px;">
+
+    <table id="2" width=100%>
+
+   <tr>	
+           <td >
+             <div class="label-field">
+                <%= f.label :name %>
+                </div>
+            </td>
+           <td>
+               <div class="label-field input">
+                <%= f.text_field :name %>
+              </div>
+            </td><td></td>
+          <td>
+              <div class="label-field ">
+               <%= f.label :displayname,"Display Name" %></div></td>
+          <td><div class="label-field input">
+             <%= f.text_field :displayname,:size=>15 %>
+            </div></td><td></td>
+
+
+          <td>
+          <div class="label-field">
+             <%= f.label :branches %>
+            </div></td>
+
+           <td><div class="label-field input">
+             <%= f.text_field :branches,:size=>15 %>
+            </div>
+             </td>
+
+
+ 
+</tr>
+
+<tr>
+
+          <td>
+              <div class="label-field">
+              <%= f.label :expdate,"Expity Date" %>
+              </div></td>
+          <td><div class="label-field input">
+              <%= f.text_field :expdate,:size=>15 %>  
+                </div>
+          </td><td></td>
+
+
+          <td>
+               <div class="label-field"><%= f.label :discontinue,"Discontinued" %>
+            </div></td>
+          <td><%= f.check_box :discontinue %></td><td></td>
+
+         <td>
+            <div class="label-field"> <%= f.label :address1 %>
+         </div></td>
+        <td><div class="label-field input"> <%= f.text_field :address1 %></div></td>
+</tr>
+
+<tr>
+    <td><div class="label-field"> <%= f.label :address2 %></div></td>
+     <td><div class="label-field input"><%= f.text_field :address2 %></div></td><td></td>
+  
+     <td><div class="label-field"> <%= f.label :landmarks %> </div></td>
+     <td><div class="label-field input"> <%= f.text_field :landmarks %></div></td><td></td>
+     <td><div class="label-field"> <%= f.label :city_id, "City" %></div></td>
+     <td><div class="text-input-bg select"><%= f.select :city_id,City.all.collect{|p|[p.name,p.id]},:size => 15 %></div></td><td></td>
+
+</tr>
+
+<tr>
+    <td><div class="label-field">  <%= f.label :state, "State" %></div></td>
+      <td><div class="label-field input"><%= f.text_field :state_id,:size=>15 %></div></td><td></td>
+        <td><div class="label-field"><%= f.label :country_id, "Country" %></div></td>
+      <td><div class="text-input-bg select"><%= f.select :country_id,Country.all.collect{|p| [p.name,p.id]},:size=>15 %></div></td><td></td>
+  
+    <td><div class="label-field"> <%= f.label :pin %></div></td>
+     <td><div class="label-field input"><%= f.text_field :pin,:size=>15 %></div> </td><td></td>
+</tr>
+
+<tr>
+   <td><div class="label-field">  <%= f.label :fax %></div></td>
+<td><div class="label-field input"> <%= f.text_field :fax,:size=>15%></div>
+ </td><td></td>
+   <td>
+<div class="label-field"><%= f.label :website %>
+ </div></td>
+<td><div class="label-field input"><%= f.text_field :website,:size=>15 %>
+ </div>
+  </td><td></td>
+
+   <td>
+<div class="label-field">  <%= f.label :email,"E-mail" %>
+ </div></td>
+<td><div class="label-field input"><%= f.text_field :email,:size=>15 %>
+  </div>
+  </td>
+</tr>
+
+
+   <td>
+<div class="label-field"> <%= f.label :altemail %>
+ </div></td>
+<td><div class="label-field input"> <%= f.text_field :altemail,:size=>15 %>
+ </div></td>
+</tr>
+
+<tr>
+<td>
+
+<div class="label-field"> <%= f.label :location_id %>
+ </div></td>
+<td>
+<div class="text-input-bg select"> <%= f.select :location_id,Location.all.collect{|p| [p.name,p.id]},:size=>15 %>
+ </div>
+  </td><td></td>
+
+
+<td>
+<div class="label-field"> <%= f.label :image,"Upload Image" %>
+ </div></td>
+<td>
+<div  ><%= f.file_field(:image,:id =>"")%>
+ </div>
+ </td>
+
+</tr>
+	<tr>
+		<td colspan="8" style="padding-top: 19px;padding-bottom: 20px;">
+	   <div id="table_wrapper">
+		   <div id="header_ind">
+         	<div id="head4" style="color: white;font-weight: bold;">Day</div>
+				<div id="head7" style="color: white;font-weight: bold;">Morning Time</div>
+			 	<div id="head7" style="color: white;font-weight: bold;">Evening Time</div>
+				<div id="head7" style="color: white;font-weight: bold;">Others</div>
+          </div>
+			 <div id="tbody">
+			 	<table id="scroll_table" class="fixed">
+					<% i=0 %>
+            	<%= f.fields_for :lab_timings do |t| %>
+               <tr>
+		           <td class="td4 child_table"><%= t.select :day, options_for_select(["MON", "TUE", "WED","THU","FRI","SAT","SUN"]) %></td>
+		           <td class="td7 child_table"><%= t.time_select :morning_from %>to<%= t.time_select :morning_to %></td>
+		           <td class="td7 child_table"><%= t.time_select :evening_from %>to<%= t.time_select :evening_to %></td>
+		           <td class="td7 child_table"><%= t.time_select :others_from %>to<%= t.time_select :others_to %></td>
+	            </tr>
+					<% i=i+1 %>
+					<% end %>
+				</table>
+			</div>
+		</div>
+		</td>
+	</tr>
+	</table>
+</div>
+<div id="headerDiv">
+<%= image_tag("add.png")%><a id="myHeader" href="javascript:toggle2('myContent','myHeader');" style="width: 100%;color:#e52f00;font-size:14px;">Add Branch</a>
+</div>
+<div id="contentDiv">
+	<div id="myContent" style="display: none;">                       
+		<%= f.fields_for :labbranches do |a| %>
+		<table id="2" width='100%' %>
+		<tr>	
+  			<td id="td1"><div class="label-field"><%= f.label :name %></div></td>
+			<td><div class="label-field input"><%= f.text_field :name %></div></td>
+			<td><div class=".label-field-text "><%= f.label :displayname,"Display Name" %></div></td>
+			<td><div class="label-field input"><%= f.text_field :displayname,:size=>15 %></div></td>
+			<td><div class="label-field"><%= f.label :branches %></div></td>
+			<td><div class="label-field input"><%= f.text_field :branches,:size=>15 %></div></td>
+		</tr>
+		<tr>
+			<td><div class="label-field"><%= f.label :expdate,"Expiry Date" %></div></td>
+			<td><div class="label-field input"><%= f.text_field :expdate,:size=>15 %></div></td>
+			<td><%= f.label :discontinue,"Discontinued"%></td>
+			<td align="left"><%= f.check_box :discontinue %></td>
+	  		<td><div class="label-field"> <%= f.label :address1 %></div></td>
+			<td><div class="label-field input"> <%= f.text_field :address1 ,:size=>20%></div></td>
+		</tr>
+		<tr>
+			<td><div class="label-field"> <%= f.label :address2 %></div></td>
+			<td><div class="label-field input"><%= f.text_field :address2 ,:size=>20%></div></td>
+			<td><div class="label-field"> <%= f.label :landmarks %></div></td>
+			<td><div class="label-field input"> <%= f.text_field :landmarks,:size=>15 %></div></td>
+   		<td><div class="label-field"> <%= f.label :city_id, "City" %></div></td>
+			<td><div class="text-input-bg select"><%= f.select :city_id,City.all.collect{|p| [p.name,p.id]},:size => 15 %></div></td>
+ 		</tr>
+		<tr>
+			<td><div class="label-field">  <%= f.label :state, "State" %></div></td>
+			<td><div class="label-field input"><%= f.text_field :state_id,:size=>15 %></div></td>
+		   <td><div class="label-field"><%= f.label :country_id, "Country" %></div></td>
+			<td><div class="text-input-bg select"><%= f.select :country_id,Country.all.collect{|p| [p.name,p.id]},:size=>15 %></div></td>
+ 			<td><div class="label-field"> <%= f.label :pin %></div></td>
+			<td><div class="label-field input"><%= f.text_field :pin,:size=>15 %></div></td>
+		</tr>
+		<tr>
+			<td><div class="label-field">  <%= f.label :fax %></div></td>
+			<td><div class="label-field input"> <%= f.text_field :fax,:size=>15%></div></td>
+   		<td><div class="label-field"><%= f.label :website %></div></td>
+			<td><div class="label-field input"><%= f.text_field :website,:size=>15 %></div></td>
+   		<td><div class="label-field">  <%= f.label :email %></div></td>
+			<td><div class="label-field input"><%= f.text_field :email,:size=>15 %></div></td>
+		</tr>
+		<tr>
+		   <td><div class="label-field"> <%= f.label :altemail,"Alt.mail" %></div></td>
+			<td><div class="label-field input"> <%= f.text_field :altemail,:size=>15 %></div></td>
+			<td><div class="label-field"> <%= f.label :location_id %></div></td>
+			<td><div class="text-input-bg select"> <%= f.select :location_id,Location.all.collect{|p| [p.name,p.id]},:size=>15 %></div></td>
+			<td><div class="label-field"> <%= f.label :choosefile %></div></td>
+			<td><div class="label-field input"><%= f.file_field :image %></div></td>
+		</tr>
+		<tr>
+			<td colspan="6" style="padding-top: 19px;padding-bottom: 20px;">
+		 	<div id="table_wrapper">
+ 		 		<div id="header_ind">
+				   <div id="head4" style="color: white;font-weight: bold;">Day</div>
+				   <div id="head7" style="color: white;font-weight: bold;">Morning Time</div>
+				   <div id="head7" style="color: white;font-weight: bold;">Evening Time</div>
+				  	<div id="head7" style="color: white;font-weight: bold;">Others</div>
+				</div>
+	      	<div id="tbody">
+				<table id="scroll_table" class="fixed">
+					<% i=0 %>
+               <%= f.fields_for :lab_timings do |t| %>
+               <tbody>
+               	<tr>
+			        		<td class="td4 child_table"><%= t.select :day, options_for_select(["MON", "TUE", "WED","THU","FRI","SAT","SUN"]) %></td>
+			          	<td class="td7 child_table"><%= t.time_select :morning_from %>to<%= t.time_select :morning_to %></td>
+		         		<td class="td7 child_table"><%= t.time_select :evening_from %>to<%= t.time_select :evening_to %></td>
+		      			<td class="td7 child_table"><%= t.time_select :others_from %>to<%= t.time_select :others_to %></td>
+						</tr>
+						<% i=i+1 %>
+					</tbody>
+					<% end %>
+				</table>
+				</div>
+			</div>
+			</td>
+		</tr>
+	</table>
+	<% end %>
+	</div>
+</div>
+<div align="center">
+	 <table><tr><td><%= f.submit 'Save',:class=>"button_css" %></td><td><%= f.submit 'Reset',:class=>"button_css",:type=>"reset" %></td><td class="td_button_css" align="center"><%= link_to 'Back', labs_path,:class=>"link_background" %></td>
+</div>
+
+
+<% end %>
+
+
+

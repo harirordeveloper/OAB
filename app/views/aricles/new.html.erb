@@ -1,0 +1,12 @@
+
+
+<%= form_for @aricle do |f| %>
+<p>
+  <label for="city_id">Country:</label>
+  <%= f.collection_select :city_id, City.find(:all), :id, :name, :prompt => "Select a City" %>
+</p>
+<p id="state_field">
+  <label for="location_id">State or Province:</label>
+  <%= f.grouped_collection_select :location_id, City.order(:name), :locations, :name, :id, :name, include_blank: true %>
+</p>
+<% end %>

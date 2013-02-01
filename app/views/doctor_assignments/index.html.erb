@@ -1,0 +1,42 @@
+
+<script type="text/javascript">
+$(document).ready( function () {
+	$('#example').dataTable();
+} );
+</script>
+<table>
+	<tr>
+		<td width="250px" style="font-family :arial;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add Doctor Assignment', new_doctor_assignment_path %></font></td>
+		<td width="750px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td>
+	</tr>
+</table>
+
+<table id="example">
+ <thead > 
+  <tr>
+   
+    <th>Doctor Name</th>
+    <th>Doctor Id</th>
+    <th>Doctor Charge</th>
+    <th>Clinic Charge</th>
+    <th></th>
+    
+  </tr>
+</thead>
+<tbody> 
+<% @doctor_assignments.each do |doctor_assignment| %>
+ <tr>
+    <td><%= doctor_assignment.doctor_name %></td>
+    <td><%= doctor_assignment.doctor_id %></td>
+    <td><%= doctor_assignment.doctor_charge %></td>
+    <td><%= doctor_assignment.clinic_charge %></td>
+
+
+    <td align="center"><%=  link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to VIEW This Record",:width=>20,:height=>20), doctor_assignment %>&nbsp&nbsp&nbsp
+   <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20), edit_doctor_assignment_path(doctor_assignment) %>&nbsp&nbsp&nbsp
+    <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), doctor_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+
+<% end %>
+</tbody>
+</table>

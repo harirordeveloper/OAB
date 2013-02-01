@@ -1,0 +1,128 @@
+<script></script>
+
+<%= form_for(@consultant) do |f| %>
+  <% if @consultant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@consultant.errors.count, "error") %> prohibited this consultant from being saved:</h2>
+
+      <ul>
+      <% @consultant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+<div style="width:100%;"> 
+<h1 align="Left">New Consultant </h1><br/><br/><br/>
+<table>
+<div style="float:top; width:50%;">
+
+<tr>
+<td>
+ <div class="field">
+    <%= f.label :clinic_id,"Clinic" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= f.select :clinic_id,Clinic.all.collect{|p| [p.name,p.id]},:size=>15 %>
+  </div></td> 
+
+
+
+<td>
+  <div class="field">
+    <%= f.label :clinicbranch_id,"Clinic Branch" %>
+    <%= f.select :clinicbranch_id,Clinicbranch.all.collect{|p| [p.name,p.id]},:size=>15 %>
+  </div></td>
+
+
+  <td><div class="field">
+    <%= f.label :consultantcode,"Consultant Code" %>
+    <%= f.text_field :consultantcode,:size=>15 %>
+  </div><td>
+</tr>
+  
+</div>
+
+<tr></tr>
+<tr></tr>
+<tr></tr>
+
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+<tr></tr>
+
+<tr></tr>
+<tr></tr>
+<tr></tr>
+  <div style="float:bottom; width:50%;">
+<tr>
+  
+  <td><div class="field">
+    <%= f.label :speciality,"Speciality" %>
+    <%= f.text_field :speciality,:size=>15 %>
+  </div></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+
+
+ <td> <div class="field">
+    <%= f.label :experience,"Experience" %>
+    <%= f.number_field :experience,:size=>15 %>
+  </div></td>
+
+ <td> <div class="field">
+    <%= f.label :workingat,"Working At" %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+    <%= f.text_field :workingat,:size=>15%>
+  </div></td>
+  
+
+  </tr>
+
+</table>
+
+</div>
+
+
+<div style="width:100%;,align="center""> 
+<h3>Consultant Available timings</h3>
+
+<table>
+<tr>
+  <div style="float:top; width:50%;">
+
+ <td>
+    <div class="field">
+      <%= f.label :mrngtime %>
+    <%= f.time_select :mrngtime,:size=>20 %>
+  </div>
+</td>
+</div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+
+<div style="float:top; width:50%;">
+<td>
+  <div class="field">
+    <%= f.label :evengtime %>
+    <%= f.time_select :evengtime %>
+  </div>
+</td>
+</div>
+
+
+</tr>
+</table>
+</div>
+
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  <div class="actions" >
+    <%= f.submit %>
+  </div>
+
+</div>
+<% end %>

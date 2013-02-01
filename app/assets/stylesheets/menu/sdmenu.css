@@ -1,0 +1,44 @@
+div.sdmenu {
+	width: 180px;
+	font-family: Arial, sans-serif;
+	font-size :1.4em;
+ 	padding-bottom: 10px;
+	color: #fff;
+   height:30px;
+}
+div.sdmenu div {
+	background: #0B0B61 url(/assets/app_layout_header_bg.jpg) repeat 150px center;
+	overflow: hidden;
+	
+}
+
+div.sdmenu div.collapsed {
+	height: 40px;
+}
+div.sdmenu div span {
+	display: block;
+	padding: 5px 25px;
+	font-weight: bold;
+	color: white;
+	background: url(/assets/menu/expanded.png) no-repeat 150px center;
+	cursor: default;
+	border-bottom: 1px solid #ddd;
+}
+div.sdmenu div.collapsed span {
+	background-image: url(/assets/menu/collapsed.png);
+}
+div.sdmenu div a {
+	padding: 5px 10px;
+	background: #dfd7cf;
+	display: block;
+	border-bottom: 1px solid #ddd;
+	color: black;
+}
+div.sdmenu div a.current {
+	background : #ccc;
+}
+div.sdmenu div a:hover {
+	background-color : black;
+	color: #fff;
+	text-decoration: none;
+}

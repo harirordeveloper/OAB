@@ -1,0 +1,20 @@
+<script></script>
+
+
+<table>
+<tr>
+
+<td width="180px"><%= link_to "Back To Search Results Page", :controller => "locations",:action => "search", :clinic => $gclinic,:location => $glocation, :city => $gcity, :speciality => $gspeciality%></td>
+
+<td width="30px" valign="middle" style="text-align: center;"> Or</td>
+
+<td><%= link_to "Search Again", :controller => "locations",:action => "search", :clinic => $gclinic,:location => $glocation, :city => $gcity, :speciality => $gspeciality%></td>
+</tr>
+</table>
+</br></br>
+
+
+
+<%= render 'form' %>
+
+

@@ -1,0 +1,53 @@
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example').dataTable();
+});
+</script>
+
+
+<h1 align="center" >CLINICS TIMING LIST</h1>
+
+<table id="example">
+   <thead>
+    <th>Day</th>
+    <th>Morning From</th>
+    <th>Morning To</th>
+    <th>Evening From</th>
+    <th>Evening To</th>
+    <th>Others From</th>
+     <th>Others To</th>
+    <th>Clinic Id </th>
+    <th></th>
+    <th></th>
+    <th></th>
+   </thead>
+
+<% @clinic_timings.each do |clinic_timing| %>
+ <tbody>
+    <td><%= clinic_timing.day %></td>
+    <td><%= clinic_timing.morning_from %></td>
+    <td><%= clinic_timing.morning_to %></td>
+    <td><%= clinic_timing.evening_from %></td>
+    <td><%= clinic_timing.evening_to %></td>
+
+    <td><%= clinic_timing.others_from %></td>
+     <td><%= clinic_timing.others_to %></td>
+    <td><%= clinic_timing.clinic_id %></td>
+
+    <td><%= link_to 'Show', clinic_timing %></td>
+    <td><%= link_to 'Edit', edit_clinic_timing_path(clinic_timing) %></td>
+    <td><%= link_to 'Destroy', clinic_timing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+<% end %>
+
+<br />
+
+</tbody>
+
+</table>
+
+<br />
+
+<%= link_to 'New Clinic timing', new_clinic_timing_path %>

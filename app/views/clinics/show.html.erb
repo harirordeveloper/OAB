@@ -1,0 +1,110 @@
+<p id="notice"><%= notice %></p>
+
+<table width=100%>
+
+<tr> 
+
+<td><p>
+  <b>Name:</b>
+  <%= @clinic.name %>
+</p></td>
+
+<td><p>
+  <b>Displayname:</b>
+  <%= @clinic.displayname %>
+</p></td></tr>
+
+
+<tr><td><p>
+  <b>Branches:</b>
+  <%= @clinic.branches %>
+</p></td>
+
+<td><p>
+  <b>Discontinue:</b>
+  <%= @clinic.discontinue %>
+</p></td>
+
+<td><p>
+  <b>Expdate:</b>
+  <%= @clinic.expdate %>
+</p></tr></td>
+
+
+<td><tr><p>
+  <b>Address1:</b>
+  <%= @clinic.address1 %>
+</p></td>
+
+<td><p>
+  <b>Address2:</b>
+  <%= @clinic.address2 %>
+</p></td>
+
+<td><p>
+  <b>Location:</b>
+  <%= @clinic.location.name %>
+</p></td></tr>
+
+<tr><td><p>
+  <b>Landmarks:</b>
+  <%= @clinic.landmarks %>
+</p></td>
+
+<td><p>
+  <b>City:</b>
+  <%= @clinic.city_id %>
+</p></td>
+
+<td><p>
+  <b>State:</b>
+  <%= @clinic.state_id %>
+</p></td>
+</tr>
+
+
+<tr> 
+<td><p>
+  <b>Country:</b>
+  <%= @clinic.country_id %>
+</p></td>
+
+<td><p>
+  <b>Pin:</b>
+  <%= @clinic.pin %>
+</p></td>
+
+<td><p>
+  <b>Fax:</b>
+  <%= @clinic.fax %>
+</p><td></tr>
+
+
+
+<tr><td><p>
+  <b>Website:</b>
+  <%= @clinic.website %>
+</p></td>
+
+<td><p>
+  <b>Email:</b>
+  <%= @clinic.email %>
+</p></td>
+
+<td><p>
+  <b>Altemail:</b>
+  <%= @clinic.altemail %>
+</p><td>
+
+<td><p>
+  <b>Choosefile:</b>
+  <%= @clinic.choosefile %>
+</p> </td></tr>
+</table>
+
+
+
+
+
+<%= link_to 'Edit', edit_clinic_path(@clinic) %> 
+<%= link_to 'Back', clinics_path %>

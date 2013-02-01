@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+<%= stylesheet_link_tag "default.css"%>
+<%= stylesheet_link_tag "style.css"%>
+<%= stylesheet_link_tag "styles.css"%>
+<%= stylesheet_link_tag "page.css"%>
+<%= stylesheet_link_tag "jquery-ui"%>
+<script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+    </script>
+    <!--tabs styles over-->
+</head>
+<body>
+<!-- start wrapper -->
+<div id="wrapper">
+	<!-- start menu -->
+	<div id="menu">
+		<ul>
+			<li><a href="/home/index">Home</a></li>
+			<li><a href="/home/aboutus">About Us</a></li>
+			<li><a href="/home/hospitals_clinics">Hospitals / Clinics</a></li>
+			<li><a href="/home/labs">Labs</a></li>
+			<li><a href="/home/partners">Partners</a></li>
+			<li><a href="/home/support">Support</a></li>
+		</ul>
+	</div>
+	<!-- end menu -->
+	<!-- start header -->
+	<div id="header">
+		<div id="logo">
+			<a href="#"><img src="/assets/logo.gif" style="width: 270px;height: 57px;"></a>
+		</div>
+		<div id="call1">
+		    <img src="/assets/phone.png" style="width:21px;">
+		</div>
+		<div id="call">
+		    	For Appointment call us at <span class="calltext">(040) 40203231</span>
+		</div>
+
+		<div id="socioc">
+		<img src="/assets/fu.gif" style="height: 21px;">
+			<a href=""><img src="/assets/f.png" style="width: 33px;"></a> <a href=""><img src="/assets/t.png" style="width: 33px;"></a> <a href=""><img src="/assets/l.png" style="width: 48px;"></a> <a href=""><img src="/assets/yt.gif" style="width: 68px;"></a>
+		</div>
+	</div>
+	<div id="headerbot"></div>
+	<!-- end header -->
+	<!-- start page -->
+	<div id="page">
+		<div id="bgtop"></div>
+		<div id="bgbottom">
+			<!-- start content -->
+			<div id="content">
+				<div class="post">
+					<div class="bigpix">
+						
+
+</div>
+		
+					<h1 class="title"><a href="#">Partners</a></h1>
+						
+					<div class="cust1">
+					    <div class="cust2"><img src="/assets/emory.png" style="width: 110px;height: 80px;"></div>
+					    <div class="cust3">Emory Hospital Orthopaedic Centre is a specialty hospital providing complete orthopaedic, trauma and spinal care. The hospital focuses on musculoskeletal care and complex surgical procedures including total joint (hip and knee) and spinal operations.
+The hospital offers a wide array of medical and surgical treatments for both children and adults in the fields of the following: -
+Joint Replacement Surgery (Primary and Revision)
+Spine Surgery
+Accident and Fracture Surgery
+Bone and Soft tissue cancer
+Sports injures
+Osteoporosis and Rheumatology
+The core team of specialists - Dr. Ved Prakash, Dr. Raghava Dutt Mulukutla and
+Dr. Udai Prakash are all highly accomplished in their fields and have trained and worked in the UK as Consultant Orthopaedic Surgeons.</div>
+					</div>
+					
+					<div class="cust1">
+					    <div class="cust2"><img src="/assets/vamshi.jpg" style="width: 110px;height: 80px;"></div>
+					    <div class="cust3">Vamsi Clinic is a proud exclusive member of Transitions International Group.  TRANSITIONS INTERNATIONAL GROUP is an elite group of Hair Restoration Specialists, comprised of an award-winning  international membership of the world's finest hair replacement and hair restoration clinics.
+
+As a Transitions International group we are the founders of the American Hair Loss Council, Past presidents of the American Hair Loss Council, Teachers at the national and international level, The creators of many of the top Hair Restoration procedures, The longest established Hair Loss Replacement clinics in the United States, Manufacturers of hair replacement products for global distribution.</div>
+					</div>
+					
+					<div class="cust1">
+					    <div class="cust2"><img src="/assets/smhlogo.png" style="width: 110px;height: 80px;"></div>
+					    <div class="cust3">SMH Hospitals is one of the fastest growing chain of hospitals in India, engaged in providing primary as well as tertiary healthcare services, with a difference. It is a hospital chain that is founded and managed by professionals with a mission and a passion for providing healthcare for the needy. At CARE, the growth has been phenomenal.
+Bringing healthcare access to village doorsteps in more than a million low- income population in Andhra Pradesh & Maharashtra </div>
+					</div>
+
+<div class="cust1">
+					    <div class="cust2"><img src="/assets/Sripoojahos.jpg" style="width: 110px;height: 80px;"></div>
+					    <div class="cust3">Pooja Hospital is committed to excellence in healthcare by providing Safe, Ethical, Affordable Medicare. Its philosophy is guided by a Humane approach evident in a Patient friendly Attitude and Ambience. The Best Environment for Patient Recovery and Comfort. Highly Qualified Professionals who believe in and contribute to Hospital's vision .A woman should consult a gynecologist immediately after a missed menstrual period to confirm pregnancy and to decide whether she should continue the pregnancy or go in for termination.  Maharashtra </div>
+					</div>
+<div class="cust1">
+					    <div class="cust2"><img src="/assets/svl.jpg" style="width: 110px;height: 80px;"></div>
+					    <div class="cust3">In the year 1997 he started his own 20 bedded S.V.Hospital with full fledged Operation Theatres,well equipped Lab Facility and 24Hrs Pharmacy.And he has dedicated team of Doctors and well Trained Nursing Staff. The Hospital is recognised by most of the Insurance Organizations .
+
+For the sake of Poor Patients S.V.Hospital takes up Cleft Lip & Palate Surgery for free of Cost with the help of Operation Blessing India as a Charity.</div>
+					</div>
+
+<div class="cust1">
+					    <div class="cust2"><img src="/assets/war-fin.png" style="width: 110px;height: 80px;"></div>
+					    <div class="cust3">Warangal Hospital has the Best Dermatologist skin practitioners and Doctors and , all the therapies and programs are well researched and tested to avoid any risk or side-effects. The creators of many of the top Hair Restoration procedures, The longest established Hair Loss Replacement clinics in the United States, Manufacturers of hair replacement products for global distribution.MIDAS treatments are invented and developed at COSMO itself. we maintain hygiene and safety to the best of medical care & supervision.COSMO has the Best Dermatologist skin practitioners and Doctors and , all the therapies and programs are well researched and tested to avoid any risk or side-effects. COSMO treatments are invented and developed at COSMO itself.
+</div>
+					</div>
+
+
+
+					
+					<div class="cust1">
+					    <div class="cust2"><img src="/assets/midas.jpg" style="width: 110px;height: 80px;"></div>
+					    <div class="cust3">	
+
+The “Midas Institute of Gastroenterology” has left no stone unturned in making available to our patients this comprehensive care center with the philosophy of “complete gastro-intestinal care under one roof” at an affordable cost.
+The trained residents and the nursing staff at our institute are known for their devotion to the patients; and their relatives often have a word of praise for the dedicated team.
+At Midas, it has constantly been our endeavour to provide the best facilities to the patients of Central India and it is with this objective that we have carried out certain improvements in our infrastructure. A host of experts have joined our family of committed heath care professionals who are obsessed with the desire to excel in their field of specialization. I take this opportunity to share with you some of the recent developments at Midas which have given us immense pleasure.
+With warm personal regards.
+
+
+.</div>
+					</div>
+				</div>
+			</div>
+			<!-- end content -->
+						
+			<!-- start sidebar two -->
+			<div id="sidebar2" class="sidebar">
+				<ul>
+					<li>
+						<h1 class="borbot">Featured Product</h1>
+						<div class="botm">
+							<table summary="Calendar">
+												
+								<tbody>
+								<tr>
+								<td><img src="/assets/medieaz.gif"  style="width: 183px;height: 88px;border: 1px solid #DDD;border-radius: 4px;margin: 10px;"></td>
+								</tbody>
+							</table>
+						</div>
+					</li>
+					<li class="botm">
+						<h1 class="borbot">Press Room</h1>
+						<p style="color: #1D62B3;">Exleaz Managing Director Mr.Sam in TV5 News</p>
+						<a href="#"><iframe width="200" height="150" src="http://www.youtube.com/embed/nyuAnkxeneI" frameborder="0" allowfullscreen></iframe></a>
+						</li>
+					<li>
+					    <h1 class="borbot">Top Rated Hospitals / Clinics</h2>
+					    <div id="calendar_wrap">
+							<table summary="Calendar">
+								
+								<tbody>
+									<tr>
+										<td><a href="#"><img src="/assets/emory.png" style="width: 150px;"></a></td>
+																													
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/vamshi.jpg" style="width: 150px;"></a></td>
+										
+										</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/gsl_logo.gif" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/smhlogo.png" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/midas.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/svl.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									
+								</tbody>
+							</table>
+						</div></li>
+					
+				</ul>
+			</div>			<!-- end sidebar two -->
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+	</div>
+	<!-- end page -->
+	<hr />
+	<!-- start footer -->
+	<div id="footer">
+		<ul>
+                <li><a href="/home/home">Home</a></li><li><a href="/home/aboutus">About Us</a></li><li><a href="/home/hospitals_clinics">Hospitals/Clinics</a></li><li><a href="/home/labs">Labs</a></li><li><a href="/home/partners">Patners</a></li><li><a href="/home/support">Support</a></li><li><a href="/home/contactus">Contact Us</a></li><li><a href="/home/feedback">Feedback</a></li><li><a href="#">Privacy Policy</a></li><li class="last">© Copyright 2013 OnlineMedLab</li>
+              </ul>
+	</div>
+	<!-- end footer -->
+</div>
+<!-- end wrapper -->
+</body>
+</html>

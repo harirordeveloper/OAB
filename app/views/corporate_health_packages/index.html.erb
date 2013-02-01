@@ -1,0 +1,111 @@
+<%= javascript_include_tag 'jquery' %>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<%= javascript_include_tag 'jquery_ujs' %>
+<!--To get the data tables-->
+<%= javascript_include_tag "dataTables/jquery.dataTables" %>
+<%= javascript_include_tag "dataTables/jquery.dataTables.min" %>
+<%= stylesheet_link_tag "jquery.dataTables1" %>
+<%= stylesheet_link_tag "jquery.dataTables_themeroller1" %>
+<%= stylesheet_link_tag "demo_page" %>
+<%= stylesheet_link_tag "demo_table" %>
+<%= stylesheet_link_tag "demo_table_jui" %>
+<%= stylesheet_link_tag "demo_validation" %>
+
+
+
+
+<style>
+#choos_no {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+
+#choos_yes {
+width: 80px;
+height: 30px;
+background-color: #0078FF;
+background-image: none;
+background-position: 0 0;
+border-width: 1px 0 0 0;
+border-style: solid;
+border-color: transparent;
+border-radius: 16px;
+-moz-border-radius: 16px;
+-webkit-border-radius: 16px;
+font: bold 13px Arial;
+color: white;
+text-decoration: none;
+text-shadow: 0 1px 1px black;
+cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example1').dataTable();
+});
+</script>
+<table>
+
+ 
+ <tr>
+<td width="150px" style="font-family :arial;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add Package', new_corporate_health_package_path %></font></td>
+
+<td width="850px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+
+<table id="example1">
+  <thead>
+
+			<tr>
+				
+				<th>Branch Name</th>
+				<th>Branch Location</th>
+				<th>Code</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Discount</th>
+				<th>Net Price</th>
+                                <th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% i=1 %>
+			<% @corporate_health_packages.each do |corporate_health_package| %>
+			  <tr>
+			    
+			    <td><%=h corporate_health_package.branch_code %></td>
+			    <td><%=h corporate_health_package.branch_location %></td>
+				 <td><%=h corporate_health_package.package_code %></td>
+				 <td><%=h corporate_health_package.package_name %></td>
+				 <td><%=h number_with_precision(corporate_health_package.total_package_price, :precision => 2, :separator => '.') %></td>
+				 <td><%=h number_with_precision(corporate_health_package.discount, :precision => 2, :separator => '.') %></td>
+			    <td><%=h number_with_precision(corporate_health_package.fixed_price, :precision => 2, :separator => '.') %></td>
+                              <td><%= link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to Show This Record",:width=>20,:height=>20), corporate_health_package %>
+   <%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) , edit_corporate_health_package_path(corporate_health_package) %>
+    <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), corporate_health_package, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+			  </tr>
+			 
+			<% end %>
+		</tbody>
+		<tfoot>
+	</table>
+</div>
+
+<div class="spacer"></div>

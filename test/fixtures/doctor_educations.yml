@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  degree: MyString
+  college: MyString
+  address: MyString
+  year_of_pass: 
+  consultant_master: 
+
+two:
+  degree: MyString
+  college: MyString
+  address: MyString
+  year_of_pass: 
+  consultant_master: 

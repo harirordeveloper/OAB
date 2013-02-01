@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @locationmap.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @locationmap.address %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @locationmap.longitude %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @locationmap.latitude %>
+</p>
+
+<p>
+  <b>Gmaps:</b>
+  <%= @locationmap.gmaps %>
+</p>
+
+<%= gmaps4rails(@json) %>
+
+<h3>Nearby Locations</h3>
+<ul>
+<% for location in @locationmap.nearbys(5) %>
+  <li><%= link_to location.address, location %> (<%= location.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+
+
+<%= link_to 'Edit', edit_locationmap_path(@locationmap) %> |
+<%= link_to 'Back', locationmaps_path %>

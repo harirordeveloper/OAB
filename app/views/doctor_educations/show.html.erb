@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Degree:</b>
+  <%= @doctor_education.degree %>
+</p>
+
+<p>
+  <b>College:</b>
+  <%= @doctor_education.college %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @doctor_education.address %>
+</p>
+
+<p>
+  <b>Year of pass:</b>
+  <%= @doctor_education.year_of_pass %>
+</p>
+
+<p>
+  <b>Consultant master:</b>
+  <%= @doctor_education.consultant_master %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_education_path(@doctor_education) %> |
+<%= link_to 'Back', doctor_educations_path %>

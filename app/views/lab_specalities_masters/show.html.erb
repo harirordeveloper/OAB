@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= root_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+<p>
+  <b>Name:</b>
+  <%= @specalities_master.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_specalities_master_path(@specalities_master) %> |
+<%= link_to 'Back', specalities_masters_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <b>Doctor name:</b>
+  <%= @doctor_assignment.doctor_name %>
+</p>
+
+<p>
+  <b>Doctor:</b>
+  <%= @doctor_assignment.doctor_id %>
+</p>
+
+<p>
+  <b>Doctor charge:</b>
+  <%= @doctor_assignment.doctor_charge %>
+</p>
+
+<p>
+  <b>Clinic charge:</b>
+  <%= @doctor_assignment.clinic_charge %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_assignment_path(@doctor_assignment) %> |
+<%= link_to 'Back', doctor_assignments_path %>

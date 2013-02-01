@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<%= stylesheet_link_tag "default.css"%>
+<%= stylesheet_link_tag "style.css"%>
+<%= stylesheet_link_tag "styles.css"%>
+<%= stylesheet_link_tag "page.css"%>
+<%= stylesheet_link_tag "jquery-ui"%>
+<%= javascript_include_tag "jquery-1.8.3"%>
+<%= javascript_include_tag "jquery-ui"%>
+<%= javascript_include_tag "jquery_ujs"%>
+
+
+<script type="text/javascript" >
+function message(id)
+       {
+      
+
+        value = $( "#" + id + "" ).val();
+         alert(value);
+        }
+
+</script>
+
+</head>
+<body>
+<!-- start wrapper -->
+<div id="wrapper">
+	<!-- start menu -->
+	<div id="menu">
+		<ul>
+			<li><a href="/home/index">Home</a></li>
+			<li><a href="/home/aboutus">About Us</a></li>
+			<li><a href="/home/hospitals_clinics">Hospitals / Clinics</a></li>
+			<li><a href="/home/labs">Labs</a></li>
+			<li><a href="/home/partners">Partners</a></li>
+			<li><a href="/home/support">Support</a></li>
+		</ul>
+	</div>
+	<!-- end menu -->
+	<!-- start header -->
+	<div id="header">
+		<div id="logo">
+			<a href="#"><img src="/assets/logo.gif" style="width: 270px;height: 57px;"></a>
+		</div>
+		<div id="call1">
+		    <img src="/assets/phone.png" style="width:21px;">
+		</div>
+		<div id="call">
+		    	For Appointment call us at <span class="calltext">(040) 40203231</span>
+		</div>
+
+		<div id="socioc">
+		<img src="/assets/fu.gif" style="height: 21px;">
+			<a href=""><img src="/assets/f.png" style="width: 33px;"></a> <a href=""><img src="/assets/t.png" style="width: 33px;"></a> <a href=""><img src="/assets/l.png" style="width: 48px;"></a> <a href=""><img src="/assets/yt.gif" style="width: 68px;"></a>
+		</div>
+	</div>
+	<div id="headerbot"></div>
+	<!-- end header -->
+	<!-- start page -->
+	<div id="page">
+		<div id="bgtop"></div>
+		<div id="bgbottom">
+			<!-- start content -->
+			<div id="content">
+				<div class="post">
+					<div class="bigpix">
+						
+
+</div>
+		
+					<h1 class="title"><a href="#">Feed back</a></h1>
+						
+					<div style="width:100%;background-color: #EAF7EE;">
+					    <div class="blehead">
+						<p>Please provide your valueble feedback</p>
+					    </div>
+					    
+					    <table class="hos" style="width: 100%;">
+					        <tbody>
+						<tr style="width:100%;background-color: #eaf7ee;height: 62px;"><td style="padding-left: 12px;">Hospital Name <br><input type="text" name="" class="inprad"></td><td>Doctor Name<br><input type="text" name=""></td><td>Location  <br><input type="text" name="" class="inprad"></td><td>City <br><input type="text" name="" class="inprad"></td><td><br><input type="submit" name="" value="Go" class="btnsearch"></td></tr>
+					    </tbody>
+					</table>
+					</div>
+                                        <div style="background: #fff">&nbsp;&nbsp;</div>
+					<table class="hos" style="width: 100%;border: 1px solid skyblue;background: #dcdcdc;">
+					        <tbody>
+						<tr class="btmhead3"><td style="padding-left: 12px;">Hospital Name: </td><td>Doctor Name</td><td>Location</td></tr>
+						<tr class="btmhead3"><td style="padding-left: 12px;">Appoinment Date  </td><td>Appoinment Numbers</td><td>&nbsp;</td></tr>
+						</tbody>
+					</table>
+                                        
+                                        <div style="background: #fff">&nbsp;&nbsp;</div>
+                                        <form action="" name="">
+					<table class="hos" style="width: 100%;">
+					        <tbody>
+						<tr class="feedhead"><td style="padding-left: 12px;">Doctors Rated </td><td class="center">Excellent</td><td class="center">Good</td><td class="center">Average</td><td class="center">Bad</td><td class="center">Very Bad</td></tr>
+<tr class="btmhead2">
+<td style="padding-left: 12px;">Doctors Expertise</td>
+
+<td class="center">
+<%= radio_button_tag('docexpertise','exellent',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+
+<td class="center"><%= radio_button_tag('docexpertise', 'good',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+<td class="center"><%= radio_button_tag('docexpertise', 'avarage',checked = false,options = {:onclick =>"message(this.id)"})  %></td>
+<td class="center"><%= radio_button_tag('docexpertise', 'bad',checked = false,options = {:onclick =>"message(this.id)"})  %></td>
+<td class="center"><%= radio_button_tag('docexpertise', 'very bad',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+</tr>
+
+<tr class="btmhead2"><td style="padding-left: 12px;">Quality of Service</td>
+<td class="center">
+<%= radio_button_tag('qualityofservice','exellent',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+
+<td class="center"><%= radio_button_tag('qualityofservice', 'good',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+<td class="center"><%= radio_button_tag('qualityofservice', 'avarage',checked = false,options = {:onclick =>"message(this.id)"})  %></td>
+<td class="center"><%= radio_button_tag('qualityofservice', 'bad',checked = false,options = {:onclick =>"message(this.id)"})  %></td>
+<td class="center"><%= radio_button_tag('qualityofservice', 'very bad',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+</tr>
+
+<tr class="btmhead2"><td style="padding-left: 12px;">Self behaviour</td>
+<td class="center">
+<%= radio_button_tag('behaviour','exellent',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+
+<td class="center"><%= radio_button_tag('behaviour', 'good',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+<td class="center"><%= radio_button_tag('behaviour', 'avarage',checked = false,options = {:onclick =>"message(this.id)"})  %></td>
+<td class="center"><%= radio_button_tag('behaviour', 'bad',checked = false,options = {:onclick =>"message(this.id)"})  %></td>
+<td class="center"><%= radio_button_tag('behaviour', 'very bad',checked = false,options = {:onclick =>"message(this.id)"}) %></td>
+</tr>
+					    </tbody>
+					</table>
+			</form>
+                                        
+                                        <div style="background: #fff">&nbsp;&nbsp;</div>
+                                        <form action="" name="">
+					<table class="hos" style="width: 100%;">
+					        <tbody>
+						<tr class="feedhead"><td style="padding-left: 12px;">Healthcareonline.com </td><td class="center">Yes</td><td class="center">No</td></tr>
+                                                <tr class="btmhead2"><td style="padding-left: 12px;">Are you happpy with your Healthcareonline.com</td><td class="center"><input type="radio" name="1" value="1" ></td><td class="center"><input type="radio" name="1" value="2"></td></tr>
+						<tr class="btmhead2"><td style="padding-left: 12px;">Would you use 'Healthcareonline' for faster appoinments </td><td class="center"><input type="radio" name="2" value="1"></td><td class="center"><input type="radio" name="2" value="2"></td></tr>
+						<tr class="btmhead2"><td style="padding-left: 12px;">Would you like to refer to your friends</td><td class="center"><input type="radio" name="3" value="1"></td><td class="center"><input type="radio" name="3" value="2"></td></tr>
+					    </tbody>
+					</table>
+			</form>
+                                        
+                                        <table width="100%">
+                                            <tr>
+                                                <td style="width:450px;font-weight: bold;padding-left: 16px;">Suggestions / Comments</td><td style="width:450px;"><textarea rows="3" cols="48"></textarea></td>
+                                            </tr>
+                                        </table>
+                                        <div style="text-align: center;margin-top: 30px;">
+                                            <input type="submit" name="" value="Submit" class="btnsearch">
+                                        </div>
+				</div><!--post ends-->
+			</div>
+			<!-- end content -->
+						
+			<!-- start sidebar two -->
+			<div id="sidebar2" class="sidebar">
+				<ul>
+					<li>
+						<h1 class="borbot">Featured Product</h1>
+						<div class="botm">
+							<table summary="Calendar">
+												
+								<tbody>
+								<tr>
+								<td><img src="/assets/medieaz.gif"  style="width: 183px;height: 88px;border: 1px solid #DDD;border-radius: 4px;margin: 10px;"></td>
+								</tbody>
+							</table>
+						</div>
+					</li>
+					<li class="botm">
+						<h1 class="borbot">Press Room</h1>
+						<p style="color: #1D62B3;">Exleaz Managing Director Mr.Sam in TV5 News</p>
+						<a href="#"><iframe width="200" height="150" src="http://www.youtube.com/embed/nyuAnkxeneI" frameborder="0" allowfullscreen></iframe></a>
+						</li>
+					<li>
+					    <h1 class="borbot">Top Rated Hospitals / Clinics</h2>
+					    <div id="calendar_wrap">
+							<table summary="Calendar">
+								
+								<tbody>
+									<tr>
+										<td><a href="#"><img src="/assets/emory.png" style="width: 150px;"></a></td>
+																													
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/vamshi.jpg" style="width: 150px;"></a></td>
+										
+										</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/gsl_logo.gif" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/smhlogo.png" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/midas.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/svl.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									
+								</tbody>
+							</table>
+						</div></li>
+					
+				</ul>
+			</div>			<!-- end sidebar two -->
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+	</div>
+	<!-- end page -->
+	<hr />
+	<!-- start footer -->
+	<div id="footer">
+		<ul>
+                <li><a href="/home/home">Home</a></li><li><a href="/home/aboutus">About Us</a></li><li><a href="/home/hospitals_clinics">Hospitals/Clinics</a></li><li><a href="/home/labs">Labs</a></li><li><a href="/home/partners">Patners</a></li><li><a href="/home/support">Support</a></li><li><a href="/home/contactus">Contact Us</a></li><li><a href="/home/feedback">Feedback</a></li><li><a href="#">Privacy Policy</a></li><li class="last">© Copyright 2013 OnlineMedLab</li>
+              </ul>
+	</div>
+	<!-- end footer -->
+</div>
+<!-- end wrapper -->
+</body>
+</html>

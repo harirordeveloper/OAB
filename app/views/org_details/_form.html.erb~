@@ -1,0 +1,157 @@
+<script></script>
+<style>
+
+#trstyle{
+
+    height: 37px;
+}
+
+
+#tdstyle{
+   
+    width: 150px;
+}
+
+#heading{
+font-size: 20px;
+color: black;
+padding: 0 0 6px 0;
+margin: 0;
+padding-left: 100px;
+font-weight: bold;
+
+}
+#h5{
+font-size: 20px;
+color: black;
+padding: 0 0 6px 0;
+margin: 0;
+padding-left: 0px;
+font-weight: bold;
+
+}
+
+</style>
+
+<script></script>
+<%= form_for(@org_detail) do |f| %>
+  <% if @org_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@org_detail.errors.count, "error") %> prohibited this org_detail from being saved:</h2>
+
+      <ul>
+      <% @org_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<b id="heading">Sign Up For a Free Business Account (Hospital/Clinic/Medical Lab)
+</b>
+<div style="border:8px solid #66B2FF;width: 597px;margin-left: 100px;">
+  <table style="margin: auto 0;margin-left: 30px;margin-top: 30px;margin-bottom: 30px;" >
+  <tr><td id="tdstyle"><b id="h5">Business Owner Details</b></td></tr>
+
+  <tr id="trstyle">
+     <td id="tdstyle">Username</td>
+     <td><%= text_field_tag :user_name,"", :style=>"width: 208px;" %></td>
+  </tr>
+  <tr id="trstyle">
+     <td id="tdstyle">Password</td>
+     <td><%= text_field_tag :password,"", :style=>"width: 208px;" %></td>
+  </tr>
+  <tr id="trstyle">
+     <td id="tdstyle">Confirm Password</td>
+     <td><%= text_field_tag :password,"", :style=>"width: 208px;" %></td>
+  </tr>
+  <tr id="trstyle">
+     <td id="tdstyle">E-mail Address</td>
+     <td><%= text_field_tag :email,"", :style=>"width: 208px;" %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :first_name %></td>
+    <td><%= f.text_field :first_name %></td>
+  </td>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :last_name %></td>
+    <td><%= f.text_field :last_name %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :mobile %></td>
+    <td><%= f.text_field :mobile %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :country_id %></td>
+    <td><%= f.number_field :country_id, :style=>"width: 208px;" %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :state_id %></td>
+    <td><%= f.number_field :state_id, :style=>"width: 208px;" %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :city_id %></td>
+    <td><%= f.number_field :city_id, :style=>"width: 208px;" %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :address %></td>
+    <td><%= f.text_area :address,:rows => "5",:cols => "24" %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :postal_code %></td>
+    <td><%= f.text_field :postal_code %></td>
+  </tr>
+<tr><td id="tdstyle"><b id="h5">Business Details</b></td></tr>
+
+  <tr id="trstyle">
+    <td><%= f.label :org_name %></td>
+    <td><%= f.text_field :org_name %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :org_country %></td>
+    <td><%= f.text_field :org_country %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :org_state %></td>
+    <td><%= f.text_field :org_state %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :org_city %></td>
+    <td><%= f.text_field :org_city %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :org_location %></td>
+    <td><%= f.text_field :org_location %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :org_address %></td>
+    <td><%= f.text_area :org_address,:rows => "5",:cols => "24" %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :org_postal_code %></td>
+    <td><%= f.text_field :org_postal_code %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :org_phone1 %></td>
+    <td><%= f.text_field :org_phone1 %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :org_phone2 %></td>
+    <td><%= f.text_field :org_phone2 %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :sign_up_as %></td>
+    <td><%= f.check_box :sign_up_as %></td>
+  </tr>
+  <tr id="trstyle">
+    <td id="tdstyle"><%= f.label :user_id %></td>
+    <td><%= f.number_field :user_id, :style=>"width: 208px;" %></td>
+  </tr>
+  <tr id="trstyle">
+    <td><%= check_box_tag :tandc %> I agree to terms and conditions.</td>
+   </tr>
+  <tr id="trstyle">
+    <td style="padding-left: 198px;"><%= f.submit "Create Account" %></td>
+  </tr>
+ </table>
+</div>
+<% end %>

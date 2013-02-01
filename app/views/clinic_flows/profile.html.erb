@@ -1,0 +1,292 @@
+<% stylesheet_link_tag "calendar" %>
+
+
+<script></script>
+                 
+<style type="text/css">
+
+table.curvedEdges { border:1px solid grey;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px; }
+
+table.doctor { border:0px solid grey;background:#E8EEDC;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:25px;}
+
+table.doctorinner { border-right-style:inset}
+
+
+table.doctordesc { border:0px solid grey;background:#E8EEDC;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:0px;margin-bottom:10px;margin-left:10px;margin-right:10px; }
+table.curvedEdges td, table.curvedEdges th { border-bottom:1px dotted black;padding:5px; }
+#td{padding-right: 30px;}
+
+#img2{width:160px;height:130px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px;}
+.img{width:90px;height:90px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px;}
+
+</style>
+
+<table>
+<tr>
+
+<td width="180px"><%= link_to "Back To Search Results Page", :controller => "locations",:action => "search", :clinic => $gclinic,:location => $glocation, :city_id => $gcity, :speciality_id => $gspeciality%></td>
+
+<td width="30px" valign="middle" style="text-align: center;"> Or</td>
+
+<td><%= link_to "Search Again", :controller => "home",:action => "index" %></td>
+</tr>
+</table>
+
+</br>
+     
+                       <!--profile starts here--->
+                      
+                       <div id="prfphoto">
+      <table width="100%">
+              <tr><td>
+                        <table width="50%">
+                            
+<% p = @clinic_profile.clinic.image %>
+
+<% if p.nil? %>
+<tr><td><%= image_tag("/assets/hospitaldefault.jpeg" ,:class=>"img2") %></td><td></td></tr>
+<% else %>
+<tr><td><img id="img2" src="<%= @clinic_profile.clinic.image %>"  alt="Logo" style="margin-left: 10px;"></td><td></td></tr>
+                        
+<% end %>
+
+                        </table>  </td>
+
+                       <td style="
+    padding-left: 24px;
+"> <table width="50%">
+<tr><td > <b style="color: orange;" ><%= @clinic.name %></b></td></tr> 
+<tr><td ><%= @clinic.address1 %></td></tr> </table></td></tr></table>
+                        
+                       </div><!--prfphoto ends-->
+                       <div id="prfglmap">
+                        <%= gmaps(:markers => { :data => @json } ) %>
+                       
+                       </div><!--prfglmap ends-->
+                       
+                       <div style="width: 873px;float: left;">
+                              
+    <div id="tabsholder">
+
+        <ul class="tabs">
+            <li id="tab2">About</li>
+            <li id="tab3">Doctors</li>
+            <li id="tab4">Specialities</li>
+            <li id="tab5">Photos</li>
+	    <li id="tab6">Reviews</li>
+	    <li id="tab7">Working Days</li>
+        </ul>
+        <div class="contents marginbot">
+<!--showing timings(workday) of clinic-->
+           <div id="content7" class="tabscontent">
+ 
+ <table style="
+    padding-left: 42px;
+    padding-bottom: 22px;padding-top: 27px;
+">
+    <tr>
+     <td>
+	     
+
+<div id="calendar" style="padding-left: 50px;padding-top: 30px;padding-bottom: 30px;"></div>
+
+<%= javascript_include_tag "jquery-ui-datepicker.min" %>
+<script>
+	$('#calendar').datepicker({
+		inline: true,
+		firstDay: 1,
+		showOtherMonths: true,
+		dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+	});
+</script>
+    
+     </td>
+   
+    <td style="padding-left: 50px;">
+      
+        <div id=workdays>
+            <% list = @clinic.clinic_timings %>
+              <table border="1" width=100% style=" height: 197px;">
+                     <th style="background-color: gray;text-align: center;color: white;">Day</th>
+                     <th style="background-color: gray;text-align: center;color: white;">Mrng Shift</th>
+                     <th style="background-color: gray;text-align: center;color: white;">Eveng Shift</th>
+                  <% for i in 0...list.length %>
+<tr style="background-color: beige;">
+                 <td style="width: 100px;text-align: center;"><%= list[i].day %></td>
+                 <td style="width: 100px;text-align: center;">
+<% if list[i].morning_from.nil? %>
+<% t1=nil %> 
+<% else %>
+<% t1=list[i].morning_from.strftime("%H:%M").to_s %> 
+<% end %>
+
+<% if list[i].morning_to.nil? %>
+<% t2=nil %>
+<% else %>
+<% t2=list[i].morning_to.strftime("%H:%M").to_s %> 
+<% end %>
+
+<% if t1.nil? && t2.nil? %>
+Not Working
+<% else %>
+<%= t1 %> to <%= t2 %>
+<% end %>
+
+
+</td>
+                       <td style="width: 100px;text-align: center;">
+<% if list[i].evening_from.nil? %>
+<% t3=nil%> 
+<% else %>
+<% t3=list[i].evening_from.strftime("%H:%M").to_s %> 
+<% end %>
+
+<% if list[i].evening_to.nil? %>
+<% t4=nil %>
+<% else %>
+<% t4=list[i].evening_to.strftime("%H:%M").to_s %> 
+<% end %>
+
+<% if t3.nil? && t4.nil? %>
+Not Working
+<% else %>
+<%= t3 %> to <%= t4 %>
+<% end %>
+
+
+
+
+
+</td></tr>
+                      
+                  <% end %>
+              
+              </table>
+        
+        </div>
+       
+    </td>
+   </tr>
+ </table>
+            </div>
+<!--end of timings of clinic-->
+<!--showing history(about) of clinic-->
+            <div id="content2" class="tabscontent">
+           <% if @clinic_profile %>
+              <%= @clinic_profile.about %>
+           <% else %>
+               Welcome
+           <% end %>
+            </div>
+<!--end of showing history(about) of clinic-->
+
+
+<!--showing doctors of clinic-->
+ <div id="content3" class="tabscontent">
+ <% for doctor in @doctors %>
+
+<!--Profile main table Starts here -->
+<table class="doctor" width="100%" border="0" cellpadding="0" cellspacing="0">
+                        
+<tr>
+<td>
+<table width="30%" >
+<tr>
+<!--FIRST TD STARTING-->
+<td><% d = ConsultantMaster.find_by_doctor_id(doctor.doctor_id) %>
+                                             
+                              
+        <% if d %>
+              <img src="<%= d.image %>" class="img"></a>
+          <% else %>
+              <%= image_tag("/assets/defaultdoctor.jpg" ,:class=>"img") %>
+        <% end %>
+
+</td></tr><!--FIRST TD ENDED-->
+</table></td>
+
+
+<td>  <!--SECOND TD STARTING--> 
+  <table id="nestedtable1" class="doctorinner" width=120% >
+   <tr> <td> <b style="color: orange;" > <%= doctor.doctor_name %></b> </td> </tr>
+   <tr> <td>MBBS, MD, DNB </td> </tr>
+   <tr> <td> Delhi, India</td> </tr>
+   <tr> <td>  Consultation Fee : &nbsp <%= doctor.doctor_charge %></td> </tr>
+
+  </table>
+</td><!--Second  TD Ending-->
+
+<td >  <!--THIRD TD STARTING-->
+<table  align="right" padding-right="20px" >
+<% if d %>
+<tr><td  height=40px valign="top" id="td"><%= link_to 'View Full Profile',:controller => "doctor_flows",:action => "profile", :doctor_id => d.id,:clinic_id=>@clinic_id %></td></tr>
+<% else %>
+
+<tr><td height=40px valign="top" id="td"><a href="#">View Full Profile<a></br></td></tr>
+<% end %>
+
+<% if d %></br>
+<tr><td height=40px valign="top" id="td"><%= link_to 'Book Appointment',:controller => "doctor_flows",:action => "profile", :doctor_id => d.id,:clinic_id=>@clinic_id %></td></tr>
+
+<% else %></br>
+
+<tr><td height=40px valign="top" id="td" > <a href="#">Book Appointment</a></br></td></tr>
+<% end %>
+
+</table>
+</td><!--THIRD TD Ending-->
+
+</tr> 
+                                           
+  
+</table><!--Profile main table ended here -->
+
+ <% end %>
+</div>
+<!--end of showing doctors of clinic-->
+           
+
+
+<!--showing specialities of clinic-->
+ <div id="content4" class="tabscontent">
+
+           	<% if @clinic_profile %>
+                        <%cl = @clinic_profile.services.split(',') %>
+                           <% for i in 0...cl.length %>
+                              * <%= cl[i] %></br>
+                           <% end %>
+                             
+                <% else %>
+                      Welcome
+                <% end %>
+          </div>
+<!--end of showing specialities of clinic-->
+<!--showing images of clinic-->
+	    <div id="content5" class="tabscontent">
+                     
+               <img src="<%= @clinic_profile.photo1 %>"  alt="Image" style="height: 100px;margin-left: 10px;">
+               <img src="<%= @clinic_profile.photo2 %>"  alt="Image" style="height: 100px;margin-left: 10px;">
+               <img src="<%= @clinic_profile.photo3 %>"  alt="Image" style="height: 100px;margin-left: 10px;">
+               <img src="<%= @clinic_profile.photo4 %>"  alt="Image" style="height: 100px;margin-left: 10px;">
+               <img src="<%= @clinic_profile.photo5 %>"  alt="Image" style="height: 100px;margin-left: 10px;">
+            </div>
+<!--end of showing images of clinic-->
+<!--showing review of clinic-->
+	    <div id="content6" class="tabscontent">
+           No Reviews Yet!
+            </div>
+<!--end of showing review of clinic-->
+     
+   
+    <!-- /Tabs -->
+    <!-- Tabs2 -->
+    </div>
+</div>
+</div>
+
+
+
+                               
+                               
+    </body>
+</html>

@@ -1,0 +1,30 @@
+#table_wrapper1 {background: gray;border: 1px solid olive;margin: 0 auto;width: 78%;
+}
+#head41 {float: left;width: 23.18%;border-right: 1px solid black;text-align: center;
+}		
+#table_wrapper{background:gray;border:1px solid olive;float:left;}
+#header_ind{ width:100%; border-bottom:1px solid olive;background:url(/assets/tabbed.png);}
+#header_ind div {padding:1px 5px; overflow:hidden;}
+#head1{float:left; width:40px; border-right:1px solid black;text-align:center;}
+#head2{float:left; width:80px; border-right:1px solid black;text-align:center;}
+#head4{float:left; width:120px; border-right:1px solid black;text-align:center;}
+#head5{float:left; width:200px; border-right:1px solid black;text-align:center;}
+#head6{float:left; width:170px; border-right:1px solid black;text-align:center;}
+#head7{float:left; width:240px; border-right:1px solid black;text-align:center;}
+#head3{padding:1px 0px;text-align:center;width:50px;}
+html:first-child #tbody{overflow:auto;} /* old Opera */
+#tbody{overflow-y:auto;width:100%;background:white;}
+table.fixed{border-collapse:collapse;width:99.9%;}
+td.child_table{padding:0px 5px;border-right:1px solid #dfd7cf;border-bottom:1px solid #dfd7cf;}
+.td1{width:40px;}
+.td2{width:80px;}
+.td4{width:120px;}
+.td5{width:200px;}
+.td6{width:170px;}
+.td7{width:240px;}
+.td3{border-right-width:0;} /* optional */
+ .child_td
+{
+background-color:#e2e2e2;
+}
+.text_field_child{border:0px;width:100%;padding:0px;}

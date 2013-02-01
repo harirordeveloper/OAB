@@ -1,0 +1,280 @@
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function() {
+
+    //it is using for showing popup 
+    $("a.get_popup").fancybox({
+        'width'             : '75%',
+        'height'            : '75%',
+        'autoScale'         : false,
+        'transitionIn'      : 'none',
+        'transitionOut'     : 'none',
+        'type'              : 'iframe'
+    });
+
+});
+
+
+<%= javascript_include_tag :defaults %>
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#test_modal').modal('show');
+    });
+</script>
+ <script type="text/javascript">
+      TopUp.addPresets({
+        "#images a": {
+          fixed: 0,
+          group: "images",
+          modal: 0,
+          title: "Example"
+        },
+        "#movies": {
+          resizable: 0
+        }
+      });
+    </script>
+<script></script>
+
+<style type="text/css">
+.appointbutton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background-color:#79bbff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
+}.appointbutton:hover {
+	background-color:#378de5;
+}.appointbutton:active {
+	position:relative;
+	top:1px;
+}
+#theader{
+padding: 3px 0px 3px 10px;
+height: 100px;
+cursor: pointer;
+background-color: #D2E2D8;
+}
+
+table.doctor { border:0px solid grey;background:#E8EEDC;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:25px;}
+
+#tddata_odd{
+ border:0px solid grey;background:#E8EEDC;margin-top:10px;margin-bottom:5px;margin-left:5px;margin-right:25px;
+}
+
+#tddata_even{
+ border:0px solid grey;background:white;margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:25px;
+}
+
+#img2{width:160px;height:130px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px;}
+.img{width:90px;height:90px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px;}
+</style>
+
+
+  <table><b><%= link_to 'BACK','/home/index' %></b></table>     
+
+</br>
+              
+<table  width="100%">
+  
+  <thead id="theader">
+         <tr style="
+    height: 40px;
+">
+         <th>Doctor</th>
+          <th>Specialization</th>
+          <th>Availability</th>
+          <th>Fee</th>
+          <th></th>
+          <th></th>
+</tr>
+  </thead>
+
+<tbody >
+<% c ="d" %>
+
+<% for doctor in @doctors %>
+ 
+ <% if c =="d" %>
+  
+   
+    <tr id="tddata_odd">
+  
+         <td> 
+              <table><tr><td>     
+        <% if doctor.image %>
+              <img src="<%= doctor.image %>" class="img"></a>
+          <% else %>
+               <img src="/assets/defaultdoctor.jpg" class="img"></a>
+            
+        <% end %><td>
+<td style="
+    padding-left: 10px;
+">
+<b style="color: orangered;"><%= doctor.name %></b></br><%= doctor.degree %></br><%= doctor.specialities %>
+</td></tr></table>
+</td>
+
+         <td ><%= doctor.expertise %></td>
+         <td >
+            <% ds = DoctorAssignment.find_all_by_consultant_master_id(doctor.id) %>
+                <%for i in 0...ds.length%>
+           
+                       <%clinic = Clinic.find_by_id(ds[i].clinic_id) %>
+                       <table><tr><td ><%= clinic.name %></td></tr></table> 
+               <% end %>
+            
+         </td>
+         <td >
+            <% ds = DoctorAssignment.find_all_by_consultant_master_id(doctor.id) %>
+                <%for i in 0...ds.length%>
+           
+                       <%clinic = Clinic.find_by_id(ds[i].clinic_id) %>
+                       <table><tr><%= ds[i].clinic_charge %></td>
+                                    </tr></table> 
+               <% end %>
+            
+         </td>
+         <td >
+            <%ds = DoctorAssignment.find_all_by_consultant_master_id(doctor.id) %>
+                <%for i in 0...ds.length%>
+           
+                       <%clinic = Clinic.find_by_id(ds[i].clinic_id) %>
+                       <table><tr><td style="text-align: center;"><%= link_to 'Book Appointment',:controller => "doctor_flows",:action => "doc_profile", :doctor_id => doctor.id, :clinic_id => clinic.id %></td></td></tr></table> 
+               <% end %>
+            
+         </td>
+         
+        <td style="text-align: center;" >
+
+ <a class = "get_popup" href="doctor_flows/doctorprofile/1">
+
+
+</script>
+
+
+
+ <%= link_to "View Profile",{:controller => "doctor_flows",:action => "doctorprofile", :doctor_id => doctor.id, :clinic_id => clinic.id },:popup =>['details','height=300,width=600'] %>
+ 
+ 
+
+    
+    </tr>
+
+
+    <% c = "a" %>
+
+  <% else %>
+     
+
+    <tr id="tddata_even">
+  
+         <td> 
+              <table><tr><td>     
+        <% if doctor.image %>
+              <img src="<%= doctor.image %>" class="img"></a>
+          <% else %>
+               <img src="/assets/defaultdoctor.jpg" class="img"></a>
+            
+        <% end %><td>
+<td style="
+    padding-left: 10px;
+">
+<b style="color: orangered;"><%= doctor.name %></b></br><%= doctor.degree %></br><%= doctor.specialities %>
+</td></tr></table>
+</td>
+
+         <td ><%= doctor.expertise %></td>
+         <td >
+            <% ds = DoctorAssignment.find_all_by_consultant_master_id(doctor.id) %>
+                <%for i in 0...ds.length%>
+           
+                       <%clinic = Clinic.find_by_id(ds[i].clinic_id) %>
+                       <table><tr><td ><%= clinic.name %></td></tr></table> 
+               <% end %>
+            
+         </td>
+         <td >
+            <% ds = DoctorAssignment.find_all_by_consultant_master_id(doctor.id) %>
+                <%for i in 0...ds.length%>
+           
+                       <%clinic = Clinic.find_by_id(ds[i].clinic_id) %>
+                       <table><tr><%= ds[i].clinic_charge %></td>
+                                    </tr></table> 
+               <% end %>
+            
+         </td>
+         
+
+   <td >
+            <% ds = DoctorAssignment.find_all_by_consultant_master_id(doctor.id) %>
+                <%for i in 0...ds.length%>
+           
+                       <% clinic = Clinic.find_by_id(ds[i].clinic_id) %>
+                       <table><tr><td style="text-align: center;"><%= link_to 'Book Appointment',:controller => "doctor_flows",:action => "doc_profile", :doctor_id => doctor.id, :clinic_id => clinic.id %></td></td></tr></table> 
+               <% end %>
+            
+         </td>
+         
+        <td style="text-align: center;" >
+
+ <a class = "get_popup" href="doctor_flows/doctorprofile/1">
+
+
+</script>
+
+
+
+ <%= link_to "View Profile",{:controller => "doctor_flows",:action => "doctorprofile", :doctor_id => doctor.id, :clinic_id => clinic.id },:popup =>['details','height=300,width=600'] %>
+ 
+ 
+
+    
+    </tr>
+
+
+
+
+      <%  c = "d" %>
+  <% end %> 
+
+
+<% end %>
+
+ 
+</tbody>
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

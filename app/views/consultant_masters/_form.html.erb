@@ -1,0 +1,173 @@
+<script></script>
+<%= javascript_include_tag 'application' %>
+<%= stylesheet_link_tag 'adminstylesheet/child_table' %>
+<%= stylesheet_link_tag 'adminstylesheet/application' %>
+
+<%= stylesheet_link_tag 'adminstylesheet/tabs' %>
+
+
+<%= form_for @consultant_master, :remote => true do |f| %>
+  
+
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+<table id=main width=100% style="margin-left: 15px;">
+
+<tr><td>
+   <table id=1 width=100%>
+      <tr> 
+            <td><%= f.label :name,"Consultant Name"%></td>
+            <td><div class="label-field input"><%= f.text_field :name,:size=>15 %></div></td>  
+            <td><%= f.label :id,"Registration Id" %></td>
+            <td><div class="label-field input"><%= f.text_field :id,:size=>15 %></div></td>
+            <td><%= f.label :total_exp,"Total Years of Experience" %></td>
+            <td><div class="label-field input"><%= f.number_field :total_exp,:size=>15 %></div></td>
+       </tr>
+       <tr>
+            <td><%= f.label :charge,"Consultation Charge" %></td>
+            <td><div class="label-field input"><%= f.text_field :charge,:size=>15 %></div></td>
+            <td><%= f.label :degree,"Degrees" %></td>
+            <td><%= select_tag "consultant_master[degree][]",options_for_select(Degree.all.collect{|p| [p.name,p.id]}),:multiple => true,:size=>3,:style => 'width: 180px' %></td>
+            <td><%= f.label :specialities,"Specilizations" %></td>
+  				<td><%= select_tag "consultant_master[specialities][]",options_for_select(SpecalitiesMaster.all.collect{|p| [p.name,p.id]}),:multiple => true,:size=>3,:style => 'width: 180px' %></td>
+      </tr>
+   </table></td>
+</tr>
+<tr>
+  <td>
+		<div id="table_wrapper">
+			<div id="header_ind">
+   <% 10.times { @consultant_master.doctor_educations.build } %>
+    
+      
+			  <div id="head4" style="color: white;font-weight: bold;">Degree</div>
+			  <div id="head7" style="color: white;font-weight: bold;">College Name</div>
+			  <div id="head7" style="color: white;font-weight: bold;">Address|Location</div>
+			  <div id="head7" style="color: white;font-weight: bold;">Year of Pass</div>
+               </div>
+               <div id="tbody">
+			<table id="scroll_table" class="fixed">
+			<% i=0 %>
+
+                            <%= f.fields_for :doctor_educations do |t| %>
+  
+               <tr>
+		
+			 <td class="td4 child_table"><%= t.text_field :degree,:class => "text_field_child" %></td>
+
+			   <td class="td7 child_table">  <%= t.text_field :college, :class => "text_field_child" %> </td>
+			 
+			    <td class="td7 child_table"> <%= t.text_field :address, :class => "text_field_child" %> </td>
+			  
+			   <td class="td7 child_table"> <%= t.text_field :year_of_pass, :class => "text_field_child" %> </td>
+              </tr>
+											<% i=i+1 %>
+										<% end %>
+									 </table>
+							 </div>
+						</div>
+						</td>
+					</tr>
+</tr>
+<tr>
+	<td>
+   <table id=3 width=100%>
+      <tr>
+         <td><%= f.label :expertise,"Expertize" %></td>
+			<td><%=f.text_area :expertise,:rows=>3,:cols=>80 %></td>
+		</tr>
+		<tr>
+         <td><%= f.label :professional_exp,"Professional Experience"%></td>
+			<td><%=f.text_area :professional_exp,:rows=>3,:cols=>80 %></td>
+		</tr>
+		<tr>
+         <td><%= f.label :awards_achievments,"Awards & Achivements" %></td>
+			<td><%=f.text_area :awards_achievments,:rows=>3,:cols=>80 %></td>
+       </tr>
+      
+   </table>
+	</td>
+</tr>
+<tr>
+	<td colspan="6">
+		<div id="table_wrapper">
+			<div id="header_ind">
+     <% 7.times { @consultant_master.doctor_timings.build } %>
+     
+				   <div id="head4" style="color: white;font-weight: bold;">Day</div>
+				   <div id="head7" style="color: white;font-weight: bold;">Morning Time</div>
+				   <div id="head7" style="color: white;font-weight: bold;">Evening Time</div>
+				   <div id="head7" style="color: white;font-weight: bold;">Others</div>
+                         </div>
+                 <div id="tbody">
+                           <table id="scroll_table" class="fixed">
+		  <% i=0 %>
+                  <%= f.fields_for :doctor_timings do |t| %>
+                         <tr>
+               
+		           <td class="td4 child_table"><%= t.select :day, options_for_select(["MON", "TUE", "WED","THU","FRI","SAT","SUN"], :disabled => "SUN"),:class => "text_field_child" %></td>
+	 
+		           <td class="td7 child_table"><%= t.time_select :morning_from, :class => "text_field_child" %>
+		           to<%= t.time_select :morning_to, :class => "text_field_child" %></td>
+
+
+		          <td class="td7 child_table"><%= t.time_select :evening_from, :class => "text_field_child" %>
+		           to<%= t.time_select :evening_to, :class => "text_field_child" %></td>
+
+
+		           <td class="td7 child_table"><%= t.time_select :others_from, :class => "text_field_child" %>
+		           to<%= t.time_select :others_to, :class => "text_field_child" %></td>
+	  
+</tr>
+											<% i=i+1 %>
+										<% end %>
+									 </table>
+							 </div>
+						</div>
+						</td>
+					</tr>
+
+ </tr>
+</ br></ br>
+<tr>
+<table id=4 width=100%>
+   <tr>
+     <td>
+       <%= radio_button_tag 'role', 'Doctor', true %><b>Doctor</b><br>
+            <%= radio_button_tag 'role', 'Lab Technician' %><b>Lab Technician</b><br>
+            <%= radio_button_tag 'role', 'Individuals' %></div><b>Others</b>
+     </td>
+   </tr>
+</table>
+</tr>
+</ br></ br>
+<tr>  
+ <table id=5 width=100%>
+   
+    <td align="center">
+		<table>
+			<tr>
+				<td><%= f.submit 'Save',:class=>"button_css" %></td><td><%= f.submit 'Reset',:class=>"button_css",:type=>"reset" %></td><td class="td_button_css" align="center"><%= link_to 'Back', consultant_masters_path,:class=>"link_background" %></td>
+			</tr>
+      </table>
+    </td>
+</tr>
+</table>
+
+ </tr>
+
+</table>
+
+  
+  
+<% end %>

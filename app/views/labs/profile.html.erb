@@ -1,0 +1,148 @@
+<script></script>
+                      
+                       <!--profile starts here--->
+                       <div id="profile">
+                       <div id="prfphoto">
+                        <h3 style="text-align: center;">Profile Photo here</h3>
+                        <img src="<%= @lab_profile.lab.image %>"  alt="Logo" style="height: 100px;margin-left: 10px;">
+                       </div><!--prfphoto ends-->
+                       <div id="prfglmap">
+                        <h3> Google map here</h3>
+                       </div><!--prfglmap ends-->
+                       
+                       <div style="width: 684px;float: left;">
+                              
+    <div id="tabsholder">
+
+        <ul class="tabs">
+            <li id="tab2">About</li>
+            <li id="tab3">Doctors</li>
+            <li id="tab4">Specialities</li>
+            <li id="tab5">Photo</li>
+	    <li id="tab6">Review</li>
+	    <li id="tab7">Workday</li>
+        </ul>
+        <div class="contents marginbot">
+
+            <div id="content7" class="tabscontent">
+               <% if @lab_profile %>
+                     
+                     <%c = @lab_profile.lab.lab_timings %>
+
+                    
+                   <% for i in 0...c.length %>
+                     <%= c[i].day %>
+                   <% end %>
+               
+
+                <% else %>
+                      No Working Days
+                <% end %>
+              
+            </div>
+            <div id="content2" class="tabscontent">
+           <% if @lab_profile %>
+               <%= @lab_profile.about %>
+           <% else %>
+               Welcome
+           <% end %>
+            </div>
+
+
+            <div id="content3" class="tabscontent">
+                <% for doctor in @doctors %>
+       <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                          <tr>
+                                            
+             <td align="left" valign="top"><div class="sprite_box_gray" style="width:340px; margin:5px">
+                  <div class="top_right">
+                    <div class="top_left"></div>
+                    </div>
+ 
+<div class="mid" style="height:200px;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                      <tr>
+                 <% d = ConsultantMaster.find_by_doctor_id(doctor.doctor_id) %>
+                        <td width="69" valign="top">                      
+                                <a href="http://www.bookmydoctor.com/doctors/in/vinod-raina-delhi/489/" >
+        <% if d %>
+         <img src="<%= d.image %>" alt="Vinod  Raina" title="Vinod  Raina" class="img_border" style="height: 100px;margin-left: 10px;" /></a>
+        <% end %>
+                                                       </td>
+                        <td width="8" valign="top">&nbsp;</td>
+                        <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td id="heading"><strong><%= doctor.doctor_name %></td>
+                                </strong></a></td>
+                            </tr>
+                          <tr>
+                            <td id="education">MBBS, MD, DNB (Sexologist & Medicine Specialist)</td>
+                            </tr>
+                          <tr>
+                            <td id="address">									
+					Dr. Raina's Safe Hands,                    A- 227, B-4 Colony, Near Safdarjung Club, Behind Bada Gurudwara, Arjun Nagar,                   Safdarjung Enclave,                    Delhi,                   110029,                    Delhi, India<br />
+                                                                             
+                                       
+    </td>
+		                            </tr>
+                          <tr>
+                            <td id="address3">
+                    
+     Experience :10 year(s)</td>
+                          </tr>
+                          <tr>
+                            <td id="address2"> Consultation Fee:<%= doctor.doctor_charge %></td>
+                          
+</td>
+                          </tr>
+                          </table></td>
+                        </tr>
+                      </table>   </div>
+                  <div class="bottom">
+                    <div class="bottom_left"></div>
+                    <div class="bottom_mid" style="width:320px;">
+                    	<div class="book_appointment_green_btn"><a href="#" onclick="window.location.href=''"></a></div>
+                        <div><input class="view_profile_btn" type="submit" name="button" id="button" value="" style= "width: 191px;padding-left: 13px;" 
+onclick="window.location.href ='' "/></div>
+                        <div id="wacthList489"><input class="add_to_fav_btn" type="button" name="button" id="button" style= "width: 191px;padding-left: 13px;"  value="" onclick="window.location.href=''"/></div>
+                      </div>
+                    <div class="bottom_right"></div>
+                    
+                    </div>
+                  </div></td>
+
+<% end %>
+
+               
+           </div>
+            <div id="content4" class="tabscontent">
+
+           	<% if @lab_profile %>
+                        <%= @lab_profile.services %>
+                <% else %>
+                      Welcome
+                <% end %>
+           	</div>
+	    <div id="content5" class="tabscontent">
+
+           	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ante arcu, lacinia quis varius vel, pharetra eu sapien. Nulla dictum tincidunt nunc gravida congue. Pellentesque quis leo at leo porttitor aliquam sed id eros. Pellentesque id feugiat dui. Aliquam elementum arcu eu tellus commodo pellentesque. Curabitur porttitor egestas odio et malesuada. Integer ut sapien commodo nisi vulputate egestas. Vivamus porttitor cursus aliquam. Quisque vitae commodo est. Vestibulum eget lectus quis mi volutpat lobortis a et massa. Quisque scelerisque, nulla ut sollicitudin lobortis, urna neque dapibus sem, quis congue tellus purus id nibh. Pellentesque congue massa ac quam rhoncus posuere. Curabitur eleifend suscipit luctus. Sed eu risus nisi. Sed eu molestie tortor. Aenean dictum justo ac turpis feugiat ultricies. Morbi sed dictum sapien.
+           	</div>
+	    <div id="content6" class="tabscontent">
+            Donec eu velit ante, non dapibus nibh. Praesent condimentum ipsum eu ligula elementum pretium. Nullam vel mi odio, non tincidunt lorem. Etiam pulvinar eleifend velit non ornare. Etiam neque ante, posuere vitae bibendum ac, varius non augue. Sed cursus commodo dapibus. Nullam sed feugiat dolor. Praesent interdum elementum scelerisque. Etiam tincidunt lectus et nulla suscipit ut scelerisque elit egestas. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+            </div>
+        </div>
+    </div>
+    <!-- /Tabs -->
+    <!-- Tabs2 -->
+    
+
+
+                               
+                               </div><!--menu main div ends-->
+                                             
+                       </div><!--div profile  ends-->
+                      
+                               </div><!--main ends-->
+        
+    </body>
+</html>

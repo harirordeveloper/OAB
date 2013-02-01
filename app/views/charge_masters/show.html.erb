@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lab:</b>
+  <%= @charge_master.lab_id %>
+</p>
+
+<p>
+  <b>Test group:</b>
+  <%= @charge_master.test_group_id %>
+</p>
+
+<p>
+  <b>Test sub group:</b>
+  <%= @charge_master.test_sub_group_id %>
+</p>
+
+<p>
+  <b>Test name:</b>
+  <%= @charge_master.test_name %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @charge_master.price %>
+</p>
+
+
+<%= link_to 'Edit', edit_charge_master_path(@charge_master) %> |
+<%= link_to 'Back', charge_masters_path %>

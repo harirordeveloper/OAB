@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  clinic: 
+  clinicbranch: 
+  consultant_master: 
+  doctor_name: MyString
+  doctor_id: 1
+  doctor_charge: 1.5
+  clinic_charge: 1.5
+
+two:
+  clinic: 
+  clinicbranch: 
+  consultant_master: 
+  doctor_name: MyString
+  doctor_id: 1
+  doctor_charge: 1.5
+  clinic_charge: 1.5

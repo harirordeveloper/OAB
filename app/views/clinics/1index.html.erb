@@ -1,0 +1,92 @@
+<script type="text/javascript">
+	add_url_to_div();
+	function add_url_to_div()
+	{
+		var reg_type='<%= @reg_type %>'
+		jQuery.ajax({
+          	url: "/registrations/new?reg_type="+reg_type,
+		     	type: "POST",
+           	success: function(result){  
+                 	jQuery("#display_records").html(result);
+            },
+            error: function(){
+                  alert('Error occured');
+            }
+      });
+	}	
+
+   function add_list_url(button_name)
+	{
+		var reg_type='<%= @reg_type %>'
+		jQuery.ajax({
+          	url: "/registrations/list/1?button_name="+button_name+"&reg_type="+reg_type,
+		     	type: "POST",
+           	success: function(result){  
+                 	jQuery("#display_records").html(result);
+            },
+            error: function(){
+                  alert('Error occured');
+            }
+      });
+
+	}
+
+   function add_edit_url(id)
+	{
+		jQuery.ajax({
+          	url: "/registrations/edit/"+id,
+		     	type: "POST",
+           	success: function(result){  
+                 	jQuery("#display_records").html(result);
+            },
+            error: function(){
+                  alert('Error occured');
+            }
+      });
+
+	}
+
+	function add_client_edit_url(id)
+	{
+		jQuery.ajax({
+          	url: "/registrations/client_edit/"+id,
+		     	type: "POST",
+           	success: function(result){  
+                 	jQuery("#display_records").html(result);
+            },
+            error: function(){
+                  alert('Error occured');
+            }
+      });
+
+	}
+
+	function delete_record(id)
+	{
+		jQuery.ajax({
+          	url: "/registrations/destroy/"+id+"?button_name=delete",
+		     	type: "POST",
+           	success: function(result){  
+                 	jQuery("#display_records").html(result);
+            },
+            error: function(){
+                  alert('Error occured');
+            }
+      });
+	}
+</script>
+
+<table cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td><%= submit_tag "", :value => "Add", :class => "preview",:onClick => "add_url_to_div()" %></td>
+		<td><%= submit_tag "", :value => "Edit", :class => "preview",:onClick => "add_list_url('edit')" %></td>
+		<td><%= submit_tag "", :value => "Delete", :class => "preview",:onClick => "add_list_url('delete')" %></td>	
+		<td><%= submit_tag "", :value => "Print", :class => "preview",:onClick => "add_list_url('print')" %></td>
+		<td><%= submit_tag "", :value => "List", :class => "preview",:onClick => "add_list_url('')" %></td>
+		<td width="650px">&nbsp;</td>
+		<td><a href="/home" target=_parent><%= image_tag("/images/back.png",:border => 0)%></a></td>
+	</tr>
+</table>
+<div id="display_records" style="margin:0px;padding:0;background:transparent">
+	<%= render "form" %>
+</div>

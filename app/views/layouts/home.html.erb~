@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+ <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> 
+<%= javascript_include_tag  "jquery-slider"%> 
+<!-- template STYLE SHEET LINKS--> 
+<%= stylesheet_link_tag    "caurosal"%>
+<%= stylesheet_link_tag    "jquery-ui"%>
+<%= stylesheet_link_tag    "profile"%>
+<%= stylesheet_link_tag    "style"%>
+<%= stylesheet_link_tag    "tabmenu"%>
+<%= stylesheet_link_tag    "default"%>
+<%= stylesheet_link_tag    "generic"%>
+<%= stylesheet_link_tag    "slider"%>
+<%= stylesheet_link_tag    "tooltip"%>
+
+
+ <link rel="stylesheet" href="/assets/base/jquery-ui.css" />
+ <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+ <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+    
+<!-- template JAVA SCRIPT LINKS--> 
+<%= javascript_include_tag  "jquery.lavalamp-1.4" %>
+<%= javascript_include_tag  "jquery.min" %>
+<%= javascript_include_tag  "jquery-1.8.3" %>
+<%= javascript_include_tag  "jquery-ui" %>
+<%= javascript_include_tag  "jqxlistbox" %>
+<%= javascript_include_tag  "tytabs.jquery.min" %>
+ <style>
+  ul.ui-autocomplete {
+  position: absolute;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: solid 1px #999;
+  cursor: default;
+  li {
+    background-color: #FFF;
+    border-top: solid 1px #DDD;
+    margin: 0;
+    padding: 0;
+    a {
+      color: #000;
+      display: block;
+      padding: 3px;
+    }
+    a.ui-state-hover, a.ui-state-active {
+      background-color: #FFFCB2;
+    }
+  }
+}
+ </style>
+
+
+
+<script>
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+</script>
+    <!--tabs styles over-->
+</head>
+<body>
+<!-- start wrapper -->
+<div id="wrapper">
+	<!-- start menu -->
+	<div id="menu">
+		<ul>
+			<li><a href="/home/index">Home</a></li>
+			<li><a href="/home/aboutus">About Us</a></li>
+			<li><a href="/home/hospitals_clinics">Hospitals / Clinics</a></li>
+			<li><a href="/home/labs">Labs</a></li>
+			<li><a href="/home/partners">Partners</a></li>
+			<li><a href="/home/support">Support</a></li>
+		</ul>
+	</div>
+	<!-- end menu -->
+	<!-- start header -->
+	<div id="header">
+		<div id="logo">
+			<a href="#"><img src="/assets/logo.gif" style="width: 270px;height: 57px;"></a>
+		</div>
+		<div id="call1">
+		    <img src="/assets/phone.png" style="width:21px;">
+		</div>
+		<div id="call">
+		    	For Appointment call us at <span class="calltext">(040) 40203231</span>
+		</div>
+
+		<div id="socioc">
+		<img src="/assets/fu.gif" style="height: 21px;">
+			<a href=""><img src="/assets/f.png" style="width: 33px;"></a> <a href=""><img src="/assets/t.png" style="width: 33px;"></a> <a href=""><img src="/assets/l.png" style="width: 48px;"></a> <a href=""><img src="/assets/yt.gif" style="width: 68px;"></a>
+		</div>
+	</div>
+	<div id="headerbot"></div>
+	<!-- end header -->
+	<!-- start page -->
+	<div id="page">
+		<div id="bgtop"></div>
+		<div id="bgbottom">
+			<!-- start content -->
+			<div id="content">
+				<div class="post">
+					<div class="bigpix">
+
+
+
+
+<%= yield %>
+
+
+</div>
+		<div id="button">
+                     
+
+<%= link_to image_tag("/assets/p.gif",:class=>"btnrds"),:controller=>"patient_details",:action=>"new" %>
+<%= link_to image_tag("/assets/d.gif",:class=>"btnrds"),:controller=>"doctor_details",:action=>"new" %>
+<%= link_to image_tag("/assets/h.gif",:class=>"btnrds"),:controller=>"org_details",:action=>"new" %>
+
+
+
+                        <a href=""><img src="/assets/d.gif" alt="Logo" style="width: 153px; height: 81px; margin-right: 30px;" class="btnrds"></a>
+                            <a href=""><img src="/assets/h.gif" alt="Logo" style="width: 153px; height: 81px; margin-right: 30px;" class="btnrds"></a>
+                                <a href=""><img src="/assets/l.gif" alt="Logo" style="width: 153px; height: 81px; margin-right: 30px;" class="btnrds"></a>
+                       </div><!--button over-->
+					<h1 class="title"><a href="#">Welcome to Health care online</a></h1>
+						
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.			    
+			</p>
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+			
+			
+				<p class="boxes1">3 - Simple Steps to Book Appointment: </p>	
+<div class="thboxes">
+    
+    		<table border="0" cellpadding="0" cellspacing="0" width="680" style="margin: 0 auto;">
+                                    <tbody><tr>
+                                        <td valign="top">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="201">
+                                                <tbody><tr>
+                                                    <td align="left" background="/assets/step1_img.jpg" height="180" valign="top">
+                                                        <div class="para_div">
+                                                            Search the Doctor/Speciality Hospital/Clinic near to your Location.<br>
+                                                            </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                        <td valign="top">
+                                            <img id="ctl00_ContentPlaceHolder1_FrontEndSearchBox1_UcService1_/assets1" src="/assets/arrow_image.jpg" style="height:180px;width:25px;border-width:0px;"></td>
+                                        <td valign="top">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="201">
+                                                <tbody><tr>
+                                                    <td background="/assets/step2_img.jpg" height="180" valign="top">
+                                                        <div class="para_div">
+                                                            Book appointment and you will receive an instant sms or email about your appointment timings.<br>
+                                                            </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                        <td valign="top">
+                                            <img id="ctl00_ContentPlaceHolder1_FrontEndSearchBox1_UcService1_/assets3" src="/assets/arrow_image.jpg" style="height:180px;width:25px;border-width:0px;"></td>
+                                        <td valign="top">
+                                            <table align="center" border="0" cellpadding="0" cellspacing="0" width="201">
+                                                <tbody><tr>
+                                                    <td background="/assets/step3_img.jpg" height="180" valign="top">
+                                                        <div class="para_div">
+                                                            Visit the doctor / hospital / clinic on time .<br>
+                                                            <br>
+                                                            "No boaring waitings at Hospitals / Clinics".</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody></table>
+                                        </td>
+                                    </tr>
+                                </tbody></table>
+<p class="boxes" style="text-decoration: underline;">"Save Time to wait at Hospitals / Clinics" </p>
+</div><!--table background div ends-->
+			
+			
+			
+			
+			
+			
+			
+		
+
+<h1 id="title"><a href="#">Benifits to the customer</a></h1>			
+	<div class="qp">
+	<ul>
+                    <li>Book Appointments Anytime, Anywhere...</li>
+                    <li>User friendly advanced search options...</li>
+                    <li>Top Doctors from across the country...</li>
+                    <li>Thousands of registered Doctors to choose from..</li>
+                    <li>Get instant notification mails &amp; messages...</li>
+                    <li>Add preferred Doctors to your Favorite List...</li>
+                    <li>Time and money saving booking system...</li>
+                    <li>Get Answers to all your Health Queries...</li>                    
+                    <li>Read about different Diseases &amp; Health Topics...</li>
+                    <li>Yes It's Absolutely Free...</li>
+                    </ul>
+	</div>
+				</div>
+			</div>
+			<!-- end content -->
+						
+						
+					
+						
+						
+			
+<!-- start sidebar two -->
+	<!-- start sidebar two -->
+			<div id="sidebar2" class="sidebar">
+				<ul>
+					<li>
+						<h1 class="borbot">Featured Product</h1>
+						<div class="botm">
+							<table summary="Calendar">
+												
+								<tbody>
+								<tr>
+								<td><img src="/assets/medieaz.gif"  style="width: 183px;height: 88px;border: 1px solid #DDD;border-radius: 4px;margin: 10px;"></td>
+								</tbody>
+							</table>
+						</div>
+					</li>
+					<li class="botm">
+						<h1 class="borbot">Press Room</h1>
+						<p style="color: #1D62B3;">Exleaz Managing Director Mr.Sam in TV5 News</p>
+						<a href="#"><iframe width="200" height="150" src="http://www.youtube.com/embed/nyuAnkxeneI" frameborder="0" allowfullscreen></iframe></a>
+						</li>
+					<li>
+					    <h1 class="borbot">Top Rated Hospitals / Clinics</h2>
+					    <div id="calendar_wrap">
+							<table summary="Calendar">
+								
+								<tbody>
+									<tr>
+										<td><a href="#"><img src="/assets/emory.png" style="width: 150px;"></a></td>
+																													
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/vamshi.jpg" style="width: 150px;"></a></td>
+										
+										</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/gsl_logo.gif" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/smhlogo.png" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/midas.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/svl.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									
+								</tbody>
+							</table>
+						</div></li>
+					
+				</ul>
+			</div>
+			<!-- end sidebar two -->
+
+
+		<!--slideshow starts-->
+	    
+	    <div style="width:100%;float: left;">
+	    
+	    <div class="div2">
+        <div id="mcts1">
+            <img src="/assets/emory.png" onmouseover="tooltip.pop(this, 'This is the first slide')" style="width: 134px;"/>
+            <img src="/assets/smhlogo.png" onmouseover="tooltip.pop(this, '#tip2')" style="width: 134px;"/>
+            <img src="/assets/gsl_logo.gif" onmouseover="tooltip.pop(this, '#tip3')" style="height: 80px;"/>
+            
+            <a href="#" onmouseover="tooltip.pop(this, '#tipA')"><img src="/assets/midas.jpg" style="height: 80px;"/></a>
+            <img src="/assets/Sripoojahos.jpg" onmouseover="tooltip.pop(this, '#tipB')" style="height: 80px;"/>
+            <img src="/assets/svl.jpg" onmouseover="tooltip.pop(this, 'Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...')" style="height: 80px;"/>
+            <img src="/assets/vamshi.jpg" onmouseover="tooltip.pop(this, '#tipC')" />
+            <img src="/assets/war-fin.png" onmouseover="tooltip.pop(this, 'Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur')" />
+        </div>
+    </div>
+    <div style="display:none;">
+        <div id="tip2">
+            <div class="tips">
+                <img src="/assets/emory.png" style="float:right;margin-left:6px;margin-bottom:6px;width:154px;height:80px;" />
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </div>
+        </div>
+        <div id="tip3">
+            <div class="tips">
+                <img src="/assets/vamshi.jpg" style="float:left;margin-right:8px;margin-bottom:8px;width:87px;height:80px;" />
+                <b>Lorem Ipsum</b>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div id="tip4">
+            <div class="tips">
+                <img src="/assets/Sripoojahos.jpg" style="float:left;margin-right:8px;margin-bottom:8px;width:111px;height:80px;" />
+                <b>Lorem Ipsum</b>
+                Donec nec orci sed enim malesuada scelerisque eget id felis. Phasellus sapien sem, convallis quis vehicula ut, lobortis ut ipsum. Aliquam erat volutpat. Curabitur ac sem ac orci accumsan feugiat.
+            </div>
+        </div>
+        <div id="tipA">
+            <div class="tips">
+                <b>Duis Aute Irure</b>
+                Nullam sodales lectus id justo facilisis dignissim quis a dui. Curabitur dictum lectus porttitor felis hendrerit varius.
+            </div>
+        </div>
+        <div id="tipB">
+            <div class="tips">
+                <b>Phasellus Et Nulla Sem</b>
+                Etiam interdum consectetur quam, ac aliquet dui ornare nec. Ut tincidunt elit enim, eu posuere orci. Mauris et velit ac risus vehicula aliquet et a dolor. Fusce id nulla orci, sed aliquam nunc.
+            </div>
+        </div>
+        <div id="tipC">
+            <div class="tips">
+                <img src="/assets/gsl_logo.gif" style="float:left;margin-right:8px;margin-bottom:8px;width:140px;height:80px;" />
+                <b>Tooltip3</b>
+                 integrate the Menucool  loremipsum
+            </div>
+        </div>
+    </div>
+	    
+	    </div>
+	    
+	    <!-- slider ends-->
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+	</div>
+	<!-- end page -->
+	<hr />
+	<!-- start footer -->
+	<div id="footer">
+		<ul>
+                <li><a href="/home/home">Home</a></li><li><a href="/home/aboutus">About Us</a></li><li><a href="/home/hospitals_clinics">Hospitals/Clinics</a></li><li><a href="/home/labs">Labs</a></li><li><a href="/home/partners">Patners</a></li><li><a href="/home/support">Support</a></li><li><a href="/home/contactus">Contact Us</a></li><li><a href="/home/feedback">Feedback</a></li><li><a href="#">Privacy Policy</a></li><li class="last">© Copyright 2013 OnlineMedLab</li>
+              </ul>
+	</div>
+	<!-- end footer -->
+
+
+</div>
+<!-- end wrapper -->
+
+
+
+
+    <script>
+    $(function() {
+        $( "#location_address" ).autocomplete({ minLength: 2 });
+        $( "#location_address" ).autocomplete({
+            source: $('#location_address').data('autocomplete-source')
+                    
+        });
+    });
+    </script>
+
+   <script>
+    $(function() {
+        $( "#location_name" ).autocomplete({ minLength: 2 });
+        $( "#location_name" ).autocomplete({
+            source: $('#location_name').data('autocomplete-source')
+        });
+    });
+   </script>
+   <script>
+    $(function() {
+        $( "#location_city" ).autocomplete({ minLength: 2 });
+        $( "#location_city" ).autocomplete({
+            source: $('#location_city').data('autocomplete-source')
+        });
+    });
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,22 @@
+<script></script>
+
+<table class="hos" width="100%" >
+				
+<% for clinic in @clinic_selected %>
+
+<tr class="btmhead1">
+<td><%= clinic.name %></td>
+   <% c = ClinicProfileMaster.find_by_id(clinic.id) %>
+ <% if c %>
+<td><%=  c.services  %></td>
+ <% else %>
+ <td></td>
+ <% end %>
+   <% l = Location.find_by_id(clinic.location_id) %>
+<td><%= l.name %></td>
+
+</tr>
+
+<% end %>
+
+</table>

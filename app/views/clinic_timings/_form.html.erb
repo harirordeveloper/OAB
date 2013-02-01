@@ -1,0 +1,54 @@
+<%= form_for(@timing) do |f| %>
+  <% if @timing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timing.errors.count, "error") %> prohibited this timing from being saved:</h2>
+
+      <ul>
+      <% @timing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<% 7.times { @timing.clinic_timings.build } %>
+  <div id="field">
+            <table width="100%" border="1">
+                <thead>
+                   <th>Day</th>
+                   <th colspan="2">Morning Time</th>
+                   <th colspan="2">Evening Time</th>
+                   <th colspan="2">Others</th>
+                   <th>Clinic</th>
+                </thead>
+            
+ 
+  
+
+  <%= f.fields_for :clinic_timings do |t| %>
+  
+               <tbody>
+                   <tr>
+                   <td><%= t.select :day, options_for_select(["MON", "TUE", "WED","THU","FRI","SAT","SUN"], :disabled => "SUN") %></td>
+ 
+                   <td><%= t.time_select :morning_from %></td>
+                   <td><%= t.time_select :morning_to %></td>
+
+
+                   <td><%= t.time_select :evening_from %></td>
+                   <td><%= t.time_select :evening_to %></td>
+
+
+                   <td><%= t.time_select :others_from %></td>
+                   <td><%= t.time_select :others_to %></td>
+  
+
+                   <td><%= t.select :clinic_id,options_from_collection_for_select(Clinic.all, "id", "name"),:prompt => "Select Clinic",:width=>30 %></td></tr>
+               </tbody>
+ <% end %>
+          </table>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

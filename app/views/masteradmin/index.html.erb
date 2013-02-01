@@ -1,0 +1,86 @@
+<script></script>
+<%= stylesheet_link_tag "/adminstylesheet/dashboard" %>
+<style>#content_header {
+    padding-left:20px;
+    height:137px;
+
+    background: #fff url(/assets/adminheader.jpg) bottom no-repeat;
+  
+}
+#content_wrapper {
+    background-color: #FFFFFF;
+    height: 95%;
+    margin: 0 auto;
+    width: 970px;
+}
+#content_header h1 {
+    margin:0px;
+    padding:0px;
+    padding-top:65px;
+    color:#999;
+}
+#content_header h3 {
+    margin:0px;
+    padding:0px;
+    color:#b00;
+}
+
+#user_options {
+    padding:0px;
+    margin:0px;
+    margin-top:15px;
+    height:400px;
+}
+#user_options .option_buttons {
+    display:block;
+    float:left;
+    height:175px;width:175px;
+    margin-left:10px;
+    margin-top:20px;
+    outline:none;
+}
+img{width:200px;height:130px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px solid #BDBDBD;background-color:#E3A20B;}
+
+</style>
+
+
+
+<div id="content_wrapper">
+<div id="content_header">
+  <h1 id="main_heading">Welcome</h1>
+  <h3 id="sub_heading"><font color="#B00">To Online Appontment Booking System </font></h3>
+  
+</div>
+
+
+
+</br></br>
+<table width=100% align="right">
+<tr width="100px">
+
+
+<td width="200px">
+<%= link_to image_tag("/assets/hospital.jpg",:border=>"0",:title=>" HERE TO GO TO CLINICS MASTERS",:width=>150,:height=>150),{:controller=>"clinics",:action=>"sidebar"},:class=>'img' %></br><%= link_to ' ORGANIZATION','clinics/sidebar'%></td>
+
+<td width="200px">
+<%= link_to image_tag("/assets/branches.jpg",:border=>"0",:alt=>"HERE TO GO TO CLINIC BRANCHES MASTERS",:title=>"HERE TO GO TO CLINIC BRANCHES MASTERS",:width=>150,:height=>150),:controller=>"clinicbranches",:action=>"sidebar"%><br/><%= link_to 'BRANCH MASTER ','/clinicbranches/sidebar'%></td>
+
+<td width="200px"><%= link_to image_tag("/assets/consultant.jpeg",:border=>"0",:alt=>"CLINIC",:title=>"HERE TO GO TO CONSULTANTS MASTERS",:width=>150,:height=>150),:controller=>"consultant_masters",:action=>"sidebar"%><br/><%= link_to '     CONSULTANTS ','/consultant_masters/sidebar'%></td>
+
+<td><%= link_to image_tag("/assets/doctors.jpeg",:border=>"0",:alt=>"TEST MASTERS",:title=>"HERE TO GO TO TEST MASTERS",:width=>150,:height=>150),:controller=>"test_groups",:action=>"sidebar"%><br/><%= link_to 'TEST MASTERS','test_groups",:/sidebar'%></td>
+
+</tr>
+</br>
+
+<tr>
+<td><%= link_to image_tag("/assets/specialities1.jpeg",:border=>"0",:alt=>"CLINIC",:title=>"HERE TO GO TO SPECIALITIES MASTER",:width=>150,:height=>150),:controller=>"specialities",:action=>"sidebar"%><br/><%= link_to 'SPECIALITIES','specialities/sidebar'%></td>
+
+<td><%= link_to image_tag("/assets/cinic_profile.jpeg",:border=>"0",:alt=>"CLINIC",:title=>"HERE TO GO TO CLINIC PROFILE MASTER ",:width=>150,:height=>150),:controller=>"clinic_profile_masters",:action=>"sidebar"%><br/><%= link_to 'PROFILES ','/clinic_profile_masters/sidebar'%></td>
+
+<td><%= link_to image_tag("/assets/doctors.jpeg",:border=>"0",:alt=>"CLINIC",:title=>"HERE TO GO TO CLINIC DOCTORS",:width=>150,:height=>150),:controller=>"doctor_assignments",:action=>"sidebar"%><br/><%= link_to 'CONSULTANT ASSIGNMENT','doctor_assignments/sidebar'%></td>
+
+
+</tr>
+</table>
+
+</div>

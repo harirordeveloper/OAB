@@ -1,0 +1,53 @@
+<%= stylesheet_link_tag 'menu/sdmenu' %>
+<%= javascript_include_tag 'menu/jquery.min' %>
+<%= javascript_include_tag 'menu/jquery.cookie' %>
+
+<script>
+	$(document).ready(function () {
+  		var checkCookie = $.cookie("nav-item");
+  		if (checkCookie != "") {
+			$('#nav > li > a:eq('+checkCookie+')').addClass('active').next().show();
+  		}
+  		$('#nav > li > a').click(function(){
+      	var navIndex = $('#nav > li > a').index(this);
+	  		$.cookie("nav-item", navIndex);
+	  		$('#nav li ul').slideUp();
+	   		if ($(this).next().is(":visible")){
+		   	$(this).next().slideUp();
+	   	} else {
+	   		$(this).next().slideToggle();
+	   	}
+	   	$('#nav li a').removeClass('active');
+	   	$(this).addClass('active');
+  		});
+	});
+</script>
+
+<script type="text/javascript">
+	function display_lick_data(controller,action)
+	{
+		var id="/"+controller
+		document.getElementById('records_display').innerHTML="<iframe src='"+id+"' width='99%' height='99%' style='margin:0 5px 0 0;'></iframe>";
+	}
+</script>
+
+
+<body onLoad="display_lick_data('test_groups','index')">
+	<div style="width:100%;height:98%;overflow:auto;">
+		<div id="modal1" style="position:absolute;left:0px;background-color:#eeeeee;height:95%;">
+		<br/><br/>
+		<ul id="nav">
+			 <li><a href="#">Test Groups</a>
+			 <ul>
+			<li><a href="javascript:void(0)" onClick="display_lick_data('test_groups','index')">Test Groups</a></li>
+                        <li><a href="javascript:void(0)" onClick="display_lick_data('test_sub_groups','index')">Test Sub Groups</a></li>
+                        <li><a href="javascript:void(0)" onClick="display_lick_data('test_masters','index')">Test Masters</a></li>
+                        <li><a href="javascript:void(0)" onClick="display_lick_data('charge_masters','index')">Charge Masters</a></li>
+                        <li><a href="javascript:void(0)" onClick="display_lick_data('corporate_health_packages','index')">Health Packages</a></li>
+			 </ul>
+			</li>
+		</ul>
+		</div>
+		<div style="position:absolute;top:20px;left:180px;width:86%;height:95%;" id="records_display"></div>
+	</div>
+</body>

@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            View Profile/Clinics
+        </title>
+  <!-- template STYLE SHEET LINKS--> 
+
+
+
+<%= stylesheet_link_tag    "style"%>
+
+<%= stylesheet_link_tag    "default1"%>
+
+<script> 
+    $(function() {
+        $( "#tabs" ).tabs();
+    });
+  
+</script>
+ 
+ </head>
+
+<body>
+<!-- start wrapper -->
+<div id="wrapper">
+	<!-- start menu -->
+	<div id="menu">
+		<ul>
+			<li><a href="/home/index">Home</a></li>
+			<li><a href="/home/aboutus">About Us</a></li>
+			<li><a href="/home/hospitals_clinics">Hospitals / Clinics</a></li>
+			<li><a href="/home/labs">Labs</a></li>
+			<li><a href="/home/partners">Partners</a></li>
+			<li><a href="/home/support">Support</a></li>
+		</ul>
+	</div>
+	<!-- end menu -->
+	<!-- start header -->
+	<div id="header">
+		<div id="logo">
+			<a href="#"><img src="/assets/logo.gif" style="width: 270px;height: 57px;"></a>
+		</div>
+		<div id="call1">
+		    <img src="/assets/phone.png" style="width:21px;">
+		</div>
+		<div id="call">
+		    	For Appointment call us at <span class="calltext">(040) 40203231</span>
+		</div>
+
+		<div id="socioc">
+		<img src="/assets/fu.gif" style="height: 21px;">
+			<a href=""><img src="/assets/f.png" style="width: 33px;"></a> <a href=""><img src="/assets/t.png" style="width: 33px;"></a> <a href=""><img src="/assets/l.png" style="width: 48px;"></a> <a href=""><img src="/assets/yt.gif" style="width: 68px;"></a>
+		</div>
+	</div>
+	<div id="headerbot"></div>
+	<!-- end header -->
+	<!-- start page -->
+	<div id="page">
+		<div id="bgtop"></div>
+		<div id="bgbottom">
+			<!-- start content -->
+			<div id="content">
+
+				<%= yield %>
+
+			</div>
+			<!-- end content -->
+			<!-- start sidebar two -->
+	<!-- start sidebar two -->
+			<div id="sidebar2" class="sidebar">
+				<ul>
+					<li>
+						<h1 class="borbot">Featured Product</h1>
+						<div class="botm">
+							<table summary="Calendar">
+												
+								<tbody>
+								<tr>
+								<td><img src="/assets/medieaz.gif"  style="width: 183px;height: 88px;border: 1px solid #DDD;border-radius: 4px;margin: 10px;"></td>
+								</tbody>
+							</table>
+						</div>
+					</li>
+					<li class="botm">
+						<h1 class="borbot">Press Room</h1>
+						<p style="color: #1D62B3;">Exleaz Managing Director Mr.Sam in TV5 News</p>
+						<a href="#"><iframe width="200" height="150" src="http://www.youtube.com/embed/nyuAnkxeneI" frameborder="0" allowfullscreen></iframe></a>
+						</li>
+					<li>
+					    <h1 class="borbot">Top Rated Hospitals / Clinics</h2>
+					    <div id="calendar_wrap">
+							<table summary="Calendar">
+								
+								<tbody>
+									<tr>
+										<td><a href="#"><img src="/assets/emory.png" style="width: 150px;"></a></td>
+																													
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/vamshi.jpg" style="width: 150px;"></a></td>
+										
+										</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/gsl_logo.gif" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/smhlogo.png" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+										<td><a href="#"><img src="/assets/midas.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									<tr>
+									    <td><a href="#"><img src="/assets/svl.jpg" style="width: 150px;"></a></a></td>
+										
+																				
+									</tr>
+									
+								</tbody>
+							</table>
+						</div></li>
+					
+				</ul>
+			</div>
+			<!-- end sidebar two -->
+
+			
+			<div style="clear: both;">&nbsp;</div>
+		</div>
+	</div>
+	<!-- end page -->
+	<hr />
+	<!-- start footer -->
+	<div id="footer">
+<%= yield :scripts %>
+		<ul>
+                <li><a href="/home/home">Home</a></li><li><a href="/home/aboutus">About Us</a></li><li><a href="/home/hospitals_clinics">Hospitals/Clinics</a></li><li><a href="/home/labs">Labs</a></li><li><a href="/home/partners">Patners</a></li><li><a href="/home/support">Support</a></li><li><a href="/home/contactus">Contact Us</a></li><li><a href="/home/feedback">Feedback</a></li><li><a href="#">Privacy Policy</a></li><li class="last">© Copyright 2013 OnlineMedLab</li>
+              </ul>
+	</div>
+	<!-- end footer -->
+</div>
+<!-- end wrapper -->
+</body>
+</html>

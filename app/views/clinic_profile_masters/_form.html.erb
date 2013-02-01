@@ -1,0 +1,119 @@
+
+<script>
+function select_admn_category(id)
+	{
+         
+          document.getElementById('photo2').style.display='block'
+			
+	}
+function select_admn_category1(id)
+	{
+        
+          document.getElementById('photo3').style.display='block'
+			
+	}
+function select_admn_category2(id)
+	{
+         
+          document.getElementById('photo4').style.display='block'
+			
+	}
+function select_admn_category3(id)
+	{
+         
+          document.getElementById('photo5').style.display='block'
+			
+	}
+
+
+</script>
+
+
+<script></script>
+<%= javascript_include_tag 'application'%>
+<%= stylesheet_link_tag 'adminstylesheet/child_table' %>
+<%= stylesheet_link_tag 'adminstylesheet/application' %>
+<%= stylesheet_link_tag 'adminstylesheet/tabs' %>
+
+<%= form_for @clinic_profile_master,:remote => true do |f| %>
+  
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+<table width="70%" style="padding-left: 39px;padding-top: 25px;">
+	<tr>
+    	<td style="padding-left: 116px;"><%= f.label :clinic_id %></td>
+    	<td><div class="text-input-bg select"><%= f.select :clinic_id,options_from_collection_for_select(Clinic.all,"id","name"),{:prompt => "Select Clinic"},{:style => 'width: 180px'} %></div></td>
+   	<td><%= f.label :clinicbranch_id, "Branch" %></td>
+   	<td><div class="text-input-bg select"><%= f.select :clinicbranch_id,options_from_collection_for_select(Clinicbranch.all,"id","name"),{:prompt => "Select Branch"},{:style => 'width: 180px'} %></div></td>
+	</tr>
+
+
+	<tr><td style="padding-top: 31px;"><%= f.label :about,"About Clinic" %></td></tr>
+        <tr><td colspan="4"><%= f.text_area :about,:rows=>10,:cols=>120,:placeholder=>"Please enter About." %></td>
+        </tr>
+
+	<tr><td style="padding-top: 26px;padding-bottom: 4px;"><%= f.label :services,"Services | Specialities" %></td></tr>
+    	<tr><td colspan="4"><%= f.text_area :services,:rows=>10,:cols=>120,:placeholder=>"Please enter services." %></td></tr>
+	<tr><td style="padding-top: 26px;padding-bottom: 4px;"><%= f.label :packages,"Packages" %></td></tr>
+    	<tr><td colspan="4"><%= f.text_area :packages,:rows=>10,:cols=>120,:placeholder=>"Please enter packages." %></td></tr>
+	
+</table>
+
+
+      
+<table style="padding-top: 19px;padding-bottom: 10px;padding-left: 38px;"><tr><td>
+
+      <div id="photo1" style="display:block;>
+        <%= f.label :choosefile,"Upload" %>
+        <%= f.file_field :photo1 %>
+        <input type="button" value="Add More" name="Clinics" id="photo1" onClick="select_admn_category(id)">
+        <div>
+
+
+       <div id="photo2" style="display:none;>
+        <%= f.label :choosefile,"Upload" %>
+        <%= f.file_field :photo2 %>
+        <input type="button" value="Add More" name="Clinics" id="photo2" onClick="select_admn_category1(id)">
+        <div>
+         
+     <div id="photo3" style="display:none;>
+        <%= f.label :choosefile,"Upload" %>
+        <%= f.file_field :photo3 %>
+        <input type="button" value="Add More" name="Clinics" id="photo3" onClick="select_admn_category2(id)">
+        <div>
+
+
+       <div id="photo4" style="display:none;>
+        <%= f.label :choosefile,"Upload" %>
+        <%= f.file_field :photo4 %>
+        <input type="button" value="Add More" name="Clinics" id="photo4" onClick="select_admn_category3(id)">
+        <div>
+
+	 <div id="photo5" style="display:none;>
+        <%= f.label :choosefile,"Upload" %>
+        <%= f.file_field :photo5 %>
+       
+        <div>
+
+</td></tr></table>
+
+
+<table align="center" style="padding-bottom: 50px;">
+<tr>
+<td><%= f.submit 'Save',:class=>"button_css" %></td>
+<td><%= f.submit 'Reset',:class=>"button_css",:type=>"reset" %></td>
+<td class="td_button_css" align="center"><%= link_to 'Back', clinic_profile_masters_path,:class=>"link_background" %></td>
+</tr>
+</table>	
+
+ 
+<% end %>
+
+

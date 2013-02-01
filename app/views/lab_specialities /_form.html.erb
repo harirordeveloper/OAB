@@ -1,0 +1,83 @@
+<%= javascript_include_tag 'application' %>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function branch()
+       {
+         clinic = $('#clinic_id').val();
+           jQuery.ajax({
+                  url: '/specialities/branch',
+		     	type: "POST",
+                        data: { branch: clinic },
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        success: function(result){
+                                 $('#clinicbranch_id').empty();
+                                
+                                    $.each(result,function(key,val) {
+                                 
+                                           $('#clinicbranch_id').append('<option value="'+ val.id + '">' + val.name + '</option>');
+                                                  });
+                                                               },  
+                                     error: function(){
+                                          alert('No Branches Found');
+                                          }
+               });
+	
+    }
+   
+</script>
+
+                
+<style type="text/css">
+
+table.curvedEdges { border:1px solid grey;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px; }
+
+table.doctor { border:0px solid grey;background:#E8EEDC;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:25px;}
+
+table.doctorinner { border-right-style:inset}
+
+
+table.doctordesc { border:0px solid grey;background:#E8EEDC;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:0px;margin-bottom:10px;margin-left:10px;margin-right:10px; }
+table.curvedEdges td, table.curvedEdges th { border-bottom:1px dotted black;padding:5px; }
+#td{padding-right: 30px;}
+
+#img2{width:160px;height:130px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px;}
+.img{width:90px;height:90px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px;}
+
+</style>
+<%= form_for @speciality,:remote => true  do |f| %>
+  
+<table>
+ <tr><td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+</table>
+
+</br>   
+<table>
+<tr>
+
+ <td>Clinic Name</td>
+ <td><div class="text-input-bg select"> <%= select_tag :clinic_id,options_from_collection_for_select(Clinic.all,"id","name"),{:prompt => "Select Clinic",:onChange => "branch()"} %> </div></td><td></td>
+ <td>Branch Name</td>
+ <td><div class="text-input-bg select"> <%= select_tag :clinicbranch_id,options_from_collection_for_select(Clinicbranch.all,"id","name"),{:prompt => "Select Branch"} %> </div></td><td></td>
+</tr>
+</table>
+</br>
+
+<table class="doctor" width="957px",height="700px">
+<tr><td>
+<% for item in SpecalitiesMaster.find(:all) %>
+<div>
+  <%= check_box_tag "speciality[specalities_master_ids][]", item.id, @speciality.specalities_masters.include?(item) %>
+  <%= item.name %>
+</div>
+<% end %>
+</td></tr></table>
+
+
+	<div align="center">
+    <table>
+			<tr>
+				<td><%= f.submit 'Save',:class=>"button_css" %></td><td><%= f.submit 'Reset',:class=>"button_css",:type=>"reset" %></td><td class="td_button_css" align="center"><%= link_to 'Back', specialities_path,:class=>"link_background" %></td>
+			</tr>
+      </table>
+  </div>
+<% end %>

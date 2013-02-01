@@ -1,0 +1,51 @@
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function() {
+		$('#example').dataTable( {
+			"bJQueryUI": true,
+			"sPaginationType": "full_numbers"
+		} );
+  	} );
+</script>
+<div id="demo">
+		<center><font color='blue' style="font-weight:bold;">Corporate Health Package <%= @button_name.capitalize %> List</font></center>
+	<table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
+		<thead>
+			<tr>
+				<th>S.No</th>
+				<th>Branch Name</th>
+				<th>Branch Location</th>
+				<th>Code</th>
+				<th>Name</th>
+				<th>Price</th>
+				<th>Discount</th>
+				<th>Net Price</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% i=1 %>
+			<% @corporate_health_packages.each do |corporate_health_package| %>
+			  <% if(@button_name=="edit") %>
+			  		<tr onClick="add_edit_url('<%= corporate_health_package.id %>')">
+				<% elsif(@button_name=="delete") %>
+			  		<tr onClick="if(confirm('Are you sure')) delete_record('<%= corporate_health_package.id %>');">
+				<% elsif(@button_name=="print") %>
+			  		<tr onClick="window.open('/newlab/corporate_health_packages/show/<%= corporate_health_package.id %>','open_window','dependent, width=850, height=500,top=50,left=100');">
+				<% else %>
+					<tr>
+				<% end %>
+			    <td><%= i %></td>
+			    <td><%=h corporate_health_package.branch_code %></td>
+			    <td><%=h corporate_health_package.branch_location %></td>
+				 <td><%=h corporate_health_package.package_code %></td>
+				 <td><%=h corporate_health_package.package_name %></td>
+				 <td><%=h number_with_precision(corporate_health_package.total_package_price, :precision => 2, :separator => '.') %></td>
+				 <td><%=h number_with_precision(corporate_health_package.discount, :precision => 2, :separator => '.') %></td>
+			    <td><%=h number_with_precision(corporate_health_package.fixed_price, :precision => 2, :separator => '.') %></td>
+			  </tr>
+			  <% i=i+1 %>
+			<% end %>
+		</tbody>
+		<tfoot>
+	</table>
+</div>
+<div class="spacer"></div>

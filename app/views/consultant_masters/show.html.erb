@@ -1,0 +1,72 @@
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= root_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @consultant_master.name %>
+</p>
+
+<p>
+  <b>Degree:</b>
+  <%= @consultant_master.degree %>
+</p>
+
+<p>
+  <b>Specialities:</b>
+  <%= @consultant_master.specialities %>
+</p>
+
+<p>
+  <b>Total exp:</b>
+  <%= @consultant_master.total_exp %>
+</p>
+
+<p>
+  <b>Conformation:</b>
+  <%= @consultant_master.conformation %>
+</p>
+
+<p>
+  <b>Charge:</b>
+  <%= @consultant_master.charge %>
+</p>
+
+<p>
+  <b>Qualifications:</b>
+  <%= @consultant_master.qualifications %>
+</p>
+
+<p>
+  <b>Expertise:</b>
+  <%= @consultant_master.expertise %>
+</p>
+
+<p>
+  <b>Professional exp:</b>
+  <%= @consultant_master.professional_exp %>
+</p>
+
+<p>
+  <b>Awards achievments:</b>
+  <%= @consultant_master.awards_achievments %>
+</p>
+
+<p>
+  <b>Consultant:</b>
+  <%= @consultant_master.consultant %>
+</p>
+
+
+<%= link_to 'Edit', edit_consultant_master_path(@consultant_master) %> |
+<%= link_to 'Back', consultant_masters_path %>

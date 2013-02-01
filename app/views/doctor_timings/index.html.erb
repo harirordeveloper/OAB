@@ -1,0 +1,31 @@
+<h1>Listing doctor_timings</h1>
+
+<table>
+  <tr>
+    <th>Day</th>
+    <th>Morning time</th>
+    <th>Evening time</th>
+    <th>Others</th>
+    <th>Consultant master</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @doctor_timings.each do |doctor_timing| %>
+  <tr>
+    <td><%= doctor_timing.day %></td>
+    <td><%= doctor_timing.morning_time %></td>
+    <td><%= doctor_timing.evening_time %></td>
+    <td><%= doctor_timing.others %></td>
+    <td><%= doctor_timing.consultant_master %></td>
+    <td><%= link_to 'Show', doctor_timing %></td>
+    <td><%= link_to 'Edit', edit_doctor_timing_path(doctor_timing) %></td>
+    <td><%= link_to 'Destroy', doctor_timing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Doctor timing', new_doctor_timing_path %>

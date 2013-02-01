@@ -1,0 +1,74 @@
+
+</head>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example').dataTable();
+});
+</script>
+
+
+
+
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+
+
+<table id="example">
+  <thead> 
+    
+    <th>Name</th>
+    <th>Displayname</th>
+    
+    <th>Expdate</th>
+    <th>Address1</th>
+    <th>Location</th>
+    <th>Landmarks</th>
+    <th>Email</th>
+   
+   
+    <th></th>
+    <th></th>
+    <th></th>
+ </thead> 
+
+
+  <tbody>
+   <% @labbranches.each do |labbranch| %>
+    <tr>
+    <td><%= labbranch.name %></td>
+    <td><%= labbranch.displayname %></td>
+   
+  
+    <td><%= labbranch.expdate %></td>
+    <td><%= labbranch.address1 %></td>
+  
+    <td><%= labbranch.location_id %></td>
+    <td><%= labbranch.landmarks %></td>
+    
+    <td><%= labbranch.email %></td>
+   
+   
+    <td><%=  link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to VIEW This Record",:width=>20,:height=>20), labbranch %></td>
+
+
+ <td><%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) , edit_labbranch_path(labbranch) %></td>
+
+    <td><%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), labbranch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+  </tr>
+<% end %>
+</br>
+</tbody>
+</table>
+
+<br />
+
+

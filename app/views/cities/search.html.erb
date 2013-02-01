@@ -1,0 +1,14 @@
+
+
+<%= form_for @location do |f| %>
+ 
+  <div class="field">
+    <%= f.label :Location %>
+    <%= f.text_field :city, data: {autocomplete_source: Location.order(:name).map(&:name)} %>
+  </div>
+
+  
+<% end %>
+
+
+

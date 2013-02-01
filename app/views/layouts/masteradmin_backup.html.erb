@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>
+            View Profile/Clinics
+        </title>
+  <!-- template STYLE SHEET LINKS--> 
+<%= stylesheet_link_tag    "caurosal"%>
+<%= stylesheet_link_tag    "jquery-ui"%>
+<%= stylesheet_link_tag    "profile"%>
+<%= stylesheet_link_tag    "style"%>
+<%= stylesheet_link_tag    "tabmenu"%>
+
+<!-- template STYLE SHEET LINKS--> 
+<%= stylesheet_link_tag    "application"%>
+<%= stylesheet_link_tag    "ColumnFilterWidgets"%>
+
+<!-- template STYLE SHEET LINKS--> 
+<%= stylesheet_link_tag    "demo_page"%>
+<%= stylesheet_link_tag    "demo_table"%>
+<%= stylesheet_link_tag    "demo_table_jui"%>
+<%= stylesheet_link_tag    "demo_validation"%>
+<%= stylesheet_link_tag    "jquery.dataTables"%>
+<%= stylesheet_link_tag    "jquery.dataTables_themeroller"%>
+<!-- template STYLE SHEET LINKS--> 
+<%= stylesheet_link_tag    "site_jui.ccss"%>
+<!-- tokeninput  STYLE SHEET LINKS--> 
+ <%= stylesheet_link_tag    "token-input-facebook"%>
+ <%= stylesheet_link_tag    "token-input-mac"%>
+ <%= stylesheet_link_tag    "token-input"%>
+
+
+<%= javascript_include_tag  "application" %>
+ <%= javascript_include_tag  "jquery.tokeninput" %>
+<%= javascript_include_tag  "ColumnFilterWidgets" %>
+<%= javascript_include_tag  "jquery.dataTables.columnFilter" %>
+<%= javascript_include_tag  "jquery.dataTables" %>
+<%= javascript_include_tag  "jquery.dataTables.min" %>
+
+
+
+
+
+
+        <meta charset="UTF-8">
+          <script type="text/javascript">
+
+$(document).ready(function(){
+	$("#tabsholder").tytabs({
+							tabinit:"2",
+							fadespeed:"fast"
+							});
+	$("#tabsholder2").tytabs({
+							prefixtabs:"tabz",
+							prefixcontent:"contentz",
+							classcontent:"tabscontent",
+							tabinit:"3",
+							catchget:"tab2",
+							fadespeed:"normal"
+							});
+});
+
+</script>
+          <style type="text/css">
+
+</style>
+</head>
+    
+    <body>
+        <div class="main">
+            <div id="one">
+                <div id="logo"><img src="/assets/logo3.gif" alt="Logo" style="width: 90px;height: 72px;"></div>
+                <div id="bgone"> For Appointment Call Us :+91 (0) 40 40203231 <div id="share"><!-- Lockerz Share BEGIN -->
+<div class="a2a_kit a2a_default_style">
+<a class="a2a_dd" href="http://www.addtoany.com/share_save">Share</a>
+</div>
+<script type="text/javascript" src="http://static.addtoany.com/menu/page.js"></script>
+<!-- Lockerz Share END --></div>
+                </div>
+                       <div id="metaltop-teal">
+	<ul>
+		<li class="first"><a href="#">Home</a></li>
+		<li class="active"><a href="#">About Us</a></li>
+		<li><a href="#">Hospitals/Clinics</a></li>
+                <li><a href="#">Labs</a></li>
+                <li><a href="#">Patners</a></li>
+		<li class="last"><a style="border: none;" href="#">Support</a></li>
+                </ul>
+        
+</div>
+                       </div><!--one ends here-->
+
+
+
+
+
+<!--profile starts here--->
+  <div id="profile">
+
+
+<%= yield %>
+
+
+</div><!--div profile  ends-->
+
+
+
+<div id="prfright">
+                      
+
+
+ 
+
+Your Right Side Area with 30% 
+
+
+
+
+</div><!--prfright ends-->
+                       
+                               
+        
+                               </div><!--main ends-->
+        <div id="footer1">
+  <div id="foo">
+   .
+  </div>
+  <ul>
+                <li><a href="#">Home</a></li><li><a href="#">About Us</a></li><li><a href="#">Hospitals/Clinics</a></li><li><a href="#">Labs</a></li><li><a href="#">Patners</a></li><li><a href="#">Support</a></li><li><a href="#">Contact Us</a></li><li><a href="#">Privacy Policy</a></li><li class="last">© Copyright 2012 OnlineMedLab</li>
+              </ul>
+</div>
+    </body>
+</html>

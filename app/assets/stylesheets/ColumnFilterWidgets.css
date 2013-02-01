@@ -1,0 +1,12 @@
+.column-filter-widget { float:left; padding: 5px;padding-right: 17px; }
+.column-filter-widget select { 
+display: block;
+border: 1px solid #B1B3B6;
+-moz-border-radius: 6px;
+padding: 4px;
+cursor: pointer;
+border-radius: 6px;
+height: 28px;width: 120px;background-color:#FCF9EC; }
+.column-filter-widgets a.filter-term { display: block; text-decoration: none; padding-left: 10px; font-size: 90%; }
+.column-filter-widgets a.filter-term:hover { text-decoration: line-through !important; }
+.column-filter-widget-selected-terms { clear:left; }

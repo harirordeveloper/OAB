@@ -1,0 +1,140 @@
+
+<script type="text/javascript">
+$(document).ready(function () {
+$(function() {
+  $("#doctor").tokenInput("/doctor_assignments/fields.json", {
+    
+    crossDomain: false,
+    prePopulate: $("#doctor").data("pre"),
+    theme: "facebook"
+  });
+});
+});
+</script>
+<script type="text/javascript">
+    function calls()
+       {
+         cal = $('#doctor').val();
+          
+     jQuery.ajax({
+          	url: '/doctor_assignments/search',
+		     	type: "POST",
+                        data: { cal: cal },
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        success: function(result){
+                                                for(i=0;i<result.length;i++)
+                                                     {
+                                                    jQuery('#r'+i+'c1').val(result[i].name);
+                                                    jQuery('#r'+i+'c2').val(result[i].doctor_id);
+                                                    jQuery('#r'+i+'c3').val(result[i].charge);
+                                                     }
+                                                   },
+                                              
+                        
+                        error: function(){
+                                          alert('No Consultant Found');
+                                          }
+               });
+	
+    }
+      
+</script>
+
+<script type="text/javascript">
+    function branch()
+       {
+         clinic = $('#clinic_id').val();
+           jQuery.ajax({
+                  url: '/doctor_assignments/branch',
+		     	type: "POST",
+                        data: { branch: clinic },
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        success: function(result){
+                                 $('#clinicbranch_id').empty();
+                                
+                                    $.each(result,function(key,val) {
+                                 
+                                           $('#clinicbranch_id').append('<option value="'+ val.id + '">' + val.name + '</option>');
+                                                  });
+                                                               },  
+                                     error: function(){
+                                          alert('No Branches Found');
+                                          }
+               });
+	
+    }
+   
+</script>
+<script>
+  function resetForm(id) {
+	$('#'+id).each(function(){
+	        this.reset();
+	});
+        $('#doctor').tokenInput("clear")
+}
+</script>
+<%= form_for(@timing) do |f| %>
+  <% if @timing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timing.errors.count, "error") %> prohibited this doctor_assignment from being saved:</h2>
+      <ul>
+      <% @timing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+  <table>
+
+ <tr><td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<table style="margin-left: 114px;">
+	<tr>
+		<td >Clinic Name</td>
+	   <td><div class="text-input-bg select"><%= select_tag :clinic_id,options_from_collection_for_select(Clinic.all,"id","name"),{:prompt => "Select Clinic",:onChange => "branch()"} %></div></td>
+	   <td>Branch Name</td>
+	   <td><div class="text-input-bg select"><%= select_tag :clinicbranch_id,options_from_collection_for_select(Clinicbranch.all,"id","name"),{:prompt => "Select Branch"} %></div></td>
+	</tr>
+	<tr>
+      <td style="padding-top: 10px;">Doctor</td>   
+ 	   <td style="padding-top: 10px;"><%= text_field :consultant_master_id,{"data-pre" => ""},{:id=>"doctor",:onChange => "calls()"} %></td>
+ 	</tr>  
+</table>
+</div>
+<% 15.times { @timing.doctor_assignments.build } %>
+<div id="table_wrapper1" style="margin-top: 20px;margin-bottom: 43px;">
+	<div id="header_ind">	
+		<div id="head41">Doctor Name</div>
+      <div id="head41">ID</div>
+      <div id="head41">Charge</div>
+      <div id="head41">Clinic Charge</div>
+	</div>
+   <div id="tbody">
+		<table id="scroll_table" class="fixed">
+		   <% i=0 %>
+   	   <%= f.fields_for :doctor_assignments do |a| %>
+         <tbody>
+		   	<tr>
+					<td class="td4 child_table"><%= a.text_field :doctor_name,:id=>"r#{i}c1", :class => "text_field_child" %></td>
+					<td class="td4 child_table"><%= a.number_field :doctor_id,:id=>"r#{i}c2", :class => "text_field_child" %></td>
+					<td class="td4 child_table"><%= a.text_field :doctor_charge,:id=>"r#{i}c3", :class => "text_field_child" %></td>
+					<td class="td4 child_table"><%= a.text_field :clinic_charge,:id=>"r#{i}c4", :class => "text_field_child" %></td>
+            </tr>
+		     <% i+=1 %>
+        <% end %>
+	 </table>
+	</div>
+</div>
+
+<div align="center">
+	<table>
+		<tr>
+			<td><%= f.submit 'Save',:class=>"button_css" %></td><td><%= f.submit 'Reset',:class=>"button_css",:type=>"reset" %></td><td class="td_button_css" align="center"><%= link_to 'Back', doctor_assignments_path,:class=>"link_background" %></td>
+		</tr>
+   </table>
+</div>		
+<% end %>

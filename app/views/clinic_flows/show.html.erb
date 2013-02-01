@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @clinic_flow.name %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @clinic_flow.location %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @clinic_flow.city %>
+</p>
+
+<p>
+  <b>Speciality:</b>
+  <%= @clinic_flow.speciality %>
+</p>
+
+
+<%= link_to 'Edit', edit_clinic_flow_path(@clinic_flow) %> |
+<%= link_to 'Back', clinic_flows_path %>

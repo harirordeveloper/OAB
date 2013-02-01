@@ -1,0 +1,43 @@
+<script>
+</script>
+ require 'rubygems'
+  	 require 'thinreports'
+  	 ThinReports::Report.generate_file('app/views/reports/readpdf.pdf') do
+    use_layout 'app/views/reports/testwise.tlf'
+    start_new_page do
+        	 org_master_child=OrgMasterChildTable.last
+ item(:image).value prawn_logo
+            item(:address1).value org_master_child.address.split(";")[0]
+            item(:address2).value org_master_child.address.split(";")[1]
+            item(:address3).value org_master_child.address.split(";")[2]
+            item(:address4).value org_master_child.address.split(";")[3]     
+             item(:to_date).value Time.new.strftime("%d-%m-%Y %H:%M")    
+              item(:report_name).value "Test Wise Bookings"
+
+        	 item(:image).value prawn_logo
+        	 s_no=1
+        	 total=0
+        	 for test_booking_child in test_booking_children
+        	  	 report.page.list(:list).add_row do |row|
+        	    	 row.item(:s_no).value s_no
+         test_booking=TestBooking.find_by_id(test_booking_child.test_booking_id)
+        	    	 row.item(:mr_no).value test_booking.mr_no
+        	    	 reg=Registration.find_by_mr_no(test_booking.mr_no)
+        	    	 row.item(:lab_no).value test_booking.lab_no
+        	    	 row.item(:p_name).value test_booking.patient_name
+        	    	 row.item(:age).value reg.age.to_s+"/"+reg.gender
+        	    	 row.item(:date).value test_booking.booking_date.strftime("%d-%m-%Y")+"/"+test_booking.created_at.strftime("%H:%M")
+        	    	 row.item(:test_name).value Testmaster.find_by_id(test_booking_child.test_name).test_name
+        	    	 
+        	    	 row.item(:paid_amt).value "%05.2f" % test_booking_child.amount
+end
+        	  	 total=total+test_booking_child.amount
+        	  	 s_no=s_no+1
+        	  	 item(:count).value s_no-1 	  
+ 	 item(:total).value "%05.2f" % total
+ 	 item(:page_no).value 1
+     	 end
+  end
+end
+redirect_to("/reports/readpdf/1?format=pdf")
+  end

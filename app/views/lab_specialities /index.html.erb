@@ -1,0 +1,67 @@
+
+
+<!--To get the token input field-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<%= javascript_include_tag "jquery.tokeninput" %>
+<%= stylesheet_link_tag "token-input-mac" %>
+<%= stylesheet_link_tag "token-input-facebook" %>
+<%= stylesheet_link_tag "token-input" %>
+<!--To get the data tables-->
+<%= javascript_include_tag "dataTables/jquery.dataTables" %>
+<%= javascript_include_tag "dataTables/jquery.dataTables.min" %>
+<%= stylesheet_link_tag "jquery.dataTables1" %>
+<%= stylesheet_link_tag "jquery.dataTables_themeroller1" %>
+<%= stylesheet_link_tag "demo_page" %>
+<%= stylesheet_link_tag "demo_table" %>
+<%= stylesheet_link_tag "demo_table_jui" %>
+<%= stylesheet_link_tag "demo_validation" %>
+
+<%= stylesheet_link_tag "adminstylesheet/child_table" %>
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+    $('#example').dataTable();
+});
+</script>
+
+<table>
+	<tr>
+		<td width="150px" style="font-family :arial;"><%= image_tag("add.png")%><font size="4" ><%= link_to 'Add Speciality', new_speciality_path %></font></td>
+		<td width="850px"> </td><td><a href='<%= loginpage_path %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td>
+	</tr>
+</table>
+
+<table id="example">
+  <thead> 
+   
+    <th>Speciality Id</th>
+    <th>Clinic|Consultant|ClinicBranch(ID)</th>
+    <th>Specialized Party</th>
+    <th></th>
+    
+ </thead>
+
+
+ <tbody>
+<% @specialities.each do |speciality| %>
+   <tr>
+    <% s=SpecalitiesMaster.find_by_id(speciality.specalities_master_id) %>
+    <td align="center"><%= s.name %></td>
+
+    <% c=Clinic.find_by_id(speciality.speciality_id) %>
+
+    <td align="center"><%= c.name %></td>
+    <td align="center"><%= speciality.speciality_type %></td>
+
+    <td align="center"><%=  link_to image_tag("/assets/show.png",:border=>"0",:title=>" Click Here to VIEW This Record",:width=>20,:height=>20), speciality %>&nbsp&nbsp&nbsp
+	<%= link_to image_tag("/assets/Edit.png",:border=>"0",:title=>" Click Here to Edit This Record",:width=>20,:height=>20) ,edit_speciality_path(speciality) %>&nbsp&nbsp&nbsp
+    <%= link_to image_tag("/assets/delete.png",:border=>"0",:title=>" Click Here to Delete This Record",:width=>20,:height=>20), speciality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+<% end %>
+ </tbody>
+
+
+
+</table>

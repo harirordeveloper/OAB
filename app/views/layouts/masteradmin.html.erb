@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+       
+
+<%= stylesheet_link_tag  "main_style" %>
+<%= csrf_meta_tag %>
+<!--
+<%= stylesheet_link_tag  "jquery.ui.datepicker" %>
+
+<%= javascript_include_tag  "jquery"%>
+<%= javascript_include_tag  "jquery_ujs"%>
+<%= javascript_include_tag  "jquery-ui"%>-->
+
+
+
+
+<style>
+		ul{list-style: none; padding: 0; margin: 0;}
+		#nav {float: left; width: 180px; border-top: 1px solid #999; border-right: 1px solid #999; border-left: 1px solid #999; margin: 15px 0;}
+		#nav li a {display: block; padding: 10px 15px; background: #ccc; border-top: 1px solid #eee; border-bottom: 1px solid #999; text-decoration: none; color: #000;}
+		#nav li a:hover, #nav li a.active {background: #999; color: #fff;}
+		#nav li ul {display: none;}
+		#nav li ul li a {padding: 10px 5px; background: #ececec; border-bottom: 1px dotted #ccc;}
+</style>
+</head>
+    
+    <body>
+       
+             <div id="header_bg">
+		
+			       <table width="100%"><tr><td  style="padding-left: 160px;">Welcome to Exleaz Admin</td>
+                               <% if user_signed_in? %>
+			                     <td>   Logged in as <strong><%= current_user.email %></strong>.</td>
+                    <td> <a href="users/edit"  class="footer-logo">Change Password</a></td>
+			                      <td> <%= link_to 'Edit profile', edit_user_registration_path %> |
+			                   <%= link_to "Logout", destroy_user_session_path, method: :delete %></td>
+			          <% else %>
+			                     <td>  <%= link_to "Sign up", new_user_registration_path %> |
+			                       <%= link_to "Login", new_user_session_path %>
+			          <% end %></td>
+                             </tr></table>
+		
+	    </div>
+          <br />
+           <!--<div id="menu">
+			<p class="notice"><%= notice %></p>
+			<p class="alert"><%= alert %></p>
+			
+          </div>-->
+            
+
+
+
+
+
+
+
+<!--profile starts here--->
+           <div id="profile">
+
+
+                    <%= yield %>
+
+
+          </div><!--div profile  ends-->
+
+
+
+ 
+    <div id="footer">
+            <%= render "/masteradmin/footer" %>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="/assets/registrations/jquery.validate.min.js"></script>
+<title>Registration</title>
+
+<link rel="stylesheet" type="text/css" href="/assets/registrations/bootstrap.css">
+<style>
+
+</style>
+
+<script type="text/javascript">
+/**
+  * jQuery Validation Form
+  */
+(function($,W,D)
+{
+    var JQUERY4U = {};
+
+    JQUERY4U.UTIL =
+    {
+        setupFormValidation: function()
+        {
+            //form validation rules
+            $("#register-form").validate({
+                rules: {
+                    firstname: "required",
+                    lastname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    password: {
+                        required: true,
+                        minlength: 5
+                    },
+		    phone:  {
+			required: true,
+                        minlength: 10
+		    },
+                    agree: "required"
+                },
+                messages: {
+                    firstname: "Please enter your firstname",
+                    lastname: "Please enter your lastname",
+                    password: {
+                        required: "Please provide a password",
+                        minlength: "Your password must be at least 5 characters long"
+                    },
+                    email: "Please enter a valid email address",
+		    phone: "Please enter a valid phone number",
+                    agree: "Please accept our policy"
+                },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+        }
+    }
+
+    //when the dom has loaded setup form validation rules
+    $(D).ready(function($) {
+        JQUERY4U.UTIL.setupFormValidation();
+    });
+
+})(jQuery, window, document);
+</script>
+
+</head>
+<body>
+    <div id="page-wrap">
+
+<div id="cont">
+
+<!-- HTML form for validation  -->
+<form action="" method="post" id="register-form" novalidate="novalidate">
+
+    <h2>User Registration</h2>
+
+    <div id="form-content">
+        <fieldset>
+
+            <div class="fieldgroup">
+                <label for="firstname">First Name</label>
+                <input type="text" name="firstname">
+            </div>
+
+            <div class="fieldgroup">
+                <label for="lastname">Last Name</label>
+                <input type="text" name="lastname">
+            </div>
+
+	                   
+	    
+            <div class="fieldgroup">
+                <label for="email">Email</label>
+                <input type="text" name="email">
+            </div>
+
+            <div class="fieldgroup">
+                <label for="password">Password</label>
+                <input type="password" name="password">
+            </div>
+	    
+	    <div class="fieldgroup">
+                <label for="phone">Phone No</label>
+                <input type="text" name="phone">
+            </div>
+	       
+	       <div class="fieldgroup">
+                <label for="">Address</label>
+                <input type="text" name="">
+            </div>
+	       
+	       <div class="fieldgroup">
+                <label for="">City</label>
+                <input type="phone" name="">
+            </div>
+	       
+	       <div class="fieldgroup">
+                <label for="">Country</label>
+                <input type="text" name="">
+            </div>
+
+            <div class="fieldgroup">
+                
+                <input type="submit" value="Register" class="submit">
+            </div>
+
+        </fieldset>
+    </div>
+        <div class="fieldgroup">
+            <p>Already registered? <a href="/login">Sign in</a>.</p>
+        </div>
+</form>
+<!-- END HTML form for validation -->
+
+
+
+</div>
+
+</div>
+
+</div> <!-- end page wrap -->
+
+</div>
+</body>
+</html>

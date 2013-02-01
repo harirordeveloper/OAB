@@ -1,0 +1,426 @@
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+
+
+Started GET "/user/login" for 127.0.0.1 at 2013-02-01 12:25:49 +0530
+
+ActionController::RoutingError (No route matches [GET] "/user/login"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/hari/.rvm/gems/ruby-1.9.3-head@rails329/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (24.0ms)
+
+
+Started GET "/users/login" for 127.0.0.1 at 2013-02-01 12:25:57 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.erb (4.2ms)
+  Rendered devise/sessions/new.html.erb (261.3ms)
+Completed 200 OK in 544ms (Views: 280.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/assets/core.js?body=1" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+Served asset /core.js - 200 OK (33ms)
+
+
+Started GET "/assets/en.js?body=1" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+Served asset /en.js - 200 OK (13ms)
+
+
+Started GET "/assets/common.css?body=1" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+Served asset /common.css - 200 OK (9ms)
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+Served asset /login.js - 200 OK (8ms)
+
+
+Started GET "/assets/ga.js?body=1" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+Served asset /ga.js - 200 OK (8ms)
+
+
+Started GET "/assets/dlgbox.css?body=1" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+Served asset /dlgbox.css - 200 OK (9ms)
+
+
+Started GET "/users/login_files/login.js" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+
+ActionController::RoutingError (No route matches [GET] "/users/login_files/login.js"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/hari/.rvm/gems/ruby-1.9.3-head@rails329/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/images/x1/common-32.png?24341" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+
+ActionController::RoutingError (No route matches [GET] "/images/x1/common-32.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/hari/.rvm/gems/ruby-1.9.3-head@rails329/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/login/login-btn.png" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+Served asset /login/login-btn.png - 200 OK (3ms)
+
+
+Started GET "/assets/logo.gif" for 127.0.0.1 at 2013-02-01 12:25:58 +0530
+Served asset /logo.gif - 200 OK (6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2013-02-01 12:26:04 +0530
+Processing by HomeController#index as HTML
+  [1m[36mLocation Load (33.9ms)[0m  [1mSELECT `locations`.* FROM `locations` ORDER BY name[0m
+  [1m[35mCity Load (0.4ms)[0m  SELECT `cities`.* FROM `cities` 
+  [1m[36mSpecalitiesMaster Load (0.4ms)[0m  [1mSELECT `specalities_masters`.* FROM `specalities_masters` [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `locations`.* FROM `locations` ORDER BY name
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `cities`.* FROM `cities` [0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `specalities_masters`.* FROM `specalities_masters` 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `locations`.* FROM `locations` ORDER BY name[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT `cities`.* FROM `cities` 
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT `specalities_masters`.* FROM `specalities_masters` [0m
+  Rendered home/index.html.erb within layouts/home (311.3ms)
+Completed 200 OK in 845ms (Views: 577.1ms | ActiveRecord: 39.9ms)
+
+
+Started GET "/assets/jquery-slider.js?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /jquery-slider.js - 200 OK (13ms)
+
+
+Started GET "/assets/caurosal.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /caurosal.css - 200 OK (10ms)
+
+
+Started GET "/assets/tabmenu.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /tabmenu.css - 200 OK (18ms)
+
+
+Started GET "/assets/jquery-ui.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /jquery-ui.css - 200 OK (9ms)
+
+
+Started GET "/assets/style.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /style.css - 200 OK (9ms)
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /profile.css - 200 OK (10ms)
+
+
+Started GET "/assets/default.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /default.css - 200 OK (10ms)
+
+
+Started GET "/assets/generic.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /generic.css - 200 OK (9ms)
+
+
+Started GET "/assets/slider.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /slider.css - 200 OK (15ms)
+
+
+Started GET "/assets/tooltip.css?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /tooltip.css - 200 OK (9ms)
+
+
+Started GET "/assets/base/jquery-ui.css" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /base/jquery-ui.css - 404 Not Found (52ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/base/jquery-ui.css"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/hari/.rvm/gems/ruby-1.9.3-head@rails329/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/assets/jquery.lavalamp-1.4.js?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /jquery.lavalamp-1.4.js - 200 OK (8ms)
+
+
+Started GET "/assets/jquery.min.js?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /jquery.min.js - 200 OK (8ms)
+
+
+Started GET "/assets/jquery-1.8.3.js?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /jquery-1.8.3.js - 200 OK (8ms)
+
+
+Started GET "/assets/jqxlistbox.js?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /jqxlistbox.js - 200 OK (8ms)
+
+
+Started GET "/assets/jquery-ui.js?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /jquery-ui.js - 200 OK (9ms)
+
+
+Started GET "/assets/tytabs.jquery.min.js?body=1" for 127.0.0.1 at 2013-02-01 12:26:05 +0530
+Served asset /tytabs.jquery.min.js - 200 OK (9ms)
+
+
+Started GET "/assets/images/bg1.gif" for 127.0.0.1 at 2013-02-01 12:26:06 +0530
+Served asset /images/bg1.gif - 200 OK (10ms)
+
+
+Started GET "/assets/images/arrow_menu-new.png" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /images/arrow_menu-new.png - 200 OK (7ms)
+
+
+Started GET "/assets/phone.png" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /phone.png - 200 OK (10ms)
+
+
+Started GET "/assets/fu.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /fu.gif - 200 OK (11ms)
+
+
+Started GET "/assets/t.png" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /t.png - 200 OK (6ms)
+
+
+Started GET "/assets/f.png" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /f.png - 200 OK (11ms)
+
+
+Started GET "/assets/logo.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /logo.gif - 304 Not Modified (0ms)
+
+
+Started GET "/assets/l.png" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /l.png - 200 OK (6ms)
+
+
+Started GET "/assets/yt.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /yt.gif - 200 OK (11ms)
+
+
+Started GET "/assets/p.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /p.gif - 200 OK (6ms)
+
+
+Started GET "/assets/d.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /d.gif - 200 OK (6ms)
+
+
+Started GET "/assets/h.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /h.gif - 200 OK (10ms)
+
+
+Started GET "/assets/l.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /l.gif - 200 OK (7ms)
+
+
+Started GET "/assets/step1_img.jpg" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /step1_img.jpg - 200 OK (6ms)
+
+
+Started GET "/assets/arrow_image.jpg" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /arrow_image.jpg - 200 OK (22ms)
+
+
+Started GET "/assets/step2_img.jpg" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /step2_img.jpg - 200 OK (6ms)
+
+
+Started GET "/assets/step3_img.jpg" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /step3_img.jpg - 200 OK (11ms)
+
+
+Started GET "/assets/images/bullet.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /images/bullet.gif - 200 OK (11ms)
+
+
+Started GET "/assets/emory.png" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /emory.png - 200 OK (6ms)
+
+
+Started GET "/assets/medieaz.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /medieaz.gif - 200 OK (22ms)
+
+
+Started GET "/assets/vamshi.jpg" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /vamshi.jpg - 200 OK (8ms)
+
+
+Started GET "/assets/gsl_logo.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /gsl_logo.gif - 200 OK (7ms)
+
+
+Started GET "/assets/smhlogo.png" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /smhlogo.png - 200 OK (6ms)
+
+
+Started GET "/assets/midas.jpg" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /midas.jpg - 200 OK (12ms)
+
+
+Started GET "/assets/svl.jpg" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /svl.jpg - 200 OK (6ms)
+
+
+Started GET "/assets/loading.gif" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /loading.gif - 200 OK (11ms)
+
+
+Started GET "/assets/Sripoojahos.jpg" for 127.0.0.1 at 2013-02-01 12:26:07 +0530
+Served asset /Sripoojahos.jpg - 200 OK (6ms)
+
+
+Started GET "/assets/war-fin.png" for 127.0.0.1 at 2013-02-01 12:26:08 +0530
+Served asset /war-fin.png - 200 OK (11ms)
+
+
+Started GET "/assets/images/bottom.jpg" for 127.0.0.1 at 2013-02-01 12:26:08 +0530
+Served asset /images/bottom.jpg - 200 OK (6ms)
+
+
+Started GET "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png" for 127.0.0.1 at 2013-02-01 12:26:08 +0530
+Served asset /images/ui-bg_glass_75_e6e6e6_1x400.png - 404 Not Found (18ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_75_e6e6e6_1x400.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/hari/.rvm/gems/ruby-1.9.3-head@rails329/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/assets/images/ui-bg_glass_65_ffffff_1x400.png" for 127.0.0.1 at 2013-02-01 12:26:08 +0530
+Served asset /images/ui-bg_glass_65_ffffff_1x400.png - 404 Not Found (21ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_glass_65_ffffff_1x400.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/hari/.rvm/gems/ruby-1.9.3-head@rails329/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/assets/images/ui-bg_flat_75_ffffff_40x100.png" for 127.0.0.1 at 2013-02-01 12:26:08 +0530
+Served asset /images/ui-bg_flat_75_ffffff_40x100.png - 404 Not Found (39ms)
+
+ActionController::RoutingError (No route matches [GET] "/assets/images/ui-bg_flat_75_ffffff_40x100.png"):
+  actionpack (3.2.8) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/show_exceptions.rb:56:in `call'
+  railties (3.2.8) lib/rails/rack/logger.rb:26:in `call_app'
+  railties (3.2.8) lib/rails/rack/logger.rb:16:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/request_id.rb:22:in `call'
+  rack (1.4.1) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.4.1) lib/rack/runtime.rb:17:in `call'
+  activesupport (3.2.8) lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  rack (1.4.1) lib/rack/lock.rb:15:in `call'
+  actionpack (3.2.8) lib/action_dispatch/middleware/static.rb:62:in `call'
+  railties (3.2.8) lib/rails/engine.rb:479:in `call'
+  railties (3.2.8) lib/rails/application.rb:223:in `call'
+  rack (1.4.1) lib/rack/content_length.rb:14:in `call'
+  railties (3.2.8) lib/rails/rack/log_tailer.rb:17:in `call'
+  rack (1.4.1) lib/rack/handler/webrick.rb:59:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:138:in `service'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/httpserver.rb:94:in `run'
+  /home/hari/.rvm/rubies/ruby-1.9.3-head/lib/ruby/1.9.1/webrick/server.rb:191:in `block in start_thread'
+
+
+  Rendered /home/hari/.rvm/gems/ruby-1.9.3-head@rails329/gems/actionpack-3.2.8/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/assets/navButtons.png" for 127.0.0.1 at 2013-02-01 12:26:08 +0530
+Served asset /navButtons.png - 200 OK (6ms)

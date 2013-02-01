@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  clinic: 
+  clinicbranches: 
+  about: MyText
+  services: MyText
+  packages: MyText
+  photo1: MyString
+  photo2: MyString
+  photo3: MyString
+  photo4: MyString
+  photo5: MyString
+
+two:
+  clinic: 
+  clinicbranches: 
+  about: MyText
+  services: MyText
+  packages: MyText
+  photo1: MyString
+  photo2: MyString
+  photo3: MyString
+  photo4: MyString
+  photo5: MyString

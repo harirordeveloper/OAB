@@ -1,0 +1,33 @@
+<p>
+  <b>Test master:</b>
+  <%=h @test_master_child.test_master_id %>
+</p>
+
+<p>
+  <b>S no:</b>
+  <%=h @test_master_child.s_no %>
+</p>
+
+<p>
+  <b>Parameter:</b>
+  <%=h @test_master_child.parameter %>
+</p>
+
+<p>
+  <b>Content type:</b>
+  <%=h @test_master_child.content_type %>
+</p>
+
+<p>
+  <b>Normal range:</b>
+  <%=h @test_master_child.normal_range %>
+</p>
+
+<p>
+  <b>Units:</b>
+  <%=h @test_master_child.units %>
+</p>
+
+
+<%= link_to 'Edit', edit_test_master_child_path(@test_master_child) %> |
+<%= link_to 'Back', test_master_children_path %>

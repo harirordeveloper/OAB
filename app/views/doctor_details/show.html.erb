@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @doctor_detail.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @doctor_detail.last_name %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @doctor_detail.mobile %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @doctor_detail.country_id %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @doctor_detail.state_id %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @doctor_detail.city_id %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @doctor_detail.location_id %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @doctor_detail.gender %>
+</p>
+
+<p>
+  <b>Profile title:</b>
+  <%= @doctor_detail.profile_title %>
+</p>
+
+<p>
+  <b>Experience:</b>
+  <%= @doctor_detail.experience %>
+</p>
+
+<p>
+  <b>Speciality:</b>
+  <%= @doctor_detail.speciality %>
+</p>
+
+<p>
+  <b>Expertise:</b>
+  <%= @doctor_detail.expertise %>
+</p>
+
+<p>
+  <b>Specializations:</b>
+  <%= @doctor_detail.specializations %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @doctor_detail.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_detail_path(@doctor_detail) %> |
+<%= link_to 'Back', doctor_details_path %>

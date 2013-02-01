@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  day: MyString
+  morning_time: 2012-12-26 13:20:29
+  evening_time: 2012-12-26 13:20:29
+  others: 2012-12-26 13:20:29
+  clinic: 
+
+two:
+  day: MyString
+  morning_time: 2012-12-26 13:20:29
+  evening_time: 2012-12-26 13:20:29
+  others: 2012-12-26 13:20:29
+  clinic: 

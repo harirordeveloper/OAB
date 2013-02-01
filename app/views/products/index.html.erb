@@ -1,0 +1,35 @@
+<%= search_form_for @search, url: search_products_path, method: :post do |f| %>
+  <fieldset>
+  <%= f.condition_fields do |c| %>
+    <%= render "condition_fields", f: c %>
+  <% end %>
+  
+  <p><%= link_to_add_fields "Add Conditions", f, :condition %></p>
+ </fieldset>
+
+
+
+  <div class="field">
+    Sort:
+    <%= f.sort_fields do |s| %>
+      <%= s.sort_select %>
+    <% end %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+
+<table id="products">
+  <tr>
+    <th><%= sort_link @search, :name, "Product Name" %></th><td></td><td></td>
+   <td></td> <th><%= sort_link @search, :released_on, "Release Date" %></th><td></td><td></td>
+    <th><%= sort_link @search, :price, "Price" %></th>
+  </tr>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= link_to(product.name, product) %></td><td></td><td></td><td></td>
+    <td><%= product.release_date.strftime("%B %e, %Y") %></td><td></td><td></td><td></td>
+    <td><%= number_to_currency(product.price) %></td>
+  </tr>
+<% end %>
+</table>

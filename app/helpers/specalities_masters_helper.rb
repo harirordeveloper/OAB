@@ -1,0 +1,2 @@
+module SpecalitiesMastersHelper
+end

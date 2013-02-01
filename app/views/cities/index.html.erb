@@ -1,0 +1,6 @@
+<%= form_for @city do |f| %>
+<p>
+  <%= f.label :name, "Authors" %><br />
+  <%= f.text_field :name, "data-pre" => @city.locations.map(&:attributes).to_json %>
+</p>
+<% end %>

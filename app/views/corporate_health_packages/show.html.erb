@@ -1,0 +1,55 @@
+<p>
+  <b>Branch code:</b>
+  <%=h @corporate_health_package.branch_code %>
+</p>
+
+<p>
+  <b>Branch location:</b>
+  <%=h @corporate_health_package.branch_location %>
+</p>
+
+<p>
+  <b>Test group:</b>
+<% @test=TestGroup.find(@corporate_health_package.test_group_id) %>
+  <%=h @test.group_name %>
+  
+</p>
+
+<p>
+  <b>Test sub group:</b>
+   <% @test=TestSubGroup.find(@corporate_health_package.test_sub_group_id) %>
+  <%=h @test.sub_group_name %>
+
+</p>
+
+<p>
+  <b>Test name:</b>
+<% @test=TestMaster.find(@corporate_health_package.test_master_id) %>
+
+  <%=h @test.test_name %>
+</p>
+
+
+<p>
+  <b>Total package price:</b>
+  <%=h @corporate_health_package.total_package_price %>
+</p>
+
+<p>
+  <b>Discount:</b>
+  <%=h @corporate_health_package.discount %>
+</p>
+
+<p>
+  <b>Fixed price:</b>
+  <%=h @corporate_health_package.fixed_price %>
+</p>
+
+<p>
+  <b>Remarks:</b>
+  <%=h @corporate_health_package.remarks %>
+</p>
+
+
+<%= link_to 'Edit', edit_corporate_health_package_path(@corporate_health_package) %> |
+<%= link_to 'Back', corporate_health_packages_path %>

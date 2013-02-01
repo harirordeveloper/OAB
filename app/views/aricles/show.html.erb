@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @aricle.name %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @aricle.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_aricle_path(@aricle) %> |
+<%= link_to 'Back', aricles_path %>

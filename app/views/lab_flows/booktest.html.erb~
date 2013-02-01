@@ -1,0 +1,242 @@
+<script></script>
+<%= javascript_include_tag 'jquery' %>
+<%= javascript_include_tag 'jquery_ujs' %>
+<%= javascript_include_tag 'jquery-ui' %>
+
+
+   
+<style type="text/css">
+table.curvedEdges { border:1px solid grey;-webkit-border-radius:13px;-moz-border-radius:13px;-msborder-radius:13px;-o-border-radius:13px;border-radius:13px; }
+
+table.doctor tr td { border:0px solid grey;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:10px;margin-bottom:10px;margin-left:10px;margin-right:10px; }
+
+#table
+{
+border:8px solid #66b2ff;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;
+}
+table.doctordesc {-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:0px;margin-bottom:10px;margin-left:10px;margin-right:10px; }
+table.curvedEdges td, table.curvedEdges th {  dotted black;padding:5px; }
+
+
+#img2{width:130px;height:90px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:3px solid #BDBDBD;background-color:#E3A20B;}
+</style>
+
+ <script>
+    $(function() {
+        $( "#test" ).autocomplete({ minLength: 0 });
+        $( "#test" ).autocomplete({
+            source: $('#test').data('autocomplete-source'),
+               
+        });
+    });
+    </script>
+     <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
+
+<script name="text/javascript">
+var total=0;
+    function calls()
+       {
+         clinic = <%= @labid %>
+            
+         selectedtest =  $( "#test" ).val();
+     
+        //$( '#selected_test' ).append(selectedtest + '\n');
+       $('#test').val("")
+        
+
+        jQuery.ajax({
+                  url: '/lab_flows/branch',
+		     	type: "POST",
+                        data: { branch: selectedtest, clinic: clinic },
+                        beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                        success: function(result){
+                                 
+                                
+                                    $.each(result,function(key,val) {
+                                        
+                                           $('#selected_test').append( val.test_name +' - '+ val.fixed_price +'\n');
+         
+         //lines = value.split(/-/); 
+          total+=val.fixed_price;
+             $('#amount').val( total );
+                                                  });
+                                                               },  
+                                     error: function(){
+                                          alert('No Tests Found');
+                                          }
+               });
+	
+	
+    }
+      
+</script>
+<style type="text/css">
+.appointbutton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background-color:#79bbff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
+}.appointbutton:hover {
+	background-color:#378de5;
+}.appointbutton:active {
+	position:relative;
+	top:1px;
+}
+
+</style>
+
+<style>
+
+
+#tr
+{
+border:8px solid #66b2ff;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;
+}
+#table
+{
+border:8px solid #66b2ff;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;
+}
+#tableinner{margin-top:10px;margin-bottom:10px;margin-left:10px;margin-right:10px; }
+</style>
+
+
+
+
+<table>
+<tr style="height: 70px;">
+
+<td width="180px"><%= link_to "Back To Search Results Page", :controller => "locations",:action => "labsearch", :lab => $gclinic,:location => $glocation, :city_id => $gcity, :speciality_id => $gspeciality%></td>
+
+<td width="30px" valign="middle" style="text-align: center;"> Or</td>
+
+<td><%= link_to "Search Again", :controller => "home",:action => "index"%></td>
+</tr>
+</table>
+
+
+<%= form_for @book_lab_appointment do |f| %>
+<table id="table" width="65%">
+ <%= hidden_field_tag :lab, @labid %>
+
+<tr><td style="padding-left: 25px;padding-top: 12px;">
+<table>
+
+          <tr><td><h3 style="color: orange"> Lab Details</h3></td></tr>
+       <tr style="height: 60px;">
+            <td style="width: 250px;"><%= f.label :name,"Test Location" %></td>
+             
+            <td> <b><u><%= @appointment_lab.name %></u></b></br><%= @appointment_lab.address1 %> </td> 
+        </tr>
+        <tr>
+            <td><%= f.label :name,"Reason For Test" %></td>
+            <td><%= f.text_area :address,:size=>"23" %></td>
+        </tr>
+</table></td></tr>
+
+<tr><td style="padding-left: 25px;">
+<table>
+<tr>
+<td style="width: 250px;">Choose Test</br><%= text_field_tag :test,'', data: {autocomplete_source: TestMaster.order(:test_name).map(&:test_name)} %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= submit_tag ">>", :type => 'button', :onclick => 'calls()' %></td>
+
+<td><%= text_area_tag :total_tests,'',:id=>"selected_test",:rows=>10,:columns=>20,:style=>"
+    width: 201px; margin: 0px; 
+    height: 150px; " %></td>
+
+</tr>
+<tr>
+  <td>Total Charge</br><%= text_field_tag :amount,'',:value => 0.0 %></td>
+</tr>
+
+
+<tr>
+  
+</tr>
+<tr style="height: 50px;"><td>Select Test Date</td>
+
+<td><%= f.datepicker "aptdate",:dateFormat => "yy-mm-dd",:inline=>true %></td>
+</tr>
+</table></td></tr>
+
+
+<tr><td style="padding-top: 25px;padding-left: 25px;">
+<table>
+        <tr><td style="padding-bottom: 10px;"> <h3 style="color: orange" > Patient Details </h3></td></tr>
+          <tr style="height: 35px;">
+            <td style="width: 250px;"><%= f.label :name,"Patient Name" %></td>
+            <td><%= f.text_field :name,:style=>"width: 200px;"%></td>
+        </tr>
+	
+         <tr style="height: 35px;">
+            <td><%= f.label :gender,"Gender" %></td>
+            <td><%= f.select :gender, options_for_select(%w[Male Female]) %></td>
+        </tr>
+        <tr style="height: 35px;">
+            <td><%= f.label :age,"Age" %></td>
+            <td><%= f.number_field :age,:style=>"width: 200px;" %></td>
+        </tr>
+        <tr style="height: 35px;">
+            <td> <%= f.label :address,"Address" %></td>
+            <td><%= f.text_area :address,:style=>"width: 200px; height: 150px;" %></td>
+        </tr>
+        <tr style="height: 35px;">
+            <td><%= f.label :phonenum,"Phone Number"%></td>
+            <td><%= f.number_field :phonenum,:style=>"width: 200px;" %></td>
+        </tr>
+        <tr style="height: 35px;">
+            <td><%= f.label :email,"e-mail Address" %></td>
+            <td><%= f.text_field :email,:style=>"width: 200px;" %></td>
+        </tr>
+      <tr style="height: 35px;">
+          <td><%= f.label :phonenum,"Enter Security Code"%></td>
+          <td> <%= show_simple_captcha(:image_style =>'distorted_black',:distortion=>"high", :label => "( Type the code from image )") %></td>
+       </tr>
+ 
+</table></td></tr>
+
+<tr><td style="padding-left: 25px;">
+
+<table>
+      <tr> <td style="padding-left: 200px;padding-bottom: 14px;padding-top: 10px;">
+           <table ><tr>
+           <td align="center" style="padding-left: 30px;padding-top: 19px;">
+<%= f.submit 'Submit', :class =>'appointbutton'%>
+            </td></tr></table>
+            </td>
+        </tr>
+
+ <tr> <td ><p>* Do you want to pay online,please click on below button
+            </td>
+        </tr>
+
+
+<tr> <td style="padding-left: 200px;padding-bottom: 14px;padding-top: 10px;">
+           <table ><tr>
+           <td align="center" >
+<%= link_to image_tag("/assets/btn_Paybycreditcard.gif",:border=>"0") %>
+            </td></tr></table>
+            </td>
+        </tr>
+</table></td></tr>
+
+
+</table>
+
+<% end %>
+
+

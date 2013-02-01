@@ -1,0 +1,139 @@
+
+
+
+<script></script>
+                 
+<style type="text/css">
+
+table.curvedEdges { border:1px solid grey;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px; }
+
+table.doctor { border:0px solid grey;background:#E8EEDC;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:5px;margin-bottom:5px;margin-left:5px;margin-right:25px;}
+
+table.doctorinner { border-right-style:inset}
+
+
+table.doctordesc { border:0px solid grey;background:#E6E6E6;-webkit-border-radius:13px;-moz-border-radius:13px;-ms-border-radius:13px;-o-border-radius:13px;border-radius:13px;margin-top:0px;margin-bottom:10px;margin-left:10px;margin-right:10px; }
+table.curvedEdges td, table.curvedEdges th { border-bottom:1px dotted black;padding:5px; }
+#td{padding-right: 30px;}
+#img2{width:180px;height:150px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px;}
+.img{width:90px;height:90px;-webkit-border-radius: 25px;-moz-border-radius: 25px;border-radius: 25px;border:6px;}
+
+</style>
+
+<style>
+#img1{
+
+width:70px;
+height:70px;
+}
+
+</style>
+    
+
+
+<table>
+<tr>
+
+<td width="180px"><%= link_to "Back To Search Results Page", :controller => "locations",:action => "search", :lab => $glab,:location => $glocation, :city => $gcity, :speciality => $gspeciality%></td>
+
+<td width="30px" valign="middle" style="text-align: center;"> Or</td>
+
+<td><%= link_to "Search Again", :controller => "locations",:action => "search", :lab => $glab,:location => $glocation, :city => $gcity, :speciality => $gspeciality%></td>
+</tr>
+</table>
+
+                  
+         
+                   
+ <table width="100%">
+              <tr>
+                  <td><table width="30%">
+<% p = @lab_profile.lab.image %>
+<% if p.nil? %>
+<tr><td><%= image_tag("/assets/hospitaldefault.jpeg" ,:class=>"img2") %></td><td></td></tr>
+<% else %>
+                             <tr><td><img id="img2" src="<%= @lab_profile.lab.image %>"  alt="Logo" style="margin-left: 10px;"></td><td></td></tr>
+                       <% end %> </table>  </td>
+
+                       <td> <table width="30%">
+<tr><td > <b style="color: orange;" ><%= @lab.name %></b></td></tr> 
+<tr><td ><%= @lab.address1 %></td></tr> </table></td>
+<td><table>
+<div id="prfglmap">
+
+
+ <%= gmaps(:markers => { :data => @json } ) %>
+
+</div>
+
+
+
+</table></td>
+                </tr>
+
+</table>
+
+<% for doctor in @doctors %>
+
+<!--Profile main table Starts here -->
+<table class="doctor" width="100%" border="0" cellpadding="0" cellspacing="0">
+                        
+<tr>
+<td>
+<table width="30%" >
+<tr>
+<!--FIRST TD STARTING-->
+<td><% d = ConsultantMaster.find_by_doctor_id(doctor.doctor_id) %>
+                                             
+                              
+        <% if d %>
+              <img src="<%= d.image %>" class="img"></a>
+          <% else %>
+              <%= image_tag("/assets/defaultdoctor.jpg" ,:class=>"img") %>
+        <% end %>
+
+</td></tr><!--FIRST TD ENDED-->
+</table></td>
+
+
+<td>  <!--SECOND TD STARTING--> 
+  <table id="nestedtable1" class="doctorinner" width=120% >
+   <tr> <td> <b style="color: orange;" > <%= doctor.doctor_name %></b> </td> </tr>
+   <tr> <td>MBBS, MD, DNB </td> </tr>
+   <tr> <td> Delhi, India</td> </tr>
+   <tr> <td>  Consultation Fee : &nbsp <%= doctor.doctor_charge %></td> </tr>
+
+  </table>
+</td><!--Second  TD Ending-->
+
+<td >  <!--THIRD TD STARTING-->
+<table align="right" >
+<% if d %>
+<tr><td  height=40px valign="top" id="td"><%= link_to 'View Full Profile',:controller => "doctor_flows",:action => "profile", :doctor_id => d.id, :lab_id => @lab.id %></td></tr>
+<% else %>
+
+<tr><td  height=40px valign="top" id="td"><a href="#">View Full Profile<a></br></td></tr>
+<% end %>
+
+<% if d %></br>
+<tr><td  height=40px valign="top" id="td"><%= link_to 'Book Appointment',:controller => "doctor_flows",:action => "profile", :doctor_id => d.id, :lab_id => @lab.id %></td></tr>
+
+<% else %></br>
+
+<tr><td  height=40px valign="top" id="td"><a href="#">Book Appointment</a></br></td></tr>
+<% end %>
+
+</table>
+</td><!--THIRD TD Ending-->
+
+</tr> 
+                                           
+  
+</table><!--Profile main table ended here -->
+
+ <% end %>
+
+
+
+    </body>
+</html>

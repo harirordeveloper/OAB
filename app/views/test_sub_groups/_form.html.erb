@@ -1,0 +1,63 @@
+<h1></h1>
+<!--   BACK BUTTON TABLE STARTS HERE -->
+
+<table>
+
+ <tr><td width="950px"> </td><td><a href='<%= loginpage_url %>' target=_parent><%= image_tag("/assets/back.png",:border => 0)%></a></td></tr>
+
+</table>
+
+<!--   BACK BUTTON TABLE ENDS HERE -->
+<%= form_for @test_sub_group,:remote => true do |f| %>
+<table style="margin-left: 80px;margin-top: 19px;margin-bottom: 41px;">
+  <tr>
+    <td>
+    <div class="label-field">
+    <%= f.label :lab_masters_id %></div></td>
+    <td>
+     <div class="text-input-bg select">
+    <%= f.select :lab_masters_id,options_for_select(Lab.all.collect{|p| [p.name,p.id]}),{:style => 'width : 150px;'} %></div></td>
+    <td>
+    <div class="label-field">
+    <%= f.label :lab_masters_id, "Lab Id" %></div></td>
+    <td>
+    <div class="label-field input">
+    <%= f.text_field :lab_masters_id %></div></td>
+    
+   <td>
+    <div class="label-field">
+
+    <%= f.label :discontinued %></div></td>
+    <td>
+    <div class="label-field input">
+    <%= f.check_box :discontinued %></div></td></tr>
+  <tr>
+  <td>
+    <div class="label-field">
+
+    <%= f.label :test_groups_id,"Test Group" %></div></td>
+    <td>
+   <div class="text-input-bg select">
+    <%= f.select :test_groups_id,options_for_select(TestGroup.all.collect{|p| [p.group_name,p.id]}),{:style => 'width : 150px;'} %></div></td>
+ 
+  <td>
+    <div class="label-field">
+    <%= f.label :sub_group_id,"Sub Group Id" %></div></td>
+    <td>
+    <div class="label-field input">
+    <%= f.text_field :sub_group_id %></div></td>
+  
+<td>
+    <div class="label-field">
+    <%= f.label :sub_group_name,"Sub Group Name" %></div></td>
+    <td>
+    <div class="label-field input">
+    
+    <%= f.text_field :sub_group_name %></div></td>
+
+  </tr>
+  <div align="center">
+	 <table style="padding-left: 417px""><tr><td><%= f.submit 'Save',:class=>"button_css" %></td><td><%= f.submit 'Reset',:class=>"button_css",:type=>"reset" %></td><td class="td_button_css" align="center"><%= link_to 'Back', test_sub_groups_path,:class=>"link_background" %></td></tr></table>
+</div>
+</table>
+<% end %>
